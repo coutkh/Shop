@@ -16,7 +16,7 @@ public class PagePath {
     public static final String ADMIN_USERS = "/WEB-INF/pages/admin/users.jsp";
     public static final String ADMIN_DISCOUNTS = "/WEB-INF/pages/admin/discounts.jsp";
     public static final String ADD_NEW_PRODUCT = "/WEB-INF/pages/admin/addNewProduct.jsp";*/
-    public static final String MAIN = "/WEB-INF/pages/main.jsp";
+    public static final String MAIN = "/WEB-INF/jsp/main.jsp";
 
     public static final String ERROR404 = "/404.jsp";
 

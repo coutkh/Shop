@@ -1,27 +1,7 @@
 
 ]
 -src/main/java/com/cout/shop/HelloServlet.java,a\2\a2d66bd40ef75276ea0f01ede2de6967d083e785
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-l
-<src/main/java/com/cout/shop/controller/RequestParameter.java,2\c\2c514cf1a58197b5858df43590a54c594bcc9b28
-w
-Gsrc/main/java/com/cout/shop/controller/command/impl/UnknownCommand.java,3\a\3ad92ea56de4af2abc01fce5fd5f3c8412b07964
 k
 ;src/main/java/com/cout/shop/controller/command/Command.java,d\2\d21a47d0b9dd25c3c94b1ae069881ff0b0fa6616
-o
-?src/main/java/com/cout/shop/controller/command/CommandType.java,c\0\c05d94c03dd46415466502e124c60f6af460fc28
-s
-Csrc/main/java/com/cout/shop/controller/command/CommandProvider.java,4\9\49109c7523d07cb7c722f9ee049816f27f528ecf
-O
-src/main/webapp/WEB-INF/web.xml,2\e\2e22b6edd746fa3dc40ad7276c87c8d87d72a392
-I
-src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
-l
-<src/main/java/com/cout/shop/controller/SessionAttribute.java,4\6\46a051dd44ef16a01b6387f7eedf82843d05170d
-f
-6src/main/java/com/cout/shop/controller/Controller.java,a\8\a885449dc5f3df588a2a1c944315ad503c3d0362
 z
 Jsrc/main/java/com/cout/shop/controller/command/impl/ToMainPageCommand.java,c\9\c9641953fd7010eae9eb7c2dae53cd5bd32dfbe7
-d
-4src/main/java/com/cout/shop/controller/PagePath.java,b\7\b7e06e03e5661bc8e11c13792626c11c4e13df3e

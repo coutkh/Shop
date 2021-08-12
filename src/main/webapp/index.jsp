@@ -2,12 +2,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<jsp:forward page="/controller">
+    <jsp:param name="command" value="to_main"/>
+</jsp:forward>
 </body>
 </html>

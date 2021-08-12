@@ -14,7 +14,7 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>controller</servlet-name>
-        <url-pattern>/by.epam.shop.controller1.controller</url-pattern>
+        <url-pattern>/controller</url-pattern>
     </servlet-mapping>
 
     <!--<error-page>
