@@ -2,12 +2,13 @@ package com.cout.shop.controller.command;
 
 
 import com.cout.shop.controller.command.impl.ToMainPageCommand;
+import com.cout.shop.controller.command.impl.ToSignInCommand;
 
 public enum CommandType {
-    TO_MAIN                 {{ this.command = new ToMainPageCommand(); }};
-    /*CHANGE_LOCALE           {{ this.command = new ChangeLocaleCommand();}},
-    TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }},
-    TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
+    TO_MAIN                 {{ this.command = new ToMainPageCommand(); }},
+    //CHANGE_LOCALE           {{ this.command = new ChangeLocaleCommand();}},
+    TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }};
+    /*TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
     SIGN_IN                 {{ this.command = new SignInCommand(); }},
     SIGN_UP                 {{ this.command = new SignUpCommand(); }},
     SEARCH                  {{ this.command = new SearchCommand(); }},

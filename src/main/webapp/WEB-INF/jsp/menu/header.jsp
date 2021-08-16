@@ -33,8 +33,9 @@
             <ul class = "nav navbar-nav">
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.main"/></a></li>
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.products"/></a></li>
-                <li class="active"><a href="controller?command=to_main"><fmt:message key="header.sign_in"/></a></li>
+                <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="header.sign_in"/></a></li>
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.sign_up"/></a></li>
+                <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="header.admin"/></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">
@@ -42,25 +43,12 @@
                     <ul class="dropdown-menu">
                         <li><a href="#"><fmt:message key="header.language_en"/></a></li>
                         <li><a href="#"><fmt:message key="header.language_ru"/></a></li>
-                        <li><a href="#" class="language" rel="it-IT"><img src="assets/img/it_IT.png" alt="Italiano" /></a></li>
-                        <li><a href="#" class="language" rel="en-US"><img src="assets/img/en_US.png" alt="English" /></a></li>
+<%--                        <li><a href="#" class="language" rel="it-IT"><img src="assets/img/it_IT.png" alt="Italiano" /></a></li>--%>
+<%--                        <li><a href="#" class="language" rel="en-US"><img src="assets/img/en_US.png" alt="English" /></a></li>--%>
                     </ul>
                 </li>
             </ul>
-
-
-            <%--<form action="controller" method="post">
-                <div class="dropdown-menu" aria-labelledby="localeDropdown">
-                    <button class="dropdown-item" type="submit" name="newLocale" value="en_US">
-                        <fmt:message key="header.language_en"/></button>
-                    <button class="dropdown-item" type="submit" name="newLocale" value="ru_RU">
-                        <fmt:message key="header.language_ru"/></button>
-                    <input type="hidden" name="command" value="change_locale">
-                </div>
-            </form>--%>
-
         </div>
-
     </div>
 </nav>
 
@@ -72,19 +60,3 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
 </html>
-
-
-<%--<div class="btn-group">
-            <button class="btn btn-link dropdown-toggle" type="button" id="localeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class='bx bx-world'></i>
-            </button>
-            <form action="controller" method="post">
-                <div class="dropdown-menu" aria-labelledby="localeDropdown">
-                    <button class="dropdown-item" type="submit" name="newLocale" value="en_US">
-                        <fmt:message key="header.language_en"/></button>
-                    <button class="dropdown-item" type="submit" name="newLocale" value="ru_RU">
-                        <fmt:message key="header.language_ru"/></button>
-                    <input type="hidden" name="command" value="change_locale">
-                </div>
-            </form>
-        </div>--%>
