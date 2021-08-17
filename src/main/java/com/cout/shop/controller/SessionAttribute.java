@@ -4,6 +4,7 @@ package com.cout.shop.controller;
         public static final String MAIN_PAGE_PRODUCTS = "mainPageProducts";
 
         public static final String CURRENT_PAGE = "currentPage";
+        public static final String CURRENT_USER = "currentUser";
 
         public static final String ROLE = "role";
 
@@ -14,7 +15,6 @@ package com.cout.shop.controller;
 
         /*public static final String LAST_PAGE = "lastPage";
 
-        public static final String CURRENT_USER = "currentUser";
 
 
         public static final String CURRENT_CATALOG_PRODUCTS_PAGE = "currentProductsPage";

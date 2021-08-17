@@ -4,8 +4,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
+import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -43,6 +46,44 @@ public enum ConnectionPool {
     }
 
     public Connection getConnection() {
-        return null;
+        ProxyConnection connection = null;
+        try {
+            connection = freeConnections.take();
+            busyConnections.put(connection);
+        } catch (InterruptedException e) {
+            logger.warn("Thread was interrupted", e);
+        }
+        return connection;
+    }
+
+    public void releaseConnection(Connection connection) {
+        if (connection instanceof ProxyConnection) {
+            busyConnections.remove(connection);
+            freeConnections.offer((ProxyConnection) connection);
+        } else {
+            logger.error("Connection {} is not instance of ProxyConnection", connection);
+        }
+    }
+
+    public void destroyPool() {
+        for (int i = 0; i < POOL_SIZE; i++) {
+            try {
+                freeConnections.take().proxyClose();
+            } catch (InterruptedException | SQLException e) {
+                logger.warn("Connection is not deleted");
+            }
+        }
+        deregisterDriver();
+    }
+
+    // This manually deregisters all JDBC drivers
+    private void deregisterDriver() {
+        Collections.list(DriverManager.getDrivers()).forEach(driver -> {
+            try {
+                DriverManager.deregisterDriver(driver);
+            } catch (SQLException e) {
+                logger.error("Driver wasn't deregister");
+            }
+        });
     }
 }

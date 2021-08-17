@@ -4,10 +4,9 @@ public class PagePath {
     //public static final String HOME = "/index.jsp";
     public static final String MAIN = "/WEB-INF/jsp/main.jsp";
     public static final String SIGN_IN = "/WEB-INF/jsp/signIn.jsp";
-
-
-
     public static final String REDIRECT_SIGN_IN = "/shop_war_exploded/controller?command=to_sign_in";
+    public static final String TO_ADMIN_PAGE = "/shop_war_exploded/controller?command=adminPage";
+
 //    public static final String SIGN_UP = "/WEB-INF/pages/signUp.jsp";
 //    public static final String SEARCH_RESULT = "/WEB-INF/pages/searchResult.jsp";
 //    public static final String CATALOG = "/WEB-INF/pages/catalog.jsp";

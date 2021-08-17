@@ -16,7 +16,7 @@ public enum UserRole {
     }},
     ADMIN{{
         this.id = 3;
-        this.role = "user";
+        this.role = "admin";
     }};
 
     int id;

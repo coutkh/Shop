@@ -2,12 +2,12 @@ package com.cout.shop.model.dao.impl;
 
 import com.cout.shop.model.dao.UserDao;
 import com.cout.shop.model.entity.User;
+import com.cout.shop.model.entity.UserRole;
 import com.cout.shop.pool.ConnectionPool;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.List;
+import java.util.Locale;
 import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
@@ -31,9 +31,10 @@ public class UserDaoImpl implements UserDao {
             statement.executeUpdate();
             isSuccessful = true;
         } catch(SQLException e){
-            throw new DaoException("Error inserting user " + login, e);
+            //throw new DaoException("Error inserting user " + login, e);
+            e.printStackTrace();
         }
-        return isSuccessful;;
+        return isSuccessful;
     }
 
     @Override
@@ -43,7 +44,18 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public Optional<User> getByLogin(String login) {
-        return Optional.empty();
+        Optional<User> user = Optional.empty();
+        try (Connection connection = ConnectionPool.INSTANCE.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_USER.QUERY)){
+            statement.setString(1, login);
+            ResultSet rs = statement.executeQuery();
+            if(rs.next()){
+                user = Optional.of(getUserFromRS(rs));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return user;
     }
 
     @Override
@@ -54,5 +66,24 @@ public class UserDaoImpl implements UserDao {
     @Override
     public Optional<User> getById(int id) {
         return Optional.empty();
+    }
+
+    private User getUserFromRS(ResultSet rs) throws SQLException {
+        User user = new User();
+
+        int id = rs.getInt("id");
+        String login = rs.getString("login");
+        String email = rs.getString("email");
+        String password = rs.getString("password");
+        Timestamp createTime = rs.getTimestamp("create_time");
+        String role = rs.getString("login");
+
+        user.setId(id);
+        user.setLogin(login);
+        user.setEmail(email);
+        user.setPassword(password);
+        user.setCreateTime(createTime);
+        user.setRole(UserRole.valueOf(role.toUpperCase()));
+        return user;
     }
 }

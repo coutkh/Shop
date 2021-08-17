@@ -18,7 +18,7 @@
   <h1 class="h3 mb-3 font-weight-normal"><fmt:message key="header.sign_in"/></h1><br/><br/>
   <input type="text" name = "login" id="inputLogin" <%--class="form-control mb-2"--%> placeholder="<fmt:message key="signup.InputLogin"/>" required autofocus pattern="^(?=.*[A-Za-z0-9]$)[A-Za-z][\w.-]{0,19}$">
   <input type="password" name="password" id="inputPassword" <%--class="form-control mb-3"--%> placeholder="<fmt:message key="signup.InputPassword"/>" required pattern="^[\w]{3,12}$">
-  <c:if test="${errorMessageSignIn != null}">
+  <c:if test="${errorSignInMessageKey != null}">
     <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>
   </c:if>
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="sign_in">

@@ -1,15 +1,17 @@
 package com.cout.shop.controller.command;
 
 
-import com.cout.shop.controller.command.impl.ToMainPageCommand;
-import com.cout.shop.controller.command.impl.ToSignInCommand;
+import com.cout.shop.controller.command.impl.*;
 
 public enum CommandType {
     TO_MAIN                 {{ this.command = new ToMainPageCommand(); }},
     //CHANGE_LOCALE           {{ this.command = new ChangeLocaleCommand();}},
-    TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }};
-    /*TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
+    TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }},
     SIGN_IN                 {{ this.command = new SignInCommand(); }},
+    LOGOUT                  {{ this.command = new LogoutCommand(); }},
+    TO_ADMIN_PAGE           {{ this.command = new ToAdminPage(); }};
+    /*TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
+
     SIGN_UP                 {{ this.command = new SignUpCommand(); }},
     SEARCH                  {{ this.command = new SearchCommand(); }},
     DELETE_CART_ITEM        {{ this.command = new DeleteCartItemCommand(); }},
@@ -22,7 +24,7 @@ public enum CommandType {
     TO_PRODUCT              {{ this.command = new ToProductPageCommand(); }},
     COMMIT_REVIEW           {{ this.command = new CommitReviewCommand(); }},
     TO_PROFILE              {{ this.command = new ToProfileCommand(); }},
-    LOGOUT                  {{ this.command = new LogoutCommand(); }},
+
     TO_CHANGE_PASSWORD      {{ this.command = new ToChangePassword(); }},
     TO_ADMIN_USERS          {{ this.command = new ToAdminUsersCommand(); }},
     TO_ADMIN_ORDERS         {{ this.command = new ToAdminOrdersCommand(); }},

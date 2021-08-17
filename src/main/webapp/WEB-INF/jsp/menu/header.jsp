@@ -1,3 +1,4 @@
+<%--//<jsp:useBean id="currentUser" scope="request" type=""/>--%>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
@@ -7,7 +8,7 @@
 
 <!DOCTYPE html>
 
-<html leng = "en">
+<html leng="en">
 <head>
     <%--<meta charset="utf-8">
     &lt;%&ndash;<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />&ndash;%&gt;
@@ -35,9 +36,11 @@
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.products"/></a></li>
                 <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="header.sign_in"/></a></li>
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.sign_up"/></a></li>
-                <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="header.admin"/></a></li>
+                <li class="active"><a href="controller?command=to_admin_page"><fmt:message key="header.admin"/></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="controller?command=to_main">[ ${currentUser.getLogin()} ]</a><li/>
+                <li class="active"><a href="controller?command=logout"><fmt:message key="header.log_out"/></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.language"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
