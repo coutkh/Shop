@@ -32,12 +32,6 @@ public class SignInCommand implements Command {
             session.setAttribute(SessionAttribute.CURRENT_USER, user.get());
             session.setAttribute(SessionAttribute.ROLE, user.get().getRole().getRole());
 
-            /*String role1 = (String) session.getAttribute(SessionAttribute.ROLE);
-            System.out.println("3333"+role1);
-
-            String role2 = (String) session.getAttribute("role");
-            System.out.println("4444"+role2);
-*/
             page = PagePath.MAIN;
         } else {
             page = PagePath.SIGN_IN;

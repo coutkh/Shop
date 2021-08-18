@@ -5,7 +5,6 @@ import com.cout.shop.model.dao.impl.UserDaoImpl;
 import com.cout.shop.model.entity.User;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.validator.UserValidator;
-import com.cout.shop.util.PasswordEncryptor;
 
 import java.util.List;
 import java.util.Optional;
@@ -50,6 +49,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getAllUsers() {
-        return null;
+        List<User> userList = userDao.getAllUsers();
+        return userList;
     }
 }

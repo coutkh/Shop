@@ -29,7 +29,8 @@ public enum Access {
             TO_SIGN_IN,
             TO_MAIN,
             LOGOUT,
-            TO_ADMIN_PAGE
+            TO_ADMIN_PAGE,
+            TO_ADMIN_USERS
     ).map(CommandType::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

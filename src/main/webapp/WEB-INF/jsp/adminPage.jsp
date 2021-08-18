@@ -1,16 +1,26 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: cout
-  Date: 17.08.2021
-  Time: 15:50
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html" pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
+<fmt:setLocale value="${currentLocale}"/>
+<fmt:setBundle basename="l10n.text"/>
 <html>
 <head>
-    <title>Title</title>
+    <meta charset="utf-8">
+    <title>main</title>
 </head>
 <body>
-<h1>YAHOOO</h1>
+<jsp:include page="menu/header.jsp"/>
+<jsp:include page="menu/headerAdmin.jsp"/>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h1><%--<fmt:message key="main.greeting"/>--%>Реализация функционала в разработке</h1>
+        </div>
+        <div class="col-6">
+
+        </div>
+    </div>
+</div>
 </body>
 </html>

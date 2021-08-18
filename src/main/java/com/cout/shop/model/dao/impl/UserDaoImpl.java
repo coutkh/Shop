@@ -6,8 +6,8 @@ import com.cout.shop.model.entity.UserRole;
 import com.cout.shop.pool.ConnectionPool;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
@@ -38,8 +38,19 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public List<User> getAll() {
-        return null;
+    public List<User> getAllUsers() {
+        List<User> userList = new ArrayList<>();
+        try (Connection connection = ConnectionPool.INSTANCE.getConnection();
+        PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_ALL_USER.QUERY)){
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()){
+                User user = (getUserFromRS(rs));
+                userList.add(user);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return userList;
     }
 
     @Override

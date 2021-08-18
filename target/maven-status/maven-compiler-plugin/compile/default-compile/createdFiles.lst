@@ -8,7 +8,6 @@ com\cout\shop\model\exception\ServiceException.class
 com\cout\shop\controller\command\impl\ToSignInCommand.class
 com\cout\shop\model\entity\UserRole$2.class
 com\cout\shop\controller\filters\AccessFilter.class
-com\cout\shop\controller\command\impl\ToAdminPage.class
 com\cout\shop\model\dao\impl\UserDaoImpl.class
 com\cout\shop\controller\command\CommandType$4.class
 com\cout\shop\controller\command\impl\UnknownCommand.class
@@ -22,16 +21,19 @@ com\cout\shop\controller\command\impl\LogoutCommand.class
 com\cout\shop\model\validator\UserValidator.class
 com\cout\shop\controller\command\CommandProvider.class
 com\cout\shop\controller\filters\Access.class
+com\cout\shop\controller\command\impl\ToAdminPageCommand.class
 com\cout\shop\model\entity\UserRole.class
 com\cout\shop\controller\RequestParameter.class
 com\cout\shop\controller\command\CommandType$5.class
 com\cout\shop\pool\ProxyConnection.class
 com\cout\shop\pool\ConnectionPool.class
 com\cout\shop\util\PasswordEncryptor.class
+com\cout\shop\controller\command\impl\ToAdminUsersCommand.class
 com\cout\shop\controller\Controller.class
 com\cout\shop\controller\command\CommandType$3.class
 com\cout\shop\controller\PagePath.class
 com\cout\shop\model\entity\UserRole$3.class
+com\cout\shop\controller\command\CommandType$6.class
 com\cout\shop\model\entity\User.class
 com\cout\shop\controller\RequestAttribute.class
 com\cout\shop\model\dao\impl\SQLQuery.class

@@ -9,7 +9,8 @@ public enum CommandType {
     TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }},
     SIGN_IN                 {{ this.command = new SignInCommand(); }},
     LOGOUT                  {{ this.command = new LogoutCommand(); }},
-    TO_ADMIN_PAGE           {{ this.command = new ToAdminPage(); }};
+    TO_ADMIN_PAGE           {{ this.command = new ToAdminPageCommand(); }},
+    TO_ADMIN_USERS          {{ this.command = new ToAdminUsersCommand(); }};
     /*TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
 
     SIGN_UP                 {{ this.command = new SignUpCommand(); }},
@@ -26,7 +27,7 @@ public enum CommandType {
     TO_PROFILE              {{ this.command = new ToProfileCommand(); }},
 
     TO_CHANGE_PASSWORD      {{ this.command = new ToChangePassword(); }},
-    TO_ADMIN_USERS          {{ this.command = new ToAdminUsersCommand(); }},
+
     TO_ADMIN_ORDERS         {{ this.command = new ToAdminOrdersCommand(); }},
     TO_ADMIN_PRODUCTS       {{ this.command = new ToAdminProductsCommand(); }},
     TO_ADMIN_DISCOUNTS      {{ this.command = new ToAdminDiscountsCommand(); }};*/

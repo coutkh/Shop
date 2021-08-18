@@ -9,8 +9,9 @@ package com.cout.shop.controller;
         public static final String ROLE = "role";
 
         public static final String LOCALE = "currentLocale";
-
+        public static final String USER_LIST = "userList";
         public static final String CATEGORY_LIST = "categoryList";
+
 
 
         /*public static final String LAST_PAGE = "lastPage";
