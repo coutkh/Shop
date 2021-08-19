@@ -5,6 +5,7 @@ import com.cout.shop.model.entity.User;
 import com.cout.shop.model.entity.UserRole;
 import com.cout.shop.pool.ConnectionPool;
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,7 +55,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> getByLogin(String login) {
+    public Optional<User> getUserByLogin(String login) {
         Optional<User> user = Optional.empty();
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_USER.QUERY)){
@@ -67,6 +68,28 @@ public class UserDaoImpl implements UserDao {
             throwables.printStackTrace();
         }
         return user;
+    }
+
+    @Override
+    public void deleteUserByLogin(Optional<User> user) {
+        try (Connection connection = ConnectionPool.INSTANCE.getConnection();
+             PreparedStatement statement = connection.prepareStatement(SQLQuery.DELETE_USER.QUERY)){
+            System.out.println("111" + user);
+            if(user.isPresent()) {
+                statement.setInt(1, user.get().getId());
+
+                statement.setString(2, user.get().getLogin());
+                statement.setString(3, user.get().getPassword());
+                statement.executeUpdate();
+                ResultSet rs = statement.getGeneratedKeys();
+            }else {
+                System.out.println("We have a problem");
+            }
+
+
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     @Override

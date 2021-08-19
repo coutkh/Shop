@@ -7,11 +7,21 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>main</title>
+    <title>ADMIN</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
 </head>
 <body>
 <jsp:include page="menu/header.jsp"/>
 <jsp:include page="menu/headerAdmin.jsp"/>
+<br/>
+<button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="to_add_user_page">
+    <fmt:message key="usersTable.insertUser"/>
+</button>
 <div class="container">
     <table class="table table-condensed table-hover ">
         <thead>
@@ -23,20 +33,63 @@
                 <th><fmt:message key="usersTable.role"/></th>
             </tr>
         </thead>
-        <tbody>
 
+        <tbody>
 
         <c:forEach items="${userList}" var="userList" varStatus="loop">
             <tr>
-                <td><c:out value="${userList.getLogin()}"/> </td>
+                <td><c:out value="${userList.getLogin()}"/></td>
                 <td><c:out value="${userList.getEmail()}"/> </td>
                 <td><c:out value="${userList.getPassword()}"/> </td>
                 <td><c:out value="${userList.getCreateTime()}"/> </td>
                 <td><c:out value="${userList.getRole().getRole()}"/> </td>
-                <button>Button</button>
-            </tr>
+<%--                <td>--%>
+<%--                    <form action="controller" method="post">--%>
+<%--                        <input type="hidden" name="login"/>--%>
+<%--                        <input type="button" name="bt" value="gi" onclick = "${userList.getLogin()}"/>--%>
+<%--                    </form>--%>
+<%--                </td>--%>
+                <td>
+                    <form action="controller" method="post">
+                        <input type="hidden" name="login" value="${userList.getLogin()}">
+                        <button class="btn btn-default" type="submit" name="command" value="delete_user">
+                            <fmt:message key="usersTable.delete"/>
+                        </button>
+                    </form>
+                </td>
 
+<%--                <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="sign_in">--%>
+<%--                    <fmt:message key="header.sign_in"/>--%>
+<%--                </button>--%>
+
+
+
+
+<%--                <td>--%>
+<%--                    <form action="controller" method="post">--%>
+<%--                        <button class="btn btn-default" type="submit" name="login" value="${userList.getLogin()}">--%>
+<%--                            <a href="controller?command=delete_user" ><fmt:message key="usersTable.delete"/></a>--%>
+<%--                        </button>--%>
+<%--;                        <input type="text" name="login" value="${userList.getLogin()}">--%>
+<%--                        <button class="btn btn-default" type="submit" name="login" value="${userList.getLogin()}">--%>
+<%--                            <a href="controller?command=to_main" ><fmt:message key="usersTable.edit"/></a>--%>
+<%--                        </button>--%>
+<%--                        <input type="text" name="login" value="${userList.getLogin()}">--%>
+<%--                    </form>--%>
+<%--                </td>--%>
+
+            </tr>
         </c:forEach>
+
+        <%--<c:forEach items="${userList}" var="userList" varStatus="loop">
+                    <tr>
+                        <td><c:out value="${userList.getLogin()}"/> </td>
+                        <td><c:out value="${userList.getEmail()}"/> </td>
+                        <td><c:out value="${userList.getPassword()}"/> </td>
+                        <td><c:out value="${userList.getCreateTime()}"/> </td>
+                        <td><c:out value="${userList.getRole().getRole()}"/> </td>
+                    </tr>
+        </c:forEach>--%>
 
 
         </tbody>

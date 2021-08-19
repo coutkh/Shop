@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService {
         Optional<User> user = Optional.empty();
         try {
             if (UserValidator.isLoginCorrect(login) && UserValidator.isPasswordCorrect(password)) {
-                Optional<User> optionalUser = userDao.getByLogin(login);
+                Optional<User> optionalUser = userDao.getUserByLogin(login);
                 if(optionalUser.isPresent()){
                     String correctPassword = optionalUser.get().getPassword();
                     //Optional<String> passwordEncr = PasswordEncryptor.encryptPassword(password);

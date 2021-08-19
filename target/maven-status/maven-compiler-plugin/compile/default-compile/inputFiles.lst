@@ -8,6 +8,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\filters\AccessFilter.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\SessionAttribute.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToMainPageCommand.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToAddUserPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\RequestParameter.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandProvider.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\pool\ConnectionPool.java
@@ -29,3 +30,4 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\Controller.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\util\PasswordEncryptor.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\validator\UserValidator.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\DeleteUserCommand.java

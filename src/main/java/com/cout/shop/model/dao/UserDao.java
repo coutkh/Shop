@@ -8,7 +8,9 @@ import java.util.Optional;
 public interface UserDao {
     boolean add(int role_id, String email , String login, String password);
     List<User> getAllUsers();
-    Optional<User> getByLogin(String login);
+    Optional<User> getUserByLogin(String login);
+    void deleteUserByLogin(Optional<User> user);
+
     Optional<User> getByEmail(String login);
     Optional<User> getById(int id);
 }
