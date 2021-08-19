@@ -21,6 +21,7 @@ com\cout\shop\util\PasswordEncryptor.class
 com\cout\shop\controller\command\impl\ToAdminUsersCommand.class
 com\cout\shop\controller\PagePath.class
 com\cout\shop\controller\command\impl\DeleteUserCommand.class
+com\cout\shop\controller\command\impl\AddUserCommand.class
 com\cout\shop\model\entity\User.class
 com\cout\shop\model\service\UserService.class
 com\cout\shop\model\dao\UserDao.class
@@ -36,6 +37,7 @@ com\cout\shop\controller\filters\Access.class
 com\cout\shop\controller\RequestParameter.class
 com\cout\shop\pool\ProxyConnection.class
 com\cout\shop\pool\ConnectionPool.class
+com\cout\shop\controller\command\CommandType$9.class
 com\cout\shop\controller\Controller.class
 com\cout\shop\controller\command\CommandType$3.class
 com\cout\shop\model\entity\UserRole$3.class

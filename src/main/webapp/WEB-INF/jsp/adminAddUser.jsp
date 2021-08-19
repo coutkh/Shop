@@ -18,20 +18,21 @@
 <body>
 <jsp:include page="menu/header.jsp"/>
 <jsp:include page="menu/headerAdmin.jsp"/>
-<br/>
+<br/><br/><br/>
 <form action="controller" method="post">
-    <h1 class="h3 mb-3 font-weight-normal"><fmt:message key="header.sign_in"/></h1><br/><br/>
+
     <input type="text" name = "login" id="inputLogin" placeholder="<fmt:message key="signup.InputLogin"/>" required autofocus pattern="^(?=.*[A-Za-z0-9]$)[A-Za-z][\w.-]{0,19}$">
     <input type="email" name="email" id="inputEmail" placeholder="<fmt:message key="signup.InputEmail"/>" required autofocus pattern="^[\w\.]{3,13}@\w{3,10}\.\w{2,5}$">
     <input type="password" name="password" id="inputPassword" placeholder="<fmt:message key="signup.InputPassword"/>" required pattern="^[\w]{3,12}$">
+    <input type="text" name="role" id="inputRole" placeholder="<fmt:message key="signup.InputRole"/>" required pattern="^[\w]{3,12}$">
 
+
+    <button class="btn btn-md btn-primary <%--btn-block--%>" type="submit" name="command" value="add_user">
+        <fmt:message key="adminAddUser.add"/>
+    </button>
     <c:if test="${errorSignInMessageKey != null}">
         <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>
     </c:if>
-    <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="sign_in">
-        <fmt:message key="header.sign_in"/>
-    </button>
-
 </form>
 </body>
 </html>

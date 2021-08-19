@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserService {
-    boolean createUser(String login, String password, String email);
+    boolean createUser(String login, String password, String email, String role);
     Optional<User> authorizeUser(String login, String password);
     List<User> getAllUsers();
 }

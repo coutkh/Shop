@@ -18,16 +18,22 @@ public class UserDaoImpl implements UserDao {
     public static UserDaoImpl getInstance(){ return instance; }
 
     @Override
-    public boolean add(int role_id, String login, String email, String password) {
-
+    public boolean add(String login, String email, String password, String role) {
+        int roleId;
         boolean isSuccessful = false;
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement statement = connection.prepareStatement(SQLQuery.INSERT_USER.QUERY);)
         {
-            statement.setInt(1, role_id);
+
+            statement.setString(1, login);
             statement.setString(2, email);
-            statement.setString(3, login);
-            statement.setString(4, password);
+            statement.setString(3, password);
+            if("admin".equals(role)){
+                roleId=3;
+            }else {
+                roleId=2;
+            }
+            statement.setInt(4, roleId);
 
             statement.executeUpdate();
             isSuccessful = true;
@@ -81,7 +87,7 @@ public class UserDaoImpl implements UserDao {
                 statement.setString(2, user.get().getLogin());
                 statement.setString(3, user.get().getPassword());
                 statement.executeUpdate();
-                ResultSet rs = statement.getGeneratedKeys();
+                //ResultSet rs = statement.getGeneratedKeys();
             }else {
                 System.out.println("We have a problem");
             }
@@ -110,7 +116,13 @@ public class UserDaoImpl implements UserDao {
         String email = rs.getString("email");
         String password = rs.getString("password");
         Timestamp createTime = rs.getTimestamp("create_time");
-        String role = rs.getString("login");
+        int roleId = rs.getInt("role_id");
+        String role;
+        if(2 == roleId){
+            role = "user";
+        }else {
+            role = "admin";
+        }
 
         user.setId(id);
         user.setLogin(login);

@@ -19,9 +19,11 @@
 <jsp:include page="menu/header.jsp"/>
 <jsp:include page="menu/headerAdmin.jsp"/>
 <br/>
-<button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="to_add_user_page">
-    <fmt:message key="usersTable.insertUser"/>
-</button>
+<form action="controller" method="post">
+    <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="to_add_user_page">
+        <fmt:message key="usersTable.insertUser"/>
+    </button>
+</form>
 <div class="container">
     <table class="table table-condensed table-hover ">
         <thead>
@@ -43,41 +45,17 @@
                 <td><c:out value="${userList.getPassword()}"/> </td>
                 <td><c:out value="${userList.getCreateTime()}"/> </td>
                 <td><c:out value="${userList.getRole().getRole()}"/> </td>
-<%--                <td>--%>
-<%--                    <form action="controller" method="post">--%>
-<%--                        <input type="hidden" name="login"/>--%>
-<%--                        <input type="button" name="bt" value="gi" onclick = "${userList.getLogin()}"/>--%>
-<%--                    </form>--%>
-<%--                </td>--%>
                 <td>
                     <form action="controller" method="post">
                         <input type="hidden" name="login" value="${userList.getLogin()}">
                         <button class="btn btn-default" type="submit" name="command" value="delete_user">
                             <fmt:message key="usersTable.delete"/>
                         </button>
+                        <button class="btn btn-default" type="submit" name="command" value="to_edit_user_page">
+                            <fmt:message key="usersTable.edit"/>
+                        </button>
                     </form>
                 </td>
-
-<%--                <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="sign_in">--%>
-<%--                    <fmt:message key="header.sign_in"/>--%>
-<%--                </button>--%>
-
-
-
-
-<%--                <td>--%>
-<%--                    <form action="controller" method="post">--%>
-<%--                        <button class="btn btn-default" type="submit" name="login" value="${userList.getLogin()}">--%>
-<%--                            <a href="controller?command=delete_user" ><fmt:message key="usersTable.delete"/></a>--%>
-<%--                        </button>--%>
-<%--;                        <input type="text" name="login" value="${userList.getLogin()}">--%>
-<%--                        <button class="btn btn-default" type="submit" name="login" value="${userList.getLogin()}">--%>
-<%--                            <a href="controller?command=to_main" ><fmt:message key="usersTable.edit"/></a>--%>
-<%--                        </button>--%>
-<%--                        <input type="text" name="login" value="${userList.getLogin()}">--%>
-<%--                    </form>--%>
-<%--                </td>--%>
-
             </tr>
         </c:forEach>
 

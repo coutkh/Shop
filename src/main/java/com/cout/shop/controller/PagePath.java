@@ -8,6 +8,7 @@ public class PagePath {
 
     public static final String ADMIN_PAGE = "/WEB-INF/jsp/adminPage.jsp";
     public static final String ADMIN_USERS = "/WEB-INF/jsp/adminUsers.jsp";
+    public static final String REDIRECT_ADMIN_USERS = "/shop_war_exploded/controller?command=to_admin_users";
     public static final String TO_ADD_USER_PAGE = "/WEB-INF/jsp/adminAddUser.jsp";
 
 //    public static final String SIGN_UP = "/WEB-INF/pages/signUp.jsp";
