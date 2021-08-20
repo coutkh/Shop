@@ -9,6 +9,7 @@ com\cout\shop\model\dao\impl\UserDaoImpl.class
 com\cout\shop\controller\command\CommandType$4.class
 com\cout\shop\controller\command\impl\ToAddUserPageCommand.class
 com\cout\shop\model\service\impl\UserServiceImpl.class
+com\cout\shop\model\dao\DaoException.class
 com\cout\shop\controller\command\CommandType.class
 com\cout\shop\controller\command\impl\SignInCommand.class
 com\cout\shop\pool\DatabaseConfig.class
@@ -19,12 +20,15 @@ com\cout\shop\controller\command\CommandType$7.class
 com\cout\shop\controller\command\CommandType$5.class
 com\cout\shop\util\PasswordEncryptor.class
 com\cout\shop\controller\command\impl\ToAdminUsersCommand.class
+com\cout\shop\controller\command\impl\EditUserCommand.class
 com\cout\shop\controller\PagePath.class
 com\cout\shop\controller\command\impl\DeleteUserCommand.class
 com\cout\shop\controller\command\impl\AddUserCommand.class
 com\cout\shop\model\entity\User.class
 com\cout\shop\model\service\UserService.class
 com\cout\shop\model\dao\UserDao.class
+com\cout\shop\controller\command\impl\ToEditUserPage.class
+com\cout\shop\controller\command\CommandType$10.class
 com\cout\shop\controller\command\impl\ToMainPageCommand.class
 com\cout\shop\controller\SessionAttribute.class
 com\cout\shop\controller\command\impl\ToSignInCommand.class
@@ -41,6 +45,7 @@ com\cout\shop\controller\command\CommandType$9.class
 com\cout\shop\controller\Controller.class
 com\cout\shop\controller\command\CommandType$3.class
 com\cout\shop\model\entity\UserRole$3.class
+com\cout\shop\controller\command\CommandType$11.class
 com\cout\shop\controller\command\CommandType$6.class
 com\cout\shop\controller\RequestAttribute.class
 com\cout\shop\model\dao\impl\SQLQuery.class

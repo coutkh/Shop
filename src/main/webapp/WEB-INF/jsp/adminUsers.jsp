@@ -48,6 +48,9 @@
                 <td>
                     <form action="controller" method="post">
                         <input type="hidden" name="login" value="${userList.getLogin()}">
+                        <input type="hidden" name="email" value="${userList.getEmail()}">
+                        <input type="hidden" name="password" value="${userList.getPassword()}">
+                        <input type="hidden" name="role" value="${userList.getRole().getRole()}">
                         <button class="btn btn-default" type="submit" name="command" value="delete_user">
                             <fmt:message key="usersTable.delete"/>
                         </button>

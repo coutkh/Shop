@@ -6,11 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 public interface UserDao {
-    boolean add( String email , String login, String password, String role);
+    boolean add( String email , String login, String password, String role) throws DaoException;
     List<User> getAllUsers();
-    Optional<User> getUserByLogin(String login);
-    void deleteUserByLogin(Optional<User> user);
-
-    Optional<User> getByEmail(String login);
-    Optional<User> getById(int id);
+    Optional<User> getUserByLogin(String login) throws DaoException;
+    void deleteUserByLogin(Optional<User> user) throws DaoException;
+    void updateUser(Optional<User> user) throws DaoException;
 }

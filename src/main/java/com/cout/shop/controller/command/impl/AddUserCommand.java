@@ -27,9 +27,10 @@ public class AddUserCommand implements Command {
         try {
             boolean isUserCreated = userService.createUser(login, password, email, role);
             if (isUserCreated) {
-                page = PagePath.REDIRECT_ADMIN_USERS;
+               page = PagePath.REDIRECT_ADMIN_USERS;
             } else {
                 page = PagePath.TO_ADD_USER_PAGE;
+
                 //request.setAttribute(RequestAttribute.SIGN_UP_ERROR, "signup.incorrectSignup");
             }
         } catch (Exception e) {

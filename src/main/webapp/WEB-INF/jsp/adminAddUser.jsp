@@ -30,6 +30,9 @@
     <button class="btn btn-md btn-primary <%--btn-block--%>" type="submit" name="command" value="add_user">
         <fmt:message key="adminAddUser.add"/>
     </button>
+    <button class="btn btn-md btn-danger <%--btn-block--%>" type="submit" name="command" value="to_admin_users">
+        <fmt:message key="adminEditUser.cancel"/>
+    </button>
     <c:if test="${errorSignInMessageKey != null}">
         <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>
     </c:if>

@@ -13,7 +13,9 @@ public enum CommandType {
     TO_ADMIN_USERS          {{ this.command = new ToAdminUsersCommand(); }},
     DELETE_USER             {{ this.command = new DeleteUserCommand();}},
     TO_ADD_USER_PAGE        {{ this.command = new ToAddUserPageCommand();}},
-    ADD_USER                {{ this.command = new AddUserCommand();}};
+    ADD_USER                {{ this.command = new AddUserCommand();}},
+    TO_EDIT_USER_PAGE       {{ this.command = new ToEditUserPage();}},
+    EDIT_USER               {{ this.command = new EditUserCommand();}};
     /*TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
 
     SIGN_UP                 {{ this.command = new SignUpCommand(); }},
