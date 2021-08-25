@@ -19,7 +19,7 @@ public class ToAdminPageCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
 
-        HttpSession session = request.getSession();
+        /*HttpSession session = request.getSession();
         String page;
 
         String role = (String) session.getAttribute(SessionAttribute.ROLE);
@@ -30,6 +30,7 @@ public class ToAdminPageCommand implements Command {
             page = PagePath.SIGN_IN;
             request.setAttribute(RequestAttribute.SIGN_IN_ERROR, "signup.incorrectSignin");
         }
-        return page;
+        return page;*/
+        return PagePath.ADMIN_PAGE;
     }
 }

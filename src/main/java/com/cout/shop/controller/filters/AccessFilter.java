@@ -14,15 +14,21 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.util.Locale;
 import java.util.Set;
 
 public class AccessFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        Filter.super.init(filterConfig);
+        System.out.println("Go init");
+    }
+
     private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
             throws IOException, ServletException {
+        System.out.println("Go doFilter");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
@@ -52,11 +58,11 @@ public class AccessFilter implements Filter {
         };*/
 
         Set<Command> commands = null;
-        if("GUEST".equals(userRole.getRole())){
+        if("guest".equals(userRole.getRole())){
             commands = Access.GUEST.getCommands();
-        }else if ("USER".equals(userRole.getRole())) {
+        }else if ("user".equals(userRole.getRole())) {
             commands = Access.USER.getCommands();
-        }else if ("ADMIN".equals(userRole.getRole())) {
+        }else if ("admin".equals(userRole.getRole())) {
             commands = Access.ADMIN.getCommands();
         }
 
