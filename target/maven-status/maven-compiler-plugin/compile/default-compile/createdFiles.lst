@@ -1,4 +1,5 @@
 com\cout\shop\HelloServlet.class
+com\cout\shop\controller\command\CommandType$15.class
 com\cout\shop\controller\command\CommandType$1.class
 com\cout\shop\controller\command\Command.class
 com\cout\shop\model\exception\ServiceException.class
@@ -13,15 +14,20 @@ com\cout\shop\model\dao\DaoException.class
 com\cout\shop\controller\command\CommandType.class
 com\cout\shop\controller\command\impl\SignInCommand.class
 com\cout\shop\pool\DatabaseConfig.class
+com\cout\shop\controller\command\CommandType$12.class
 com\cout\shop\controller\command\impl\LogoutCommand.class
 com\cout\shop\controller\command\impl\ToAdminPageCommand.class
 com\cout\shop\model\entity\UserRole.class
 com\cout\shop\controller\command\CommandType$7.class
 com\cout\shop\controller\command\CommandType$5.class
+com\cout\shop\controller\command\impl\AddAndLoginUserCommand.class
 com\cout\shop\util\PasswordEncryptor.class
+com\cout\shop\controller\command\CommandType$13.class
 com\cout\shop\controller\command\impl\ToAdminUsersCommand.class
 com\cout\shop\controller\command\impl\EditUserCommand.class
+com\cout\shop\controller\command\impl\SignUpCommand.class
 com\cout\shop\controller\PagePath.class
+com\cout\shop\controller\command\impl\ChangeLocaleCommand.class
 com\cout\shop\controller\command\impl\DeleteUserCommand.class
 com\cout\shop\controller\command\impl\AddUserCommand.class
 com\cout\shop\model\entity\User.class
@@ -40,6 +46,7 @@ com\cout\shop\controller\command\CommandProvider.class
 com\cout\shop\controller\filters\Access.class
 com\cout\shop\controller\RequestParameter.class
 com\cout\shop\pool\ProxyConnection.class
+com\cout\shop\controller\command\CommandType$14.class
 com\cout\shop\pool\ConnectionPool.class
 com\cout\shop\controller\command\CommandType$9.class
 com\cout\shop\controller\Controller.class
@@ -47,5 +54,6 @@ com\cout\shop\controller\command\CommandType$3.class
 com\cout\shop\model\entity\UserRole$3.class
 com\cout\shop\controller\command\CommandType$11.class
 com\cout\shop\controller\command\CommandType$6.class
+com\cout\shop\controller\command\impl\ToSignUpCommand.class
 com\cout\shop\controller\RequestAttribute.class
 com\cout\shop\model\dao\impl\SQLQuery.class

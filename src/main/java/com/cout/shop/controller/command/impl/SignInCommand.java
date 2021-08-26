@@ -28,13 +28,11 @@ public class SignInCommand implements Command {
 
         Optional<User> user = userService.authorizeUser(login, password);
         if (user.isPresent()) {
-
             session.setAttribute(SessionAttribute.CURRENT_USER, user.get());
             session.setAttribute(SessionAttribute.ROLE, user.get().getRole().getRole());
-
-            page = PagePath.MAIN;
+            page = PagePath.MAIN_PAGE;
         } else {
-            page = PagePath.SIGN_IN;
+            page = PagePath.SIGN_IN_PAGE;
             request.setAttribute(RequestAttribute.SIGN_IN_ERROR, "signup.incorrectSignin");
         }
         return page;

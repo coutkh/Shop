@@ -1,7 +1,6 @@
 package com.cout.shop.controller.command.impl;
 
 import com.cout.shop.controller.PagePath;
-import com.cout.shop.controller.RequestAttribute;
 import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
@@ -27,7 +26,7 @@ public class AddUserCommand implements Command {
         try {
             boolean isUserCreated = userService.createUser(login, password, email, role);
             if (isUserCreated) {
-               page = PagePath.REDIRECT_ADMIN_USERS;
+               page = PagePath.REDIRECT_ADMIN_USERS_PAGE;
             } else {
                 page = PagePath.TO_ADD_USER_PAGE;
 

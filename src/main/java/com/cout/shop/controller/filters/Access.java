@@ -12,22 +12,31 @@ import static com.cout.shop.controller.command.CommandType.*;
 
 public enum Access {
     GUEST(Stream.of(
+            TO_MAIN,
+            CHANGE_LOCALE,
             SIGN_IN,
             TO_SIGN_IN,
-            TO_MAIN
+            SIGN_UP,
+            TO_SIGN_UP,
+            ADD_AND_LOGIN_USER
     ).map(CommandType::getCommand).collect(Collectors.toSet())),
 
     USER(Stream.of(
+            TO_MAIN,
+            CHANGE_LOCALE,
             SIGN_IN,
             TO_SIGN_IN,
-            TO_MAIN,
-            LOGOUT
+            LOGOUT,
+            SIGN_UP,
+            TO_SIGN_UP,
+            ADD_AND_LOGIN_USER
     ).map(CommandType::getCommand).collect(Collectors.toSet())),
 
     ADMIN(Stream.of(
+            TO_MAIN,
+            CHANGE_LOCALE,
             SIGN_IN,
             TO_SIGN_IN,
-            TO_MAIN,
             LOGOUT,
             TO_ADMIN_PAGE,
             TO_ADMIN_USERS,

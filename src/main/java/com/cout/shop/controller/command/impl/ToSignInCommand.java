@@ -8,6 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 public class ToSignInCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
-        return PagePath.SIGN_IN;
+        return PagePath.SIGN_IN_PAGE;
     }
 }

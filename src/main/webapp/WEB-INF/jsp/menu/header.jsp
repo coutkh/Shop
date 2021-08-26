@@ -35,7 +35,7 @@
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.main"/></a></li>
                 <li class="active"><a href="controller?command=to_main"><fmt:message key="header.products"/></a></li>
                 <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="header.sign_in"/></a></li>
-                <li class="active"><a href="controller?command=to_main"><fmt:message key="header.sign_up"/></a></li>
+                <li class="active"><a href="controller?command=to_sign_up"><fmt:message key="header.sign_up"/></a></li>
                 <li class="active"><a href="controller?command=to_admin_page"><fmt:message key="header.admin"/></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -44,8 +44,19 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.language"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><fmt:message key="header.language_en"/></a></li>
-                        <li><a href="#"><fmt:message key="header.language_ru"/></a></li>
+                        <li><a href="controller?command=change_locale" type="submit"><fmt:message key="header.language_en"/>
+                            <input type="hidden" name="newLocale" value="en_US">
+                            </a></li>
+                        <li><a href="controller?command=change_locale" type="submit"><fmt:message key="header.language_ru"/></a></li>
+                    <div class="btn-group-vertical" role="group" aria-label="Button group with nested dropdown">
+                        <button class="dropdown-item" type="submit" name="newLocale" value="en_US">
+                            <fmt:message key="header.language_en"/></button>
+                        <br/>
+                        <button class="dropdown-item" type="submit" name="newLocale" value="ru_RU">
+                            <fmt:message key="header.language_ru"/></button>
+
+                        <input type="hidden" name="command" value="change_locale">
+                    </div>
 <%--                        <li><a href="#" class="language" rel="it-IT"><img src="assets/img/it_IT.png" alt="Italiano" /></a></li>--%>
 <%--                        <li><a href="#" class="language" rel="en-US"><img src="assets/img/en_US.png" alt="English" /></a></li>--%>
                     </ul>
@@ -53,8 +64,22 @@
             </ul>
         </div>
     </div>
-</nav>
 
+</nav>
+<%--<div class="btn-group">--%>
+<%--    <button class="btn btn-link dropdown-toggle" type="button" id="localeDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">--%>
+<%--        <i class='bx bx-world'></i>--%>
+<%--    </button>--%>
+<%--    <form action="controller" method="post">--%>
+<%--        <div class="dropdown-menu" aria-labelledby="localeDropdown">--%>
+<%--            <button class="dropdown-item" type="submit" name="newLocale" value="en_US">--%>
+<%--                <fmt:message key="header.language_en"/></button>--%>
+<%--            <button class="dropdown-item" type="submit" name="newLocale" value="ru_RU">--%>
+<%--                <fmt:message key="header.language_ru"/></button>--%>
+<%--            <input type="hidden" name="command" value="change_locale">--%>
+<%--        </div>--%>
+<%--    </form>--%>
+<%--</div>--%>
 
 
 <!-- jQuery -->

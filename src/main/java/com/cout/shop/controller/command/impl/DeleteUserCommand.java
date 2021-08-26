@@ -44,7 +44,7 @@ public class DeleteUserCommand implements Command {
         List<User> userList = userService.getAllUsers();
         session.setAttribute(SessionAttribute.USER_LIST, userList);
 
-        return PagePath.ADMIN_USERS;
+        return PagePath.ADMIN_USERS_PAGE;
 
     }
 }

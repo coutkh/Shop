@@ -17,18 +17,12 @@ import java.io.IOException;
 import java.util.Set;
 
 public class AccessFilter implements Filter {
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        Filter.super.init(filterConfig);
-        System.out.println("Go init");
-    }
 
     private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
             throws IOException, ServletException {
-        System.out.println("Go doFilter");
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         HttpSession session = request.getSession();
@@ -41,7 +35,12 @@ public class AccessFilter implements Filter {
         }
 
         String commandName = request.getParameter(RequestParameter.COMMAND);
-        Command command = CommandProvider.getCommand(commandName);
+        Command command;
+        if(commandName == null){
+            command = CommandProvider.getCommand("to_main");
+        }else {
+            command = CommandProvider.getCommand(commandName);
+        }
 
         String roleName = (String)session.getAttribute(SessionAttribute.ROLE);
         UserRole userRole;
@@ -51,25 +50,19 @@ public class AccessFilter implements Filter {
         }else {
             userRole = UserRole.valueOf(roleName.toUpperCase());
         }
-        /*Set<Command> commands = switch (userRole) {
-            case GUEST -> Access.GUEST.getCommands();
-            case USER -> Access.USER.getCommands();
-            case ADMIN -> Access.ADMIN.getCommands();
-        };*/
 
         Set<Command> commands = null;
-        if("guest".equals(userRole.getRole())){
-            commands = Access.GUEST.getCommands();
-        }else if ("user".equals(userRole.getRole())) {
-            commands = Access.USER.getCommands();
-        }else if ("admin".equals(userRole.getRole())) {
+        if ("admin".equals(userRole.getRole())) {
             commands = Access.ADMIN.getCommands();
+        }else if("user".equals(userRole.getRole())){
+            commands = Access.USER.getCommands();
+        }else/*("guest".equals(userRole.getRole()))*/ {
+            commands = Access.GUEST.getCommands();
         }
-
 
         if (!commands.contains(command)) {
             logger.info("Role {} tried to access {} command", roleName, commandName);
-            response.sendRedirect(PagePath.REDIRECT_SIGN_IN);
+            response.sendRedirect(PagePath.REDIRECT_SIGN_IN_PAGE);
             return;
         }
         chain.doFilter(servletRequest, servletResponse);

@@ -5,7 +5,7 @@ import com.cout.shop.controller.command.impl.*;
 
 public enum CommandType {
     TO_MAIN                 {{ this.command = new ToMainPageCommand(); }},
-    //CHANGE_LOCALE           {{ this.command = new ChangeLocaleCommand();}},
+    CHANGE_LOCALE           {{ this.command = new ChangeLocaleCommand();}},
     TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }},
     SIGN_IN                 {{ this.command = new SignInCommand(); }},
     LOGOUT                  {{ this.command = new LogoutCommand(); }},
@@ -15,11 +15,12 @@ public enum CommandType {
     TO_ADD_USER_PAGE        {{ this.command = new ToAddUserPageCommand();}},
     ADD_USER                {{ this.command = new AddUserCommand();}},
     TO_EDIT_USER_PAGE       {{ this.command = new ToEditUserPage();}},
-    EDIT_USER               {{ this.command = new EditUserCommand();}};
-    /*TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
-
+    EDIT_USER               {{ this.command = new EditUserCommand();}},
+    TO_SIGN_UP              {{ this.command = new ToSignUpCommand(); }},
     SIGN_UP                 {{ this.command = new SignUpCommand(); }},
-    SEARCH                  {{ this.command = new SearchCommand(); }},
+    ADD_AND_LOGIN_USER      {{ this.command = new AddAndLoginUserCommand();}};
+
+    /*SEARCH                  {{ this.command = new SearchCommand(); }},
     DELETE_CART_ITEM        {{ this.command = new DeleteCartItemCommand(); }},
     TO_CATALOG              {{ this.command = new ToCatalogCommand(); }},
     TO_CART                 {{ this.command = new ToCartCommand(); }},

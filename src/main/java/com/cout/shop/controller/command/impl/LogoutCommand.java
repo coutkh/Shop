@@ -14,6 +14,6 @@ public class LogoutCommand implements Command {
 
         session.setAttribute(SessionAttribute.CURRENT_USER, null);
         session.setAttribute(SessionAttribute.ROLE, null);
-        return PagePath.MAIN;
+        return PagePath.MAIN_PAGE;
     }
 }

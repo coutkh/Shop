@@ -32,7 +32,7 @@ public class EditUserCommand implements Command {
         }
         try {
             userService.updateUser(login, email, password, UserRole.valueOf(role.toUpperCase()));
-            page = PagePath.REDIRECT_ADMIN_USERS;
+            page = PagePath.REDIRECT_ADMIN_USERS_PAGE;
 
             } catch (Exception e) {
             e.printStackTrace();
