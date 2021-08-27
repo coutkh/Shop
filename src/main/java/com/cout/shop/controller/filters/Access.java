@@ -13,28 +13,35 @@ import static com.cout.shop.controller.command.CommandType.*;
 public enum Access {
     GUEST(Stream.of(
             TO_MAIN,
-            CHANGE_LOCALE,
+            CHANGE_LOCALE_EN,
+            CHANGE_LOCALE_RU,
             SIGN_IN,
             TO_SIGN_IN,
             SIGN_UP,
             TO_SIGN_UP,
-            ADD_AND_LOGIN_USER
+            ADD_AND_LOGIN_USER,
+            TO_PRODUCTS_PAGE
+
     ).map(CommandType::getCommand).collect(Collectors.toSet())),
 
     USER(Stream.of(
             TO_MAIN,
-            CHANGE_LOCALE,
+            CHANGE_LOCALE_EN,
+            CHANGE_LOCALE_RU,
             SIGN_IN,
             TO_SIGN_IN,
             LOGOUT,
             SIGN_UP,
             TO_SIGN_UP,
-            ADD_AND_LOGIN_USER
+            ADD_AND_LOGIN_USER,
+            TO_PRODUCTS_PAGE
+
     ).map(CommandType::getCommand).collect(Collectors.toSet())),
 
     ADMIN(Stream.of(
             TO_MAIN,
-            CHANGE_LOCALE,
+            CHANGE_LOCALE_EN,
+            CHANGE_LOCALE_RU,
             SIGN_IN,
             TO_SIGN_IN,
             LOGOUT,
@@ -44,7 +51,10 @@ public enum Access {
             TO_ADD_USER_PAGE,
             ADD_USER,
             TO_EDIT_USER_PAGE,
-            EDIT_USER
+            EDIT_USER,
+            TO_PRODUCTS_PAGE,
+            TO_CATEGORIES,
+            DELETE_CATEGORY
     ).map(CommandType::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

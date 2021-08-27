@@ -5,8 +5,13 @@ public enum SQLQuery {
     GET_ALL_USER("SELECT * FROM users LEFT JOIN role ON role.id = role_id"),
     INSERT_USER("INSERT INTO users (id, login, email, password, role_id) VALUES (DEFAULT, (?), (?), (?), (?))"),
     DELETE_USER("DELETE FROM users WHERE id = (?) AND login = (?) AND password = (?)"),
-    UPDATE_USER("UPDATE users SET email = (?), password = (?), role_id = (?) WHERE login = (?)");
+    UPDATE_USER("UPDATE users SET email = (?), password = (?), role_id = (?) WHERE login = (?)"),
 
+    INSERT_CATEGORY("INSERT INTO category (id, name) VALUES (DEFAULT, (?))"),
+    GET_CATEGORY("SELECT * FROM category WHERE id = (?)"),
+    GET_ALL_CATEGORY("SELECT * FROM category"),
+    DELETE_CATEGORY("DELETE FROM category WHERE id = (?)"),
+    UPDATE_CATEGORY("UPDATE category SET name = (?) WHERE id = (?)");
     public String QUERY;
     SQLQuery(String QUERY){
         this.QUERY = QUERY;

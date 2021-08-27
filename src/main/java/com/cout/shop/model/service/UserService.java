@@ -4,7 +4,6 @@ import com.cout.shop.model.entity.User;
 import com.cout.shop.model.entity.UserRole;
 import com.cout.shop.model.exception.ServiceException;
 
-import javax.management.relation.Role;
 import java.util.List;
 import java.util.Optional;
 

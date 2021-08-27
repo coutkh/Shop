@@ -16,25 +16,14 @@
 </head>
 <jsp:include page="menu/header.jsp"/>
 <body class="text-center">
+<br/><br/>
 <div class="container">
     <div class="panel panel-default">
         <h2><fmt:message key="main.welcome"/></h2>
         <h3><fmt:message key="main.inProgress"/></h3>
         <h3><fmt:message key="main.inProgressLimit"/></h3>
     </div>
-
-<%--    <div class="row">--%>
-<%--        <div class="col">--%>
-<%--            <h1><fmt:message key="main.greeting"/></h1>--%>
-<%--        </div>--%>
-<%--        <div class="col-6">--%>
-
-<%--        </div>--%>
-<%--    </div>--%>
-<%--    <div class="panel panel-default">--%>
-        <img src="images/in_progress.jpg" class="img-fluid" alt="Responsive image" width="900" height="600">
-<%--    </div>--%>
-
+    <img src="images/in_progress.jpg" class="img-fluid" alt="Responsive image" width="900" height="600">
 </div>
 </body>
 </html>

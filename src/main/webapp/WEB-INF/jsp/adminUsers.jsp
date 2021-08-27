@@ -61,18 +61,6 @@
                 </td>
             </tr>
         </c:forEach>
-
-        <%--<c:forEach items="${userList}" var="userList" varStatus="loop">
-                    <tr>
-                        <td><c:out value="${userList.getLogin()}"/> </td>
-                        <td><c:out value="${userList.getEmail()}"/> </td>
-                        <td><c:out value="${userList.getPassword()}"/> </td>
-                        <td><c:out value="${userList.getCreateTime()}"/> </td>
-                        <td><c:out value="${userList.getRole().getRole()}"/> </td>
-                    </tr>
-        </c:forEach>--%>
-
-
         </tbody>
     </table>
 </div>

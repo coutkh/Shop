@@ -10,6 +10,12 @@ public class PagePath {
     public static final String TO_EDIT_USER_PAGE = "/WEB-INF/jsp/adminEditUser.jsp";
 
     public static final String SIGN_UP_PAGE = "/WEB-INF/jsp/signUp.jsp";
+
+    public static final String PRODUCTS_PAGE = "/WEB-INF/jsp/productsPage.jsp";
+
+    public static final String ADMIN_CATEGORY_PAGE = "/WEB-INF/jsp/adminCategoryPage.jsp";
+
+
 //    public static final String SEARCH_RESULT = "/WEB-INF/pages/searchResult.jsp";
 //    public static final String CATALOG = "/WEB-INF/pages/catalog.jsp";
 //    public static final String CART = "/WEB-INF/pages/user/cart.jsp";
@@ -17,7 +23,7 @@ public class PagePath {
 //    public static final String TO_PROFILE = "/WEB-INF/pages/user/profile.jsp";
 //
 //    public static final String ADMIN_ORDERS = "/WEB-INF/pages/admin/orders.jsp";
-//    public static final String ADMIN_PRODUCTS = "/WEB-INF/pages/admin/products.jsp";
+//    public static final String ADMIN_PRODUCTS = "/WEB-INF/pages/admin/productsPage.jsp";
 //    public static final String ADMIN_DISCOUNTS = "/WEB-INF/pages/admin/discounts.jsp";
 //    public static final String ADD_NEW_PRODUCT = "/WEB-INF/pages/admin/addNewProduct.jsp";
     //public static final String MAIN = "/WEB-INF/jsp/main.jsp";

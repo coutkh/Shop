@@ -10,5 +10,5 @@ public class RequestParameter {
     public static final String NEW_LOCALE = "newLocale";
 
 
-
+    public static final String ID = "id";
 }
