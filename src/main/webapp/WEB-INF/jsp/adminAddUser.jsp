@@ -4,7 +4,8 @@
 
 <fmt:setLocale value="${currentLocale}"/>
 <fmt:setBundle basename="l10n.text"/>
-<html>
+<!DOCTYPE>
+<html lang="en">
 <head>
     <meta charset="utf-8">
     <title>ADD USER</title>

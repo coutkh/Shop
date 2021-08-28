@@ -23,10 +23,6 @@ public class EditUserCommand implements Command {
         String email = request.getParameter(RequestParameter.EMAIL);
         String password = request.getParameter(RequestParameter.PASSWORD);
         String role = request.getParameter(RequestParameter.ROLE);
-        /*System.out.println(login);
-        System.out.println(email);
-        System.out.println(password);
-        System.out.println(role);*/
         if(!"admin".equals(role)){
             role = "user";
         }

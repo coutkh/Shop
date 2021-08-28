@@ -27,7 +27,7 @@ public class DeleteUserCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
         String login = request.getParameter(RequestParameter.LOGIN);
-        Optional<User> user = null;
+        Optional<User> user = Optional.empty();
         try {
             user = userDao.getUserByLogin(login);
         } catch (DaoException e) {

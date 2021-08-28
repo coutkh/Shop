@@ -27,6 +27,7 @@ com\cout\shop\controller\command\CommandType$7.class
 com\cout\shop\controller\command\CommandType$5.class
 com\cout\shop\controller\command\impl\AddAndLoginUserCommand.class
 com\cout\shop\util\PasswordEncryptor.class
+com\cout\shop\controller\command\CommandType$19.class
 com\cout\shop\controller\command\CommandType$13.class
 com\cout\shop\controller\command\impl\ToAdminUsersCommand.class
 com\cout\shop\controller\command\impl\EditUserCommand.class
@@ -43,12 +44,15 @@ com\cout\shop\controller\command\impl\ToEditUserPage.class
 com\cout\shop\controller\command\CommandType$10.class
 com\cout\shop\controller\command\impl\ToMainPageCommand.class
 com\cout\shop\controller\SessionAttribute.class
+com\cout\shop\controller\command\CommandType$20.class
 com\cout\shop\controller\command\CommandType$17.class
+com\cout\shop\controller\command\impl\AddCategoryCommand.class
 com\cout\shop\controller\command\impl\ToSignInCommand.class
 com\cout\shop\controller\command\impl\ToCategoriesCommand.class
 com\cout\shop\controller\command\impl\UnknownCommand.class
 com\cout\shop\model\entity\UserRole$1.class
 com\cout\shop\controller\command\CommandType$2.class
+com\cout\shop\controller\command\impl\DeleteCategoryCommand.class
 com\cout\shop\model\validator\UserValidator.class
 com\cout\shop\controller\command\CommandProvider.class
 com\cout\shop\controller\filters\Access.class

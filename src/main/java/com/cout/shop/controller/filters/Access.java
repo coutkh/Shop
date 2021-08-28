@@ -54,7 +54,8 @@ public enum Access {
             EDIT_USER,
             TO_PRODUCTS_PAGE,
             TO_CATEGORIES,
-            DELETE_CATEGORY
+            DELETE_CATEGORY,
+            ADD_CATEGORY
     ).map(CommandType::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

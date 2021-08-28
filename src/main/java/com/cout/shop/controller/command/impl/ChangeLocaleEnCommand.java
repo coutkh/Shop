@@ -1,6 +1,5 @@
 package com.cout.shop.controller.command.impl;
 
-import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 

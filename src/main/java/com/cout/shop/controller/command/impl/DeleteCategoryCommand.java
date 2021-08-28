@@ -1,5 +1,6 @@
 package com.cout.shop.controller.command.impl;
 
+import com.cout.shop.controller.PagePath;
 import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
@@ -7,7 +8,6 @@ import com.cout.shop.model.dao.CategoryDao;
 import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
 import com.cout.shop.model.entity.Category;
-import com.cout.shop.model.entity.User;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -22,7 +22,7 @@ public class DeleteCategoryCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter(RequestParameter.ID));
-        Optional<Category> category = null;
+        Optional<Category> category = Optional.empty();
         try {
             category = categoryDao.getCategoriesById(id);
         } catch (DaoException e) {
@@ -36,9 +36,15 @@ public class DeleteCategoryCommand implements Command {
             logger.error("An error occurred when trying to delete a category from the database ",e);
         }
 
-        List<Category> categoryList = categoryDao.getAllCategories();
-        session.setAttribute(SessionAttribute.USER_LIST, userList);
+        List<Category> categoryList =null;
 
-        return null;
+        try {
+            categoryList = categoryDao.getAllCategories();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        session.setAttribute(SessionAttribute.CATEGORY_LIST, categoryList);
+
+        return PagePath.ADMIN_CATEGORY_PAGE;
     }
 }

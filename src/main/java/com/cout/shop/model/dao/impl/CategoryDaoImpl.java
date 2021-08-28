@@ -30,7 +30,7 @@ public class CategoryDaoImpl implements CategoryDao {
         boolean isSuccessful = false;
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement statement = connection.prepareStatement(SQLQuery.INSERT_CATEGORY.QUERY)) {
-            statement.setString(1,"name");
+            statement.setString(1,name);
             statement.executeUpdate();
             isSuccessful = true;
         } catch (SQLException e) {
@@ -98,7 +98,7 @@ public class CategoryDaoImpl implements CategoryDao {
                 logger.error("Method \"deleteUserByLogin\" did not receive a parameter");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DaoException("Error of updating a category in the DB");
         }
     }
 

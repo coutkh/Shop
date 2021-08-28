@@ -8,6 +8,7 @@ public class RequestParameter {
     public static final String ROLE = "role";
     public static final String EMAIL = "email";
     public static final String NEW_LOCALE = "newLocale";
+    public static final String CATEGORY_NAME = "category";
 
 
     public static final String ID = "id";
