@@ -13,8 +13,7 @@ import static com.cout.shop.controller.command.CommandType.*;
 public enum Access {
     GUEST(Stream.of(
             TO_MAIN,
-            CHANGE_LOCALE_EN,
-            CHANGE_LOCALE_RU,
+            CHANGE_LOCALE,
             SIGN_IN,
             TO_SIGN_IN,
             SIGN_UP,
@@ -27,8 +26,7 @@ public enum Access {
 
     USER(Stream.of(
             TO_MAIN,
-            CHANGE_LOCALE_EN,
-            CHANGE_LOCALE_RU,
+            CHANGE_LOCALE,
             SIGN_IN,
             TO_SIGN_IN,
             LOGOUT,
@@ -42,8 +40,7 @@ public enum Access {
 
     ADMIN(Stream.of(
             TO_MAIN,
-            CHANGE_LOCALE_EN,
-            CHANGE_LOCALE_RU,
+            CHANGE_LOCALE,
             SIGN_IN,
             TO_SIGN_IN,
             LOGOUT,

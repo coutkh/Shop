@@ -41,8 +41,10 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.language"/><b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li><a href="controller?command=change_locale_en"><fmt:message key="header.language_en"/></a></li>
-                        <li><a href="controller?command=change_locale_ru"><fmt:message key="header.language_ru"/></a></li>
+<%--                        <li><a href="controller?command=change_locale_en"><fmt:message key="header.language_en"/></a></li>--%>
+<%--                        <li><a href="controller?command=change_locale_ru"><fmt:message key="header.language_ru"/></a></li>--%>
+                        <li><a href="controller?command=change_locale&newLocale=ru_RU"><fmt:message key="header.language_ru"/></a></li>
+                        <li><a href="controller?command=change_locale&newLocale=en_US"><fmt:message key="header.language_en"/></a></li>
                     </ul>
                 </li>
             </ul>

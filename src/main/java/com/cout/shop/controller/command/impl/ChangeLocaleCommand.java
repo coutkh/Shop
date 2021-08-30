@@ -7,7 +7,7 @@ import com.cout.shop.controller.command.Command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class ChangeLocaleEnCommand implements Command {
+public class ChangeLocaleCommand implements Command {
     @Override
     public String execute(HttpServletRequest request) {
         String locale = request.getParameter(RequestParameter.NEW_LOCALE);

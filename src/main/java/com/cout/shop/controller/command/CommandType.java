@@ -5,8 +5,7 @@ import com.cout.shop.controller.command.impl.*;
 
 public enum CommandType {
     TO_MAIN                 {{ this.command = new ToMainPageCommand(); }},
-    CHANGE_LOCALE_EN        {{ this.command = new ChangeLocaleEnCommand();}},
-    CHANGE_LOCALE_RU        {{ this.command = new ChangeLocaleRuCommand();}},
+    CHANGE_LOCALE           {{ this.command = new ChangeLocaleCommand();}},
     TO_SIGN_IN              {{ this.command = new ToSignInCommand(); }},
     SIGN_IN                 {{ this.command = new SignInCommand(); }},
     LOGOUT                  {{ this.command = new LogoutCommand(); }},
