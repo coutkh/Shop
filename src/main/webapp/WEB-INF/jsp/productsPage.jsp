@@ -24,11 +24,14 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-3 col-left">
+        <div class="col-lg-3">
             <h2>Каталог</h2>
-                <c:forEach items="${userList}" var="userList" varStatus="loop">
-                    <td><c:out value="${userList.getLogin()}"/></td>
-                </c:forEach>
+            <c:forEach items="${categoryList}" var="categoryList" varStatus="loop">
+                <p><a href="controller?command=choose_test&id=${categoryList.getId()}">
+<%--                    <input type="hidden" name="id" value="${categoryList.getId()}">--%>
+                    <c:out value="${categoryList.getName()}"/>
+                </a></p>
+            </c:forEach>
         </div>
         <div class="col-lg-9">
             <h2>Список товаров</h2>

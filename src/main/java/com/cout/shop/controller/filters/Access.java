@@ -20,7 +20,8 @@ public enum Access {
             SIGN_UP,
             TO_SIGN_UP,
             ADD_AND_LOGIN_USER,
-            TO_PRODUCTS_PAGE
+            TO_PRODUCTS_PAGE,
+            CHOOSE_TEST
 
     ).map(CommandType::getCommand).collect(Collectors.toSet())),
 
@@ -34,7 +35,8 @@ public enum Access {
             SIGN_UP,
             TO_SIGN_UP,
             ADD_AND_LOGIN_USER,
-            TO_PRODUCTS_PAGE
+            TO_PRODUCTS_PAGE,
+            CHOOSE_TEST
 
     ).map(CommandType::getCommand).collect(Collectors.toSet())),
 
@@ -55,7 +57,9 @@ public enum Access {
             TO_PRODUCTS_PAGE,
             TO_CATEGORIES,
             DELETE_CATEGORY,
-            ADD_CATEGORY
+            ADD_CATEGORY,
+            EDIT_CATEGORY,
+            CHOOSE_TEST
     ).map(CommandType::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

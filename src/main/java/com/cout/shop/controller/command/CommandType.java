@@ -23,7 +23,9 @@ public enum CommandType {
     TO_PRODUCTS_PAGE        {{ this.command = new ToProductsPageCommand();}},
     TO_CATEGORIES           {{ this.command = new ToCategoriesCommand();}},
     DELETE_CATEGORY         {{ this.command = new DeleteCategoryCommand();}},
-    ADD_CATEGORY            {{ this.command = new AddCategoryCommand();}};
+    ADD_CATEGORY            {{ this.command = new AddCategoryCommand();}},
+    EDIT_CATEGORY           {{ this.command = new EditCategoryCommand();}},
+    CHOOSE_TEST             {{ this.command = new ChooseTest();}};
 
     Command command;
     public Command getCommand(){

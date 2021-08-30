@@ -12,6 +12,7 @@ com\cout\shop\model\dao\impl\UserDaoImpl.class
 com\cout\shop\controller\command\CommandType$4.class
 com\cout\shop\controller\command\impl\ToAddUserPageCommand.class
 com\cout\shop\model\service\impl\UserServiceImpl.class
+com\cout\shop\controller\command\CommandType$22.class
 com\cout\shop\model\dao\CategoryDao.class
 com\cout\shop\model\dao\impl\CategoryDaoImpl.class
 com\cout\shop\model\dao\DaoException.class
@@ -33,7 +34,9 @@ com\cout\shop\controller\command\impl\ToAdminUsersCommand.class
 com\cout\shop\controller\command\impl\EditUserCommand.class
 com\cout\shop\controller\command\impl\SignUpCommand.class
 com\cout\shop\model\entity\Category.class
+com\cout\shop\controller\command\impl\ChooseTest.class
 com\cout\shop\controller\PagePath.class
+com\cout\shop\controller\command\CommandType$21.class
 com\cout\shop\controller\command\impl\DeleteUserCommand.class
 com\cout\shop\controller\command\impl\AddUserCommand.class
 com\cout\shop\model\entity\User.class
@@ -66,6 +69,7 @@ com\cout\shop\controller\Controller.class
 com\cout\shop\controller\command\CommandType$3.class
 com\cout\shop\model\entity\UserRole$3.class
 com\cout\shop\controller\command\CommandType$11.class
+com\cout\shop\controller\command\impl\EditCategoryCommand.class
 com\cout\shop\controller\command\CommandType$6.class
 com\cout\shop\controller\command\impl\ToSignUpCommand.class
 com\cout\shop\controller\RequestAttribute.class
