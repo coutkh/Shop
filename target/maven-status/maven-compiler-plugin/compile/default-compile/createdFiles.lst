@@ -1,6 +1,5 @@
 com\cout\shop\HelloServlet.class
 com\cout\shop\controller\command\CommandType$15.class
-com\cout\shop\controller\command\impl\ChangeLocaleEnCommand.class
 com\cout\shop\controller\command\CommandType$1.class
 com\cout\shop\controller\command\Command.class
 com\cout\shop\model\exception\ServiceException.class
@@ -12,11 +11,11 @@ com\cout\shop\model\dao\impl\UserDaoImpl.class
 com\cout\shop\controller\command\CommandType$4.class
 com\cout\shop\controller\command\impl\ToAddUserPageCommand.class
 com\cout\shop\model\service\impl\UserServiceImpl.class
+com\cout\shop\controller\filters\EncodingFilter.class
 com\cout\shop\model\dao\CategoryDao.class
 com\cout\shop\model\dao\impl\CategoryDaoImpl.class
 com\cout\shop\model\dao\DaoException.class
 com\cout\shop\controller\command\CommandType.class
-com\cout\shop\controller\command\impl\ChangeLocaleRuCommand.class
 com\cout\shop\controller\command\impl\SignInCommand.class
 com\cout\shop\pool\DatabaseConfig.class
 com\cout\shop\controller\command\CommandType$12.class

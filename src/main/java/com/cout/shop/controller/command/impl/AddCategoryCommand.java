@@ -5,11 +5,15 @@ import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class AddCategoryCommand implements Command {
+    private static final Logger logger = LogManager.getLogger(AddCategoryCommand.class);
+
     private static final CategoryDaoImpl categoryDao = CategoryDaoImpl.getInstance();
 
     @Override
@@ -19,6 +23,7 @@ public class AddCategoryCommand implements Command {
         HttpSession session = request.getSession();
 
         String nameCategory = request.getParameter(RequestParameter.CATEGORY_NAME);
+        logger.info("at the entrance: {}", nameCategory);
         try {
             boolean isUserCreated = categoryDao.add(nameCategory);
             if (isUserCreated) {
