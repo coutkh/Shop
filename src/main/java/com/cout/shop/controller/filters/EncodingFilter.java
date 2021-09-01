@@ -6,9 +6,12 @@ import java.io.IOException;
 public class EncodingFilter implements Filter {
     private String encoding;
 
-    public void init(FilterConfig config) throws ServletException {
+    @Override
+    public void init(FilterConfig config){
         encoding = config.getInitParameter("requestEncoding");
-        if (encoding == null) encoding = "UTF-8";
+        if (encoding == null) {
+            encoding = "UTF-8";
+        }
     }
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {

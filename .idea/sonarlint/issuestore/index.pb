@@ -1,12 +1,8 @@
 
 ]
 -src/main/java/com/cout/shop/HelloServlet.java,a\2\a2d66bd40ef75276ea0f01ede2de6967d083e785
-k
-;src/main/java/com/cout/shop/controller/command/Command.java,d\2\d21a47d0b9dd25c3c94b1ae069881ff0b0fa6616
 
 Osrc/main/java/com/cout/shop/controller/command/impl/AddAndLoginUserCommand.java,c\1\c14ddf455316d8a78fc3c9e046f9f6f1b8d9478c
-~
-Nsrc/main/java/com/cout/shop/controller/command/impl/ChangeLocaleRuCommand.java,7\0\709f240b81311666673be40f12c005ce300b1a12
 v
 Fsrc/main/java/com/cout/shop/controller/command/impl/LogoutCommand.java,8\8\882e85f084d07fddf65634dbecf7cf0cdedef798
 }
@@ -23,8 +19,6 @@ v
 Fsrc/main/java/com/cout/shop/controller/command/impl/SignInCommand.java,b\6\b6eeee81cc14aa5f9a7da139e5bee0fe25bfe2c4
 h
 8src/main/java/com/cout/shop/model/dao/impl/SQLQuery.java,9\4\9490594cab36429e3c1a23d12de057a30bba5ca5
-z
-Jsrc/main/java/com/cout/shop/controller/command/impl/ToMainPageCommand.java,c\9\c9641953fd7010eae9eb7c2dae53cd5bd32dfbe7
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
 ;
@@ -55,9 +49,17 @@ l
 <src/main/java/com/cout/shop/controller/SessionAttribute.java,4\6\46a051dd44ef16a01b6387f7eedf82843d05170d
 l
 <src/main/java/com/cout/shop/controller/RequestAttribute.java,6\e\6e8c3548919358615ec5f6f93af1289764a85d54
-l
-<src/main/java/com/cout/shop/controller/RequestParameter.java,2\c\2c514cf1a58197b5858df43590a54c594bcc9b28
-a
-1src/main/webapp/WEB-INF/jsp/adminCategoryPage.jsp,e\1\e1b6dd0db24b3684db3c414602183b6d2954ca69
 ~
 Nsrc/main/java/com/cout/shop/controller/command/impl/ToProductsPageCommand.java,7\c\7c861cece9e9fd792cccda40a54bdc6ed2b87c08
+|
+Lsrc/main/java/com/cout/shop/controller/command/impl/EditCategoryCommand.java,2\a\2ad896af66db5f0463bf483bfb60bb8d5689b2c7
+s
+Csrc/main/java/com/cout/shop/controller/command/impl/ChooseTest.java,8\3\8382b8cc7753da5f817d4e6f8a451b40f6eecdbe
+x
+Hsrc/main/java/com/cout/shop/controller/command/impl/EditUserCommand.java,8\3\83b0a99199b09cb6767e3ef5a3190e0813cc0af1
+k
+;src/main/java/com/cout/shop/model/dao/impl/UserDaoImpl.java,1\c\1c59b0559675b850486fd1049f77778f8547c2b4
+w
+Gsrc/main/java/com/cout/shop/controller/command/impl/AddUserCommand.java,3\0\30722405a73944f7085f9c79e4dcb59b314c6919
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec

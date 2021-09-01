@@ -63,7 +63,7 @@ public class AccessFilter implements Filter {
         }
 
         if (!commands.contains(command)) {
-            logger.info("Role {} tried to access {} command", roleName, commandName);
+            logger.info("Role {} tried to access {} command, {}", roleName, commandName, commands);
             response.sendRedirect(PagePath.REDIRECT_SIGN_IN_PAGE);
             return;
         }

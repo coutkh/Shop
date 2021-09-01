@@ -7,7 +7,8 @@
 <!DOCTYPE>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
+    <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+<%--    <meta charset="utf-8">--%>
     <title>ADMIN</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->

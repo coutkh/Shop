@@ -10,6 +10,7 @@ import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.nio.charset.StandardCharsets;
 
 public class AddCategoryCommand implements Command {
     private static final Logger logger = LogManager.getLogger(AddCategoryCommand.class);
@@ -22,7 +23,7 @@ public class AddCategoryCommand implements Command {
         String page;
         HttpSession session = request.getSession();
 
-        String nameCategory = request.getParameter(RequestParameter.CATEGORY_NAME);
+        String nameCategory = new String(request.getParameter(RequestParameter.CATEGORY_NAME).getBytes(StandardCharsets.ISO_8859_1) , StandardCharsets.UTF_8);
         logger.info("at the entrance: {}", nameCategory);
         try {
             boolean isUserCreated = categoryDao.add(nameCategory);
