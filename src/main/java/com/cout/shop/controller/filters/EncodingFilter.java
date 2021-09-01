@@ -1,8 +1,9 @@
 package com.cout.shop.controller.filters;
 
 import javax.servlet.*;
+import javax.servlet.annotation.WebFilter;
 import java.io.IOException;
-
+@WebFilter
 public class EncodingFilter implements Filter {
     private String encoding;
 
@@ -15,11 +16,6 @@ public class EncodingFilter implements Filter {
     }
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
-        /*
-        servletRequest.setCharacterEncoding("UTF-8");
-        servletResponse.setCharacterEncoding("UTF-8");
-        resp.setCharacterEncoding("UTF-8");
-        filterChain.doFilter(servletRequest, servletResponse);*/
 
         if (null == servletRequest.getCharacterEncoding()) {
             servletRequest.setCharacterEncoding(encoding);

@@ -22,8 +22,8 @@ public class AddCategoryCommand implements Command {
 
         String page;
         HttpSession session = request.getSession();
-
-        String nameCategory = new String(request.getParameter(RequestParameter.CATEGORY_NAME).getBytes(StandardCharsets.ISO_8859_1) , StandardCharsets.UTF_8);
+        String nameCategory = request.getParameter(RequestParameter.CATEGORY_NAME);
+        //String nameCategory = new String(request.getParameter(RequestParameter.CATEGORY_NAME).getBytes(StandardCharsets.ISO_8859_1) , StandardCharsets.UTF_8);
         logger.info("at the entrance: {}", nameCategory);
         try {
             boolean isUserCreated = categoryDao.add(nameCategory);
