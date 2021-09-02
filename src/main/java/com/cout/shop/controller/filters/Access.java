@@ -1,6 +1,7 @@
 package com.cout.shop.controller.filters;
 
 import com.cout.shop.controller.command.Command;
+import com.cout.shop.controller.command.CommandBuilder;
 import com.cout.shop.controller.command.CommandType;
 
 import java.util.Collections;
@@ -22,7 +23,7 @@ public enum Access {
             TO_PRODUCTS_PAGE,
             CHOOSE_TEST
 
-    ).map(CommandType::getCommand).collect(Collectors.toSet())),
+    ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
     USER(Stream.of(
             TO_MAIN,
@@ -36,7 +37,8 @@ public enum Access {
             TO_PRODUCTS_PAGE,
             CHOOSE_TEST
 
-    ).map(CommandType::getCommand).collect(Collectors.toSet())),
+    //).map(CommandType::getCommand).collect(Collectors.toSet())),
+    ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
     ADMIN(Stream.of(
             TO_MAIN,
@@ -57,7 +59,8 @@ public enum Access {
             ADD_CATEGORY,
             EDIT_CATEGORY,
             CHOOSE_TEST
-    ).map(CommandType::getCommand).collect(Collectors.toSet()));
+    //).map(CommandType::getCommand).collect(Collectors.toSet()));
+    ).map(CommandBuilder::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;
 

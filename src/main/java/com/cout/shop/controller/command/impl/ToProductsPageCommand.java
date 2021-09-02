@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class ToProductsPageCommand implements Command {
+public class ToProductsPageCommand extends Command {
     private static final CategoryDaoImpl categoryDao = CategoryDaoImpl.getInstance();
+    public ToProductsPageCommand() {
+        super.commandName = "TO_PRODUCTS_PAGE";
+    }
     @Override
     public String execute(HttpServletRequest request) {
         HttpSession session = request.getSession();

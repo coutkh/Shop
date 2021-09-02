@@ -11,8 +11,11 @@ import com.cout.shop.model.service.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class AddAndLoginUserCommand implements Command {
+public class AddAndLoginUserCommand extends Command {
     private static final UserService userService = UserServiceImpl.getInstance();
+    public AddAndLoginUserCommand() {
+        super.commandName = "ADD_AND_LOGIN_USER";
+    }
     @Override
     public String execute(HttpServletRequest request) {
         String page;

@@ -15,7 +15,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 //@WebFilter(urlPatterns = "/controller")
 public class AccessFilter implements Filter {
@@ -62,8 +64,10 @@ public class AccessFilter implements Filter {
             commands = Access.GUEST.getCommands();
         }
 
-        if (!commands.contains(command)) {
-            logger.info("Role {} tried to access {} command, {}", roleName, commandName, commands);
+        List<String> commandNames = commands.stream().map(Command::getCommandName).collect(Collectors.toList());
+
+        if (!commandNames.contains(command.getCommandName())) {
+            logger.info("Role {} tried to access {} command", roleName, commandName);
             response.sendRedirect(PagePath.REDIRECT_SIGN_IN_PAGE);
             return;
         }

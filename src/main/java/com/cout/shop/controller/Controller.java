@@ -3,8 +3,6 @@ package com.cout.shop.controller;
 
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.controller.command.CommandProvider;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +13,6 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 public class Controller extends HttpServlet {
-    private static final Logger logger = LogManager.getLogger();
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {

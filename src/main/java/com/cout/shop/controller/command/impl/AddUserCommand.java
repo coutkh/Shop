@@ -10,9 +10,11 @@ import com.cout.shop.model.service.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class AddUserCommand implements Command {
+public class AddUserCommand extends Command {
     private static final UserService userService = UserServiceImpl.getInstance();
-
+    public AddUserCommand() {
+        super.commandName = "ADD_USER";
+    }
     @Override
     public String execute(HttpServletRequest request) {
 

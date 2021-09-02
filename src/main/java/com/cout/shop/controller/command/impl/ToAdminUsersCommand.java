@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
-public class ToAdminUsersCommand implements Command {
+public class ToAdminUsersCommand extends Command {
+    public ToAdminUsersCommand() {
+        super.commandName = "TO_ADMIN_USERS";
+    }
 
     private static final UserService userService = UserServiceImpl.getInstance();
     @Override

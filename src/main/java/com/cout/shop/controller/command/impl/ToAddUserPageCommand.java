@@ -5,7 +5,10 @@ import com.cout.shop.controller.command.Command;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class ToAddUserPageCommand implements Command {
+public class ToAddUserPageCommand extends Command {
+    public ToAddUserPageCommand() {
+        super.commandName = "TO_ADD_USER_PAGE";
+    }
 
     @Override
     public String execute(HttpServletRequest request) {

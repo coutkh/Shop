@@ -7,7 +7,10 @@ import com.cout.shop.controller.command.Command;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class LogoutCommand implements Command {
+public class LogoutCommand extends Command {
+    public LogoutCommand() {
+        super.commandName = "LOGOUT";
+    }
     @Override
     public String execute(HttpServletRequest request) {
         HttpSession session = request.getSession();

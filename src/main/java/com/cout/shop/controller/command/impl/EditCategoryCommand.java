@@ -12,8 +12,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
-public class EditCategoryCommand implements Command {
+public class EditCategoryCommand extends Command {
     private static final CategoryDaoImpl categoryDao = CategoryDaoImpl.getInstance();
+    public EditCategoryCommand() {
+        super.commandName = "EDIT_CATEGORY";
+    }
     @Override
     public String execute(HttpServletRequest request) {
         String page;

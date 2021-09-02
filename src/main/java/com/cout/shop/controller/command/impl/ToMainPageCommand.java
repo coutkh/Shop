@@ -9,8 +9,12 @@ import org.apache.logging.log4j.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class ToMainPageCommand implements Command {
+public class ToMainPageCommand extends Command {
     public static final Logger logger = LogManager.getLogger();
+
+    public ToMainPageCommand() {
+       super.commandName = "TO_MAIN";
+    }
     //private static final String LOCALE = "en_US";
 
     @Override

@@ -11,8 +11,11 @@ import com.cout.shop.model.service.impl.UserServiceImpl;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
-public class EditUserCommand implements Command {
+public class EditUserCommand extends Command {
     private static final UserService userService = UserServiceImpl.getInstance();
+    public EditUserCommand() {
+        super.commandName = "EDIT_USER";
+    }
 
     @Override
     public String execute(HttpServletRequest request) {

@@ -4,11 +4,9 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
-import java.sql.Driver;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.concurrent.BlockingDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 
@@ -16,9 +14,9 @@ public enum ConnectionPool {
 
     INSTANCE;
 
-    private final Logger logger = LogManager.getLogger();
+    private final Logger logger = LogManager.getLogger(ConnectionPool.class);
 
-    private static final int POOL_SIZE = 10;
+    private static final int POOL_SIZE = 30;
 
     private final BlockingDeque<ProxyConnection> freeConnections;
     private final BlockingDeque<ProxyConnection> busyConnections;
@@ -56,7 +54,7 @@ public enum ConnectionPool {
         return connection;
     }
 
-    public void releaseConnection(Connection connection) {
+    /*public void releaseConnection(Connection connection) {
         if (connection instanceof ProxyConnection) {
             busyConnections.remove(connection);
             freeConnections.offer((ProxyConnection) connection);
@@ -85,5 +83,5 @@ public enum ConnectionPool {
                 logger.error("Driver wasn't deregister");
             }
         });
-    }
+    }*/
 }

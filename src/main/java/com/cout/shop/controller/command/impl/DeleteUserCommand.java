@@ -18,11 +18,13 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
-public class DeleteUserCommand implements Command {
+public class DeleteUserCommand extends Command {
     private static final Logger logger = LogManager.getLogger();
     private static final UserDao userDao = UserDaoImpl.getInstance();
     private static final UserService userService = UserServiceImpl.getInstance();
-
+    public DeleteUserCommand() {
+        super.commandName = "DELETE_USER";
+    }
 
     @Override
     public String execute(HttpServletRequest request) {

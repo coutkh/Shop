@@ -16,9 +16,12 @@ import javax.servlet.http.HttpSession;
 import java.util.List;
 import java.util.Optional;
 
-public class DeleteCategoryCommand implements Command {
+public class DeleteCategoryCommand extends Command {
     private static final Logger logger = LogManager.getLogger();
     private static final CategoryDao categoryDao = CategoryDaoImpl.getInstance();
+    public DeleteCategoryCommand() {
+        super.commandName = "DELETE_CATEGORIES";
+    }
     @Override
     public String execute(HttpServletRequest request) {
         int id = Integer.parseInt(request.getParameter(RequestParameter.ID));

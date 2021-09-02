@@ -25,7 +25,7 @@ public enum CommandType {
     EDIT_CATEGORY           {{ this.command = new ();}},
     CHOOSE_TEST             {{ this.command = new ();}};*/
 
-    TO_MAIN,
+    TO_MAIN ,
     CHANGE_LOCALE,
     TO_SIGN_IN,
     SIGN_IN,
@@ -46,7 +46,6 @@ public enum CommandType {
     ADD_CATEGORY,
     EDIT_CATEGORY,
     CHOOSE_TEST;
-
     Command command;
     public Command getCommand(){
         return command;

@@ -15,9 +15,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
-public class SignInCommand implements Command {
+public class SignInCommand extends Command {
     private static final Logger logger = LogManager.getLogger();
     private static final UserService userService = UserServiceImpl.getInstance();
+
+    public SignInCommand() {
+        super.commandName = "SIGN_IN";
+    }
 
     @Override
     public String execute(HttpServletRequest request) {

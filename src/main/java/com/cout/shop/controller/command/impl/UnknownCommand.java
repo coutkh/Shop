@@ -8,7 +8,7 @@ import com.cout.shop.controller.command.Command;
 import javax.servlet.http.HttpServletRequest;
 
 
-public class UnknownCommand implements Command {
+public class UnknownCommand extends Command {
     @Override
     public String execute(HttpServletRequest request) {
         return PagePath.ERROR404;
