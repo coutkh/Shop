@@ -37,7 +37,6 @@ public enum Access {
             TO_PRODUCTS_PAGE,
             CHOOSE_TEST
 
-    //).map(CommandType::getCommand).collect(Collectors.toSet())),
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
     ADMIN(Stream.of(
@@ -59,7 +58,6 @@ public enum Access {
             ADD_CATEGORY,
             EDIT_CATEGORY,
             CHOOSE_TEST
-    //).map(CommandType::getCommand).collect(Collectors.toSet()));
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

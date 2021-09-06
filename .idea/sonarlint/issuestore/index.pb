@@ -3,8 +3,6 @@
 -src/main/java/com/cout/shop/HelloServlet.java,a\2\a2d66bd40ef75276ea0f01ede2de6967d083e785
 \
 ,.idea/inspectionProfiles/Project_Default.xml,4\9\496a238a6afa168dbaf6efd37bb459331589579c
-;
-db/shop.sql,5\1\51d8ea57bcb5a5a613cd409c37fbd5b444872814
 l
 <src/main/java/com/cout/shop/controller/RequestAttribute.java,6\e\6e8c3548919358615ec5f6f93af1289764a85d54
 l
@@ -13,8 +11,6 @@ d
 4src/main/java/com/cout/shop/controller/PagePath.java,b\7\b7e06e03e5661bc8e11c13792626c11c4e13df3e
 Y
 )src/main/webapp/WEB-INF/jsp/adminPage.jsp,6\d\6d03bd1d955a9c1770be8bdb531549d14996eb70
-o
-?src/main/java/com/cout/shop/model/dao/impl/CategoryDaoImpl.java,e\d\ede25329bac958a45bb7251b14d396c922b1895a
 \
 ,src/main/webapp/WEB-INF/jsp/adminAddUser.jsp,a\c\acb67ba03f201acdec288561bf118407c76f6328
 ]
@@ -25,11 +21,11 @@ o
 +src/main/webapp/WEB-INF/jsp/menu/header.jsp,4\5\45ea1c0a17ddeda01bb5b484dd08e6d0a0c369e8
 Z
 *src/main/webapp/WEB-INF/jsp/adminUsers.jsp,6\2\6219d23207da3699a0ec5212e7ddbad2b2928eea
-k
-;src/main/java/com/cout/shop/model/dao/impl/UserDaoImpl.java,1\c\1c59b0559675b850486fd1049f77778f8547c2b4
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 a
 1src/main/webapp/WEB-INF/jsp/adminCategoryPage.jsp,e\1\e1b6dd0db24b3684db3c414602183b6d2954ca69
 r
 Bsrc/main/java/com/cout/shop/controller/filters/EncodingFilter.java,c\1\c1fb7f632b65af39726039c575c7e4695c463444
+f
+6src/main/java/com/cout/shop/model/dao/CategoryDao.java,7\f\7f26006d101ce79903e6aa64932511f569187964

@@ -30,6 +30,7 @@ CREATE TABLE IF NOT EXISTS `shop`.`product`(
     `name` VARCHAR(255) NOT NULL,
     `count` DECIMAL NOT NULL,
     `price` DECIMAL NOT NULL,
+    `color` VARCHAR(255),
     `category_id` INT,
     `create_date` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     `last_update` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,

@@ -16,7 +16,7 @@ public enum ConnectionPool {
 
     private final Logger logger = LogManager.getLogger(ConnectionPool.class);
 
-    private static final int POOL_SIZE = 30;
+    private static final int POOL_SIZE = 10;
 
     private final BlockingDeque<ProxyConnection> freeConnections;
     private final BlockingDeque<ProxyConnection> busyConnections;
@@ -54,7 +54,7 @@ public enum ConnectionPool {
         return connection;
     }
 
-    /*public void releaseConnection(Connection connection) {
+    public void releaseConnection(Connection connection) {
         if (connection instanceof ProxyConnection) {
             busyConnections.remove(connection);
             freeConnections.offer((ProxyConnection) connection);
@@ -83,5 +83,5 @@ public enum ConnectionPool {
                 logger.error("Driver wasn't deregister");
             }
         });
-    }*/
+    }
 }
