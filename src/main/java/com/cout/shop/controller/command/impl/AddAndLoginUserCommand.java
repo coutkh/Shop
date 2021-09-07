@@ -7,7 +7,9 @@ import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.service.impl.UserServiceImpl;
+import com.cout.shop.util.TypeRe;
 
+import javax.rmi.CORBA.Util;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -30,7 +32,7 @@ public class AddAndLoginUserCommand extends Command {
             try {
                 boolean isUserCreated = userService.createUser(login, password, email, role);
                 if (isUserCreated) {
-                    page = PagePath.REDIRECT_SIGN_IN_PAGE;
+                    page = TypeRe.redirect(PagePath.REDIRECT_SIGN_IN_PAGE);
                 } else {
                     page = PagePath.SIGN_UP_PAGE;
 

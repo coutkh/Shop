@@ -16,24 +16,38 @@ public class Controller extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+        System.out.println("#GET");
         processRequest(req, resp);
+
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("#POST");
         processRequest(req, resp);
+
+
     }
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String commandName = req.getParameter(RequestParameter.COMMAND);
         Command command = CommandProvider.getCommand(commandName);
-        String page = command.execute(req);
+
+        String temp = command.execute(req);
+        String typeRe = temp.substring(0, temp.indexOf(":")+1);
+        String page = temp.substring(temp.indexOf(":")+1);
 
         if(page != null){
             HttpSession session = req.getSession();
             session.setAttribute(SessionAttribute.CURRENT_PAGE, page);
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
-            dispatcher.forward(req, resp);
+            if("redirect:".equals(typeRe)){
+                System.out.println("doRed");
+                resp.sendRedirect(page);
+            }else {
+                System.out.println("doFor");
+                RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
+                dispatcher.forward(req, resp);
+            }
         }
     }
 }

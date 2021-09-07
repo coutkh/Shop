@@ -1,4 +1,5 @@
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandType.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\ProductDaoImpl.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToProductsPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\CategoryDao.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToSignUpCommand.java
@@ -9,6 +10,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\RequestParameter.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\pool\ConnectionPool.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\Command.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\ProductDao.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\UserDaoImpl.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandBuilder.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\pool\DatabaseConfig.java
@@ -17,6 +19,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\pool\ProxyConnection
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ChangeLocaleCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\DeleteCategoryCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\DaoException.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\Product.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToEditUserPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\SQLQuery.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ChooseTest.java
@@ -43,6 +46,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\Categor
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\RequestAttribute.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\UserDao.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\AddCategoryCommand.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\util\TypeRe.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\filters\Access.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\PagePath.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToSignInCommand.java

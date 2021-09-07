@@ -33,7 +33,9 @@
                 <li class="active"><a href="controller?command=to_products_page"><fmt:message key="header.products"/></a></li>
                 <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="header.sign_in"/></a></li>
                 <li class="active"><a href="controller?command=to_sign_up"><fmt:message key="header.sign_up"/></a></li>
+                <c:if test = "${currentUser.getRole().getRole().equals('admin')}">
                 <li class="active"><a href="controller?command=to_admin_page"><fmt:message key="header.admin"/></a></li>
+                </c:if>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="controller?command=to_main">[ ${currentUser.getLogin()} ]</a><li/>

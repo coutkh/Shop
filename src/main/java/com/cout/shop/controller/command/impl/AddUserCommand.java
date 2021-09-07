@@ -6,6 +6,7 @@ import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.service.impl.UserServiceImpl;
+import com.cout.shop.util.TypeRe;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,7 @@ public class AddUserCommand extends Command {
         try {
             boolean isUserCreated = userService.createUser(login, password, email, role);
             if (isUserCreated) {
-               page = PagePath.REDIRECT_ADMIN_USERS_PAGE;
+               page = TypeRe.redirect(PagePath.REDIRECT_ADMIN_USERS_PAGE);
             } else {
                 page = PagePath.TO_ADD_USER_PAGE;
 

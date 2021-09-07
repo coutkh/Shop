@@ -15,8 +15,6 @@ public class PagePath {
 
     public static final String ADMIN_CATEGORY_PAGE = "/WEB-INF/jsp/adminCategoryPage.jsp";
 
-
-
     public static final String ERROR404 = "/404.jsp";
 
     public static final String REDIRECT_SIGN_IN_PAGE = "/controller?command=to_sign_in";

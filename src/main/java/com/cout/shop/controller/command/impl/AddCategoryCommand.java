@@ -5,12 +5,12 @@ import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
+import com.cout.shop.util.TypeRe;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.nio.charset.StandardCharsets;
 
 public class AddCategoryCommand extends Command {
     private static final Logger logger = LogManager.getLogger(AddCategoryCommand.class);
@@ -29,6 +29,7 @@ public class AddCategoryCommand extends Command {
             boolean isUserCreated = categoryDao.add(nameCategory);
             if (isUserCreated) {
                 page = PagePath.REDIRECT_ADMIN_CATEGORY_PAGE;
+                //page = PagePath.ADMIN_CATEGORY_PAGE;
             } else {
                 page = PagePath.ERROR404;
 
@@ -38,6 +39,10 @@ public class AddCategoryCommand extends Command {
             e.printStackTrace();
             page = (String)session.getAttribute(SessionAttribute.CURRENT_PAGE);
         }
-        return page;
+        String temp = TypeRe.redirect(page);
+        System.out.println("FROM COMMAND" + temp);
+        return TypeRe.redirect(page);
     }
+
+
 }
