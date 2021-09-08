@@ -4,7 +4,8 @@
 
 <fmt:setLocale value="${currentLocale}"/>
 <fmt:setBundle basename="l10n.text"/>
-<html>
+<!DOCTYPE html>
+<html leng="en">
 <head>
   <title><fmt:message key="header.sign_in"/> </title>
   <meta charset="utf-8">
@@ -33,5 +34,4 @@
   </button>
 </form>
 </body>
-
 </html>

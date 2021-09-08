@@ -8,6 +8,7 @@ import com.cout.shop.model.dao.CategoryDao;
 import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
 import com.cout.shop.model.entity.Category;
+import com.cout.shop.util.TypeRe;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -48,6 +49,6 @@ public class DeleteCategoryCommand extends Command {
         }
         session.setAttribute(SessionAttribute.CATEGORY_LIST, categoryList);
 
-        return PagePath.ADMIN_CATEGORY_PAGE;
+        return TypeRe.redirect(PagePath.REDIRECT_ADMIN_CATEGORY_PAGE);
     }
 }

@@ -4,6 +4,7 @@
 
 <fmt:setLocale value="${currentLocale}"/>
 <fmt:setBundle basename="l10n.text"/>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">

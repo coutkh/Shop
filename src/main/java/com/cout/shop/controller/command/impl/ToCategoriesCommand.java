@@ -6,6 +6,7 @@ import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
 import com.cout.shop.model.entity.Category;
+import com.cout.shop.util.TypeRe;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;

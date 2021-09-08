@@ -11,6 +11,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\RequestPa
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\pool\ConnectionPool.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\Command.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\ProductDao.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\AddProductCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\UserDaoImpl.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandBuilder.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\pool\DatabaseConfig.java
@@ -26,6 +27,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\HelloServlet.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\exception\ServiceException.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\AddAndLoginUserCommand.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToProductsCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\Controller.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\validator\UserValidator.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\AddUserCommand.java

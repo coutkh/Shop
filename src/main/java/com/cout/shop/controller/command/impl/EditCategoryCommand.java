@@ -7,6 +7,7 @@ import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
 import com.cout.shop.model.entity.Category;
+import com.cout.shop.util.TypeRe;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -28,7 +29,7 @@ public class EditCategoryCommand extends Command {
 
         try {
             categoryDao.updateCategories(category1);
-            page = PagePath.REDIRECT_ADMIN_CATEGORY_PAGE;
+            page = TypeRe.redirect(PagePath.REDIRECT_ADMIN_CATEGORY_PAGE);
         } catch (DaoException e) {
             e.printStackTrace();
             page = (String) session.getAttribute(SessionAttribute.CURRENT_PAGE);

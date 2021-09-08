@@ -45,7 +45,10 @@ public enum CommandType {
     DELETE_CATEGORY,
     ADD_CATEGORY,
     EDIT_CATEGORY,
-    CHOOSE_TEST;
+    CHOOSE_TEST,
+    ADD_PRODUCT,
+    TO_PRODUCTS
+    ;
     Command command;
     public Command getCommand(){
         return command;

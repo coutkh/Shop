@@ -32,6 +32,7 @@ com\cout\shop\controller\command\impl\ChooseTest.class
 com\cout\shop\controller\PagePath.class
 com\cout\shop\controller\command\impl\ChangeLocaleCommand.class
 com\cout\shop\controller\command\impl\DeleteUserCommand.class
+com\cout\shop\controller\command\impl\ToProductsCommand.class
 com\cout\shop\controller\command\impl\AddUserCommand.class
 com\cout\shop\model\entity\User.class
 com\cout\shop\model\service\UserService.class
@@ -46,6 +47,7 @@ com\cout\shop\controller\command\impl\UnknownCommand.class
 com\cout\shop\model\entity\UserRole$1.class
 com\cout\shop\util\TypeRe.class
 com\cout\shop\controller\command\impl\DeleteCategoryCommand.class
+com\cout\shop\controller\command\impl\AddProductCommand.class
 com\cout\shop\model\validator\UserValidator.class
 com\cout\shop\controller\command\CommandProvider.class
 com\cout\shop\controller\filters\Access.class

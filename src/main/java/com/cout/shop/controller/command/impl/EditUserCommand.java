@@ -7,6 +7,7 @@ import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.entity.UserRole;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.service.impl.UserServiceImpl;
+import com.cout.shop.util.TypeRe;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -31,7 +32,7 @@ public class EditUserCommand extends Command {
         }
         try {
             userService.updateUser(login, email, password, UserRole.valueOf(role.toUpperCase()));
-            page = PagePath.REDIRECT_ADMIN_USERS_PAGE;
+            page = TypeRe.redirect(PagePath.REDIRECT_ADMIN_USERS_PAGE);
 
             } catch (Exception e) {
             e.printStackTrace();

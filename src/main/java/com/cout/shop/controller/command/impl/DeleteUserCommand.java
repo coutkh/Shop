@@ -10,6 +10,7 @@ import com.cout.shop.model.dao.impl.UserDaoImpl;
 import com.cout.shop.model.entity.User;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.service.impl.UserServiceImpl;
+import com.cout.shop.util.TypeRe;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -46,7 +47,7 @@ public class DeleteUserCommand extends Command {
         List<User> userList = userService.getAllUsers();
         session.setAttribute(SessionAttribute.USER_LIST, userList);
 
-        return PagePath.ADMIN_USERS_PAGE;
+        return TypeRe.redirect(PagePath.REDIRECT_ADMIN_USERS_PAGE);
 
     }
 }

@@ -11,6 +11,7 @@ package com.cout.shop.controller;
         public static final String LOCALE = "currentLocale";
         public static final String USER_LIST = "userList";
         public static final String CATEGORY_LIST = "categoryList";
+        public static final String PRODUCT_LIST = "productList";
 
 
         private SessionAttribute(){

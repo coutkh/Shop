@@ -60,7 +60,7 @@ public class ProductDaoImpl implements ProductDao {
                 allProducts.add(product);
             }
         } catch (SQLException e) {
-            throw new DaoException("Error getting categories from DB", e);
+            throw new DaoException("Error getting products from DB", e);
         } finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -77,7 +77,7 @@ public class ProductDaoImpl implements ProductDao {
                 product = Optional.of(getProductFromRS(rs));
             }
         } catch (SQLException e) {
-            throw new DaoException("Error getting category from DB", e);
+            throw new DaoException("Error getting product from DB", e);
         } finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -113,7 +113,7 @@ public class ProductDaoImpl implements ProductDao {
                 ps.executeUpdate();
             }
         } catch (SQLException e) {
-            throw new DaoException("Error updating user from DB", e);
+            throw new DaoException("Error updating product from DB", e);
         } finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }

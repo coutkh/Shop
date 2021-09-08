@@ -9,6 +9,10 @@ public class RequestParameter {
     public static final String EMAIL = "email";
     public static final String NEW_LOCALE = "newLocale";
     public static final String CATEGORY_NAME = "category";
+    public static final String NAME = "name";
+    public static final String COUNT = "count";
+    public static final String PRICE = "price";
+    public static final String COLOR = "color";
 
 
     public static final String ID = "id";

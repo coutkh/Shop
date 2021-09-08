@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS `shop`;
 
-CREATE SCHEMA IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `shop` DEFAULT CHARACTER SET utf8;
 USE `shop` ;
 
 CREATE TABLE IF NOT EXISTS `shop`.`role` (
@@ -89,7 +89,7 @@ INSERT INTO users (id, login, password, role_id) VALUES (DEFAULT, @temp, @temp, 
 
 INSERT INTO category (id, name) VALUES (DEFAULT, 'PC') ;
 
-INSERT INTO product (id, name, count, price, category_id) VALUES (DEFAULT, 'Acer A14', 2, 15000.00, (SELECT id FROM category WHERE name = 'PC'));
+INSERT INTO product (id, name, count, price, color, category_id) VALUES (DEFAULT, 'Acer A14', 2, 15000.00, 'black', (SELECT id FROM category WHERE name = 'PC'));
 
 INSERT INTO status (id, name) VALUES (DEFAULT , 'open');
 INSERT INTO status (id, name) VALUES (DEFAULT , 'in_the_process');

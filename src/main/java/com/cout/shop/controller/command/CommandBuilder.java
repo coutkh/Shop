@@ -36,6 +36,8 @@ public class CommandBuilder {
                 case DELETE_CATEGORY: currentCommand = new DeleteCategoryCommand(); break;
                 case ADD_CATEGORY: currentCommand = new AddCategoryCommand(); break;
                 case EDIT_CATEGORY: currentCommand = new EditCategoryCommand(); break;
+                case ADD_PRODUCT: currentCommand = new AddProductCommand(); break;
+                case TO_PRODUCTS: currentCommand = new ToProductsCommand(); break;
                 case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:
                     break;

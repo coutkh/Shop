@@ -9,6 +9,7 @@ public enum SQLQuery {
 
     INSERT_CATEGORY("INSERT INTO category (id, name) VALUES (DEFAULT, (?))"),
     GET_CATEGORY("SELECT * FROM category WHERE id = (?)"),
+    GET_CATEGORY_BY_NAME("SELECT * FROM category WHERE name = (?)"),
     GET_ALL_CATEGORY("SELECT * FROM category"),
     DELETE_CATEGORY("DELETE FROM category WHERE id = (?)"),
     UPDATE_CATEGORY("UPDATE category SET name = (?) WHERE id = (?)"),
@@ -18,6 +19,7 @@ public enum SQLQuery {
     GET_PRODUCTS("SELECT * FROM product LEFT JOIN category ON category.id = category_id WHERE id = (?)"),
     DELETE_PRODUCT("DELETE FROM product WHERE id = (?)"),
     UPDATE_PRODUCT("UPDATE product SET name = (?), count = (?), price = (?), color = (?), category_id = (?) WHERE id = (?)");
+
     public String QUERY;
     SQLQuery(String QUERY){
         this.QUERY = QUERY;
