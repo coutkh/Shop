@@ -7,14 +7,14 @@ public enum SQLQuery {
     DELETE_USER("DELETE FROM users WHERE id = (?) AND login = (?) AND password = (?)"),
     UPDATE_USER("UPDATE users SET email = (?), password = (?), role_id = (?) WHERE login = (?)"),
 
-    INSERT_CATEGORY("INSERT INTO category (id, name) VALUES (DEFAULT, (?))"),
+    INSERT_CATEGORY("INSERT INTO category (id, category_name) VALUES (DEFAULT, (?))"),
     GET_CATEGORY("SELECT * FROM category WHERE id = (?)"),
-    GET_CATEGORY_BY_NAME("SELECT * FROM category WHERE name = (?)"),
+    GET_CATEGORY_BY_NAME("SELECT * FROM category WHERE category_name = (?)"),
     GET_ALL_CATEGORY("SELECT * FROM category"),
     DELETE_CATEGORY("DELETE FROM category WHERE id = (?)"),
-    UPDATE_CATEGORY("UPDATE category SET name = (?) WHERE id = (?)"),
+    UPDATE_CATEGORY("UPDATE category SET category_name = (?) WHERE id = (?)"),
 
-    INSERT_PRODUCT("INSER INTO product (id, name, count, price, color, category_id) VALUES (DEFAULT, (?), (?), (?), (?), (?))"),
+    INSERT_PRODUCT("INSERT INTO product (id, name, count, price, color, category_id) VALUES (DEFAULT, (?), (?), (?), (?), (?))"),
     GET_ALL_PRODUCTS("SELECT * FROM product LEFT JOIN category ON category.id = category_id"),
     GET_PRODUCTS("SELECT * FROM product LEFT JOIN category ON category.id = category_id WHERE id = (?)"),
     DELETE_PRODUCT("DELETE FROM product WHERE id = (?)"),

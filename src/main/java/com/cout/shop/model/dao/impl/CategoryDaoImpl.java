@@ -30,7 +30,7 @@ public class CategoryDaoImpl implements CategoryDao {
     public boolean add(String name) throws DaoException {
         boolean isSuccessful = false;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.INSERT_CATEGORY.QUERY)) {
-            statement.setString(1,name);
+            statement.setString(1, name);
             statement.executeUpdate();
             isSuccessful = true;
         } catch (SQLException e) {
@@ -129,7 +129,7 @@ public class CategoryDaoImpl implements CategoryDao {
     private Category getCategoryFromRS(ResultSet rs) throws SQLException {
         Category category = new Category();
         category.setId(rs.getInt("id"));
-        category.setName(rs.getString("name"));
+        category.setName(rs.getString("category_name"));
         return category;
     }
 }

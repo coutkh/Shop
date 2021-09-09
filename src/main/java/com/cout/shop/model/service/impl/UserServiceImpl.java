@@ -31,6 +31,7 @@ public class UserServiceImpl implements UserService {
         try {
             if (UserValidator.isLoginCorrect(login) && UserValidator.isPasswordCorrect(password) && UserValidator.isEmailCorrect(email)) {
                 if (userDao.getUserByLogin(login).isPresent()) {
+                    System.out.println("Такой пользователь уже существует");
                     return isCreated;
                 }
                 isCreated = userDao.add(login, email, password, role);

@@ -66,7 +66,7 @@
                                     <option value=${categoryList.getName()}>${categoryList.getName()}</option>
                                 </c:forEach>
                             </select></p>
-                            <p>
+<%--                            <p>--%>
                         </div>
                     </form>
                 </div>
@@ -123,21 +123,26 @@
                             <td><c:out value="${productList.getCreateDate()}"/> </td>
                             <td><c:out value="${productList.getLastUpdate()}"/> </td>
                         </c:if>
-
-                        <%--<td>
+                        <td>
                             <form action="controller" method="post">
-                                <input type="hidden" name="login" value="${userList.getLogin()}">
-                                <input type="hidden" name="email" value="${userList.getEmail()}">
-                                <input type="hidden" name="password" value="${userList.getPassword()}">
-                                <input type="hidden" name="role" value="${userList.getRole().getRole()}">
-                                <button class="btn btn-default" type="submit" name="command" value="delete_user">
-                                    <fmt:message key="usersTable.delete"/>
+                                <input type="hidden" name="name" value="${productList.getName()}">
+                                <input type="hidden" name="count" value="${productList.getCount()}">
+                                <input type="hidden" name="price" value="${productList.getPrice()}">
+                                <input type="hidden" name="color" value="${productList.getColor()}">
+                                <input type="hidden" name="category" value="${productList.getCategory().getName()}">
+                                <button class="btn btn-success btn-xs" type="submit" name="command" value="to_confirm_selection_page">
+                                    <fmt:message key="productsTable.toBasket"/>
                                 </button>
-                                <button class="btn btn-default" type="submit" name="command" value="to_edit_user_page">
-                                    <fmt:message key="usersTable.edit"/>
-                                </button>
+                                <c:if test = "${currentUser.getRole().getRole().equals('admin')}">
+                                    <button class="btn btn-default btn-xs" type="submit" name="command" value="delete_product">
+                                        <fmt:message key="usersTable.delete"/>
+                                    </button>
+                                    <button class="btn btn-default btn-xs" type="submit" name="command" value="to_edit_product_page">
+                                        <fmt:message key="usersTable.edit"/>
+                                    </button>
+                                </c:if>
                             </form>
-                        </td>--%>
+                        </td>
                     </tr>
                 </c:forEach>
                 </tbody>

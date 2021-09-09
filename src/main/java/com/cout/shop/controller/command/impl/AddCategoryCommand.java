@@ -40,7 +40,6 @@ public class AddCategoryCommand extends Command {
             page = (String)session.getAttribute(SessionAttribute.CURRENT_PAGE);
         }
         String temp = TypeRe.redirect(page);
-        System.out.println("FROM COMMAND" + temp);
         return TypeRe.redirect(page);
     }
 

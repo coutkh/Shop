@@ -31,8 +31,7 @@ public class AddUserCommand extends Command {
             if (isUserCreated) {
                page = TypeRe.redirect(PagePath.REDIRECT_ADMIN_USERS_PAGE);
             } else {
-                page = PagePath.TO_ADD_USER_PAGE;
-
+                page = PagePath.ERROR404;
                 //request.setAttribute(RequestAttribute.SIGN_UP_ERROR, "signup.incorrectSignup");
             }
         } catch (Exception e) {

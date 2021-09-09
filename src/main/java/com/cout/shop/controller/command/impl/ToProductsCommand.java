@@ -5,14 +5,17 @@ import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
+import com.cout.shop.model.dao.impl.ProductDaoImpl;
 import com.cout.shop.model.entity.Category;
+import com.cout.shop.model.entity.Product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 public class ToProductsCommand extends Command {
-    private static final CategoryDaoImpl categoryDao = CategoryDaoImpl.getInstance();
+    private static final ProductDaoImpl productDaoImpl = ProductDaoImpl.getInstance();
+    private static final CategoryDaoImpl categoryDaoImpl = CategoryDaoImpl.getInstance();
     public ToProductsCommand() {
         super.commandName = "TO_PRODUCTS";
     }
@@ -21,12 +24,19 @@ public class ToProductsCommand extends Command {
         HttpSession session = request.getSession();
         List<Category> categoryList = null;
         try {
-            categoryList = categoryDao.getAllCategories();
+            categoryList = categoryDaoImpl.getAllCategories();
+        } catch (DaoException e) {
+            e.printStackTrace();
+        }
+        List<Product> productList = null;
+        try {
+            productList = productDaoImpl.getAllProducts();
         } catch (DaoException e) {
             e.printStackTrace();
         }
 
         session.setAttribute(SessionAttribute.CATEGORY_LIST, categoryList);
-        return PagePath.ADMIN_CATEGORY_PAGE;
+        session.setAttribute(SessionAttribute.PRODUCT_LIST, productList);
+        return PagePath.PRODUCTS_PAGE;
     }
 }

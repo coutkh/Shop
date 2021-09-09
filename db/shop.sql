@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `shop`.`users` (
 
 CREATE TABLE IF NOT EXISTS `shop`.`category` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL UNIQUE)
+    `category_name` VARCHAR(255) NOT NULL UNIQUE)
     ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `shop`.`product`(
@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `shop`.`product`(
 
 CREATE TABLE IF NOT EXISTS `shop`.`status` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` ENUM('open', 'in_the_process','closed', 'paid') NOT NULL)
+    `status_name` ENUM('open', 'in_the_process','closed', 'paid') NOT NULL)
     ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `shop`.`receipt`(
@@ -87,11 +87,11 @@ INSERT INTO users (id, login, password, role_id) VALUES (DEFAULT, @temp, @temp, 
 SET @temp = 'admin';
 INSERT INTO users (id, login, password, role_id) VALUES (DEFAULT, @temp, @temp, (SELECT id FROM role WHERE name = @temp));
 
-INSERT INTO category (id, name) VALUES (DEFAULT, 'PC') ;
+INSERT INTO category (id, category_name) VALUES (DEFAULT, 'PC') ;
 
-INSERT INTO product (id, name, count, price, color, category_id) VALUES (DEFAULT, 'Acer A14', 2, 15000.00, 'black', (SELECT id FROM category WHERE name = 'PC'));
+INSERT INTO product (id, name, count, price, color, category_id) VALUES (DEFAULT, 'Acer A14', 2, 15000.00, 'black', (SELECT id FROM category WHERE category_name = 'PC'));
 
-INSERT INTO status (id, name) VALUES (DEFAULT , 'open');
-INSERT INTO status (id, name) VALUES (DEFAULT , 'in_the_process');
-INSERT INTO status (id, name) VALUES (DEFAULT , 'closed');
-INSERT INTO status (id, name) VALUES (DEFAULT , 'paid');
+INSERT INTO status (id, status_name) VALUES (DEFAULT , 'open');
+INSERT INTO status (id, status_name) VALUES (DEFAULT , 'in_the_process');
+INSERT INTO status (id, status_name) VALUES (DEFAULT , 'closed');
+INSERT INTO status (id, status_name) VALUES (DEFAULT , 'paid');

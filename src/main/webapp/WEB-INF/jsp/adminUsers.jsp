@@ -19,11 +19,58 @@
 <jsp:include page="menu/header.jsp"/>
 <jsp:include page="menu/headerAdmin.jsp"/>
 <br/>
+
+<button type="button" class="btn btn-lg btn-primary btn-block" data-toggle="modal" data-target="#addModal">
+    <fmt:message key="usersTable.insertUser"/>
+</button>
+
 <form action="controller" method="post">
-    <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="to_add_user_page">
-        <fmt:message key="usersTable.insertUser"/>
-    </button>
+    <div class="modal fade" id="addModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="login" placeholder="введите логин/name">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" name="email" placeholder="введите email/amount">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="form-control" name="password" placeholder="введите пароль/price">
+                        </div>
+                        <div class="form-group">
+                            <p><select name="role">
+                                <option disabled>Выберите из списка/enter from list</option>
+                                <option value="admin">admin</option>
+                                <option value="user">user</option>
+                            </select></p>
+                            <%--                            <p>--%>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary" name="command" value="add_user"> <fmt:message key="adminAddUser.add"/> </button>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
+
+
+<%--<form action="controller" method="post">--%>
+<%--    <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="to_add_user_page">--%>
+<%--        <fmt:message key="usersTable.insertUser"/>--%>
+<%--    </button>--%>
+<%--</form>--%>
 <div class="container">
     <table class="table table-condensed table-hover ">
         <thead>

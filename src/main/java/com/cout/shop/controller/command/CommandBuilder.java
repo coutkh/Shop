@@ -38,6 +38,8 @@ public class CommandBuilder {
                 case EDIT_CATEGORY: currentCommand = new EditCategoryCommand(); break;
                 case ADD_PRODUCT: currentCommand = new AddProductCommand(); break;
                 case TO_PRODUCTS: currentCommand = new ToProductsCommand(); break;
+                case TO_CONFIRM_SELECTION_PAGE: currentCommand = new ToConfirmSelectionPageCommand(); break;
+
                 case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:
                     break;

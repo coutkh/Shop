@@ -127,7 +127,7 @@ public class ProductDaoImpl implements ProductDao {
         product.setCount(rs.getInt("count"));
         product.setPrice(rs.getInt("price"));
         product.setColor(rs.getString("color"));
-        product.setCategory(new Category(rs.getInt("id"), rs.getString("name")));
+        product.setCategory(new Category(rs.getInt("category_id"), rs.getString("category_name")));
         product.setCreateDate(rs.getTimestamp("create_date"));
         product.setLastUpdate(rs.getTimestamp("last_update"));
 
