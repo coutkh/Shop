@@ -15,14 +15,15 @@ public class ToConfirmSelectionPageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request) {
 
+        int id = Integer.parseInt(request.getParameter(RequestParameter.ID));
         String name = request.getParameter(RequestParameter.NAME);
         int count = Integer.parseInt(request.getParameter(RequestParameter.COUNT));
         int price = Integer.parseInt(request.getParameter(RequestParameter.PRICE));
-        String color = request.getParameter(RequestParameter.PRICE);
+        String color = request.getParameter(RequestParameter.COLOR);
 
         HttpSession session = request.getSession();
 
-        Product product = new Product(name , count, price, color);
+        Product product = new Product(id, name , count, price, color);
         session.setAttribute("product", product);
 
         return PagePath.CONFIRM_SELECTION_PAGE;

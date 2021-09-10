@@ -39,6 +39,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\CategoryDaoImpl.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\service\UserService.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToAdminPageCommand.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToConfirmSelectionPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToMainPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\EditCategoryCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandProvider.java

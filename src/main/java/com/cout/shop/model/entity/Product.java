@@ -19,7 +19,8 @@ public class Product {
     private Timestamp createDate;
     private Timestamp lastUpdate;
 
-    public Product(String name, int count, int price, String color) {
+    public Product(int id, String name, int count, int price, String color) {
+        this.id = id;
         this.name = name;
         this.count = count;
         this.price = price;

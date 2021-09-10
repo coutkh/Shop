@@ -54,6 +54,7 @@ com\cout\shop\controller\filters\Access.class
 com\cout\shop\controller\RequestParameter.class
 com\cout\shop\pool\ProxyConnection.class
 com\cout\shop\pool\ConnectionPool.class
+com\cout\shop\controller\command\impl\ToConfirmSelectionPageCommand.class
 com\cout\shop\controller\Controller.class
 com\cout\shop\model\entity\UserRole$3.class
 com\cout\shop\controller\command\impl\EditCategoryCommand.class

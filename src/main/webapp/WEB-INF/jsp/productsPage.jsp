@@ -125,6 +125,7 @@
                         </c:if>
                         <td>
                             <form action="controller" method="post">
+                                <input type="hidden" name="id" value="${productList.getId()}">
                                 <input type="hidden" name="name" value="${productList.getName()}">
                                 <input type="hidden" name="count" value="${productList.getCount()}">
                                 <input type="hidden" name="price" value="${productList.getPrice()}">
