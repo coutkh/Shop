@@ -18,15 +18,12 @@ public class Controller extends HttpServlet {
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         System.out.println("#GET");
         processRequest(req, resp);
-
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("#POST");
         processRequest(req, resp);
-
-
     }
 
     private void processRequest(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {

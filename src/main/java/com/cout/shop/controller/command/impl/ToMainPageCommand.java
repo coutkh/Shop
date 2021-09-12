@@ -24,7 +24,6 @@ public class ToMainPageCommand extends Command {
             session.setAttribute(SessionAttribute.ROLE, "guest");
         }
         if (session.getAttribute(SessionAttribute.LOCALE) == null) {
-            //session.setAttribute(SessionAttribute.LOCALE, "ru_RU");
             session.setAttribute(SessionAttribute.LOCALE, "ru_RU");
         }
 

@@ -1,0 +1,11 @@
+
+.mnp {
+    all: unset;
+    -moz-appearance: textfield;
+    width: 10em;
+    text-align: center;
+}
+.mnp::-webkit-inner-spin-button {
+    display: none;
+}
+

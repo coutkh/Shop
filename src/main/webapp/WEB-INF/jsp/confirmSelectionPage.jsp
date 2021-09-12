@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <title>ADD USER</title>
+    <link rel="stylesheet" href="my.css" type="text/css">
 <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
 <%--    <!-- Latest compiled and minified CSS -->--%>
 <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
@@ -23,6 +24,7 @@
 <h3 class="text-center"><fmt:message key="confirmPage.confirmText"/></h3>
 <br/>
 <div class="container-fluid">
+    <form action="controller" method="post">
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-2">
@@ -33,11 +35,22 @@
         </div>
         <div class="col-lg-6">
             <p>${product.getName()}</p>
-            <p>////</p>
+            <p><button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                <input type="number" min="0" max=${product.getCount()} value="1" readonly class="mnp">
+                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button></p>
             <p>${product.getPrice()}</p>
             <p>${product.getColor()}</p>
         </div>
     </div>
+        <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="edit_user">
+    <%--        <fmt:message key="adminEditUser.edit"/>--%>
+            Подтвердить и продолжить покупки
+        </button>
+        <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="to_admin_users">
+    <%--        <fmt:message key="adminEditUser.cancel"/>--%>
+            Подтвердить и перейти в корзину
+        </button>
+    </form>
 </div>
 
 <form action="controller" method="post">
