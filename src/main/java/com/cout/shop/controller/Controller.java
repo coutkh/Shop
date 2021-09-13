@@ -16,13 +16,11 @@ public class Controller extends HttpServlet {
 
     @Override
     public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        System.out.println("#GET");
         processRequest(req, resp);
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("#POST");
         processRequest(req, resp);
     }
 
@@ -38,10 +36,8 @@ public class Controller extends HttpServlet {
             HttpSession session = req.getSession();
             session.setAttribute(SessionAttribute.CURRENT_PAGE, page);
             if("redirect:".equals(typeRe)){
-                System.out.println("doRed");
                 resp.sendRedirect(page);
             }else {
-                System.out.println("doFor");
                 RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(page);
                 dispatcher.forward(req, resp);
             }

@@ -18,8 +18,10 @@ public enum SQLQuery {
     GET_ALL_PRODUCTS("SELECT * FROM product LEFT JOIN category ON category.id = category_id"),
     GET_PRODUCTS("SELECT * FROM product LEFT JOIN category ON category.id = category_id WHERE id = (?)"),
     DELETE_PRODUCT("DELETE FROM product WHERE id = (?)"),
-    UPDATE_PRODUCT("UPDATE product SET name = (?), count = (?), price = (?), color = (?), category_id = (?) WHERE id = (?)");
+    UPDATE_PRODUCT("UPDATE product SET name = (?), count = (?), price = (?), color = (?), category_id = (?) WHERE id = (?)"),
 
+    INSERT_RECEIPT("INSERT INTO receipt (id, total, status_id, user_id) VALUES (DEFAULT, 0, (?), (?)"),
+    GET_RECEIPT("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE id = (?)");
     public String QUERY;
     SQLQuery(String QUERY){
         this.QUERY = QUERY;

@@ -5,6 +5,7 @@ import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.dao.DaoException;
+import com.cout.shop.model.dao.ProductDao;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
 import com.cout.shop.model.dao.impl.ProductDaoImpl;
 import com.cout.shop.model.entity.Category;
@@ -15,7 +16,7 @@ import javax.servlet.http.HttpSession;
 import java.util.Optional;
 
 public class AddProductCommand extends Command {
-    private static final ProductDaoImpl product = ProductDaoImpl.getInstance();
+    private static final ProductDao product = ProductDaoImpl.getInstance();
     private static final CategoryDaoImpl categoryDao = CategoryDaoImpl.getInstance();
 
     public AddProductCommand() {
