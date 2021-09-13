@@ -21,7 +21,8 @@ public enum SQLQuery {
     UPDATE_PRODUCT("UPDATE product SET name = (?), count = (?), price = (?), color = (?), category_id = (?) WHERE id = (?)"),
 
     INSERT_RECEIPT("INSERT INTO receipt (id, total, status_id, user_id) VALUES (DEFAULT, 0, (?), (?)"),
-    GET_RECEIPT("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE id = (?)");
+    GET_RECEIPT("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE id = (?)"),
+    GET_ALL_RECEIPTS("SELECT");
     public String QUERY;
     SQLQuery(String QUERY){
         this.QUERY = QUERY;

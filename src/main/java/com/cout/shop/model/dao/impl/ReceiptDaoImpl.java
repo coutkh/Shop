@@ -42,17 +42,27 @@ public class ReceiptDaoImpl implements ReceiptDao {
 
     @Override
     public List<Receipt> getAllReceipts() {
-        List<Receipt> allReceipt = new ArrayList<>();
+        List<Receipt> allReceipts = new ArrayList<>();
+        try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_ALL_RECEIPTS.QUERY)) {
+            ResultSet rs = statement.executeQuery();
+            while (rs.next()) {
+                Receipt receipt = (getReceiptFromRS(rs));
+                allReceipts.add(receipt);
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
 
-
-        return null;
+        return allReceipts;
     }
 
     @Override
-    public Optional<Receipt> getReceipt(Optional<User> user) throws DaoException {
+    public Optional<Receipt> getReceipt(int id) throws DaoException {
         Optional<Receipt> receipt = Optional.empty();
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_RECEIPT.QUERY)) {
-            ps.setInt(1, Integer.parseInt("id"));
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 receipt = Optional.of(getReceiptFromRS(rs));
@@ -63,6 +73,26 @@ public class ReceiptDaoImpl implements ReceiptDao {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
         return receipt;
+    }
+
+    @Override
+    public List<Receipt> getReceiptByUser(Optional<User> user) throws DaoException {
+        List<Receipt> allReceipts = new ArrayList<>();
+        try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_RECEIPT.QUERY)) {
+            if (user.isPresent()) {
+                ps.setInt(5, user.get().getId());
+            }
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+
+                Optional<Receipt> receipt = Optional.of(getReceiptFromRS(rs));
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error getting product from DB", e);
+        } finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
+        return allReceipts;
     }
 
         @Override
@@ -79,11 +109,10 @@ public class ReceiptDaoImpl implements ReceiptDao {
         Receipt receipt = new Receipt();
         receipt.setId(rs.getInt("id"));
         receipt.setTotal(rs.getInt("total"));
-//        receipt.setStatus(RecriptStatus.valueOf());
-//        user.setRole(UserRole.valueOf(role.toUpperCase()));
-//        receipt.setUser(new User(rs.getInt("user_id"), rs.getString("category_name")));
-        receipt.setCreate_date(rs.getTimestamp("create_date"));
-        receipt.setUpdate_date(rs.getTimestamp("last_update"));
-    return null;
+        receipt.setStatus(ReceiptStatus.valueOf(String.valueOf(rs.getInt("receipt_id"))));
+        receipt.setUserId(rs.getInt("user_id"));
+        receipt.setCreateDate(rs.getTimestamp("create_date"));
+        receipt.setUpdateDate(rs.getTimestamp("last_update"));
+    return receipt;
     }
 }

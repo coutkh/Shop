@@ -17,10 +17,6 @@ b
 2src/main/java/com/cout/shop/model/dao/UserDao.java,2\f\2ff198e4e7db49415fc550d9a59f56c80fa20894
 e
 5src/main/java/com/cout/shop/model/dao/ProductDao.java,d\d\dd81dccb10522ba463ed87976df7a79d3daf170e
-b
-2src/main/java/com/cout/shop/model/entity/User.java,c\d\cd2b4dd2b7a4b480fc75059e4f2d55839a4ef076
-f
-6src/main/java/com/cout/shop/model/entity/UserRole.java,a\c\ac4f40fdffd8436d703b44fe05541690968dc281
 }
 Msrc/main/java/com/cout/shop/controller/command/impl/ToAddUserPageCommand.java,1\4\14abd6b486aaeb79e61a8926a807c560206ddf55
 |
@@ -63,10 +59,6 @@ V
 +src/main/webapp/WEB-INF/jsp/menu/header.jsp,4\5\45ea1c0a17ddeda01bb5b484dd08e6d0a0c369e8
 \
 ,src/main/webapp/WEB-INF/jsp/productsPage.jsp,1\3\13249fe3ce6d6af02a3d23381ed175891ac034ee
-v
-Fsrc/main/java/com/cout/shop/controller/command/impl/SignInCommand.java,b\6\b6eeee81cc14aa5f9a7da139e5bee0fe25bfe2c4
-k
-;src/main/java/com/cout/shop/model/dao/impl/UserDaoImpl.java,1\c\1c59b0559675b850486fd1049f77778f8547c2b4
 e
 5src/main/java/com/cout/shop/model/entity/Product.java,9\0\90ca4af8e39e9933ea45357da813be53c4dfd889
 w
@@ -93,11 +85,13 @@ l
 <src/main/java/com/cout/shop/controller/RequestParameter.java,2\c\2c514cf1a58197b5858df43590a54c594bcc9b28
 l
 <src/main/java/com/cout/shop/controller/SessionAttribute.java,4\6\46a051dd44ef16a01b6387f7eedf82843d05170d
-h
-8src/main/java/com/cout/shop/model/dao/impl/SQLQuery.java,9\4\9490594cab36429e3c1a23d12de057a30bba5ca5
 |
 Lsrc/main/java/com/cout/shop/controller/command/impl/ToCategoriesCommand.java,3\6\36e71d173a46557eb775f79d6813ba380bac373e
 z
 Jsrc/main/java/com/cout/shop/controller/command/impl/ToProductsCommand.java,4\0\40a642630208b56f2fdf1f8e214b1d7b0887d36e
 ~
 Nsrc/main/java/com/cout/shop/controller/command/impl/ToProductsPageCommand.java,7\c\7c861cece9e9fd792cccda40a54bdc6ed2b87c08
+f
+6src/main/java/com/cout/shop/controller/Controller.java,a\8\a885449dc5f3df588a2a1c944315ad503c3d0362
+z
+Jsrc/main/java/com/cout/shop/controller/command/impl/ToMainPageCommand.java,c\9\c9641953fd7010eae9eb7c2dae53cd5bd32dfbe7

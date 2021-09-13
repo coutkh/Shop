@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 public class Receipt {
     private  int id;
     private double total;
-    private RecriptStatus status;
-    private User user;
-    private Timestamp create_date;
-    private Timestamp update_date;
+    private ReceiptStatus status;
+    private int userId;
+    private Timestamp createDate;
+    private Timestamp updateDate;
 }

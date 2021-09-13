@@ -10,7 +10,10 @@ import java.util.Optional;
 public interface ReceiptDao {
     int add(Optional<User> user) throws DaoException;
     List<Receipt> getAllReceipts();
-    Optional<Receipt> getReceipt(Optional<User> user) throws DaoException;
+    Optional<Receipt> getReceipt(int id) throws DaoException;
+
+    List<Receipt> getReceiptByUser(Optional<User> user) throws DaoException;
+
     void deleteReceipt(Optional<Receipt> receipt) throws DaoException;
     void updateReceipt(Optional<Receipt> receipt) throws DaoException;
 }

@@ -1,6 +1,6 @@
 package com.cout.shop.model.entity;
 
-public enum RecriptStatus {
+public enum ReceiptStatus {
     OPEN{{
         this.id = 1;
         this.status_name = "open";
