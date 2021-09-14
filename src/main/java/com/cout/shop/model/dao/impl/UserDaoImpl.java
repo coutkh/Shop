@@ -86,6 +86,23 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
+    public User getUserById(int id) throws DaoException {
+        User user = null;
+        try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_USER_BY_ID.QUERY)) {
+            statement.setInt(1, id);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                user = getUserFromRS(rs);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error getting user data", e);
+        }finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
+        return user;
+    }
+
+    @Override
     public void deleteUserByLogin(Optional<User> user) throws DaoException {
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.DELETE_USER.QUERY)) {
             if (user.isPresent()) {

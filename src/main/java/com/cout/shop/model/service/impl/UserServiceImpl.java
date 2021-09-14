@@ -8,7 +8,11 @@ import com.cout.shop.model.entity.UserRole;
 import com.cout.shop.model.exception.ServiceException;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.validator.UserValidator;
+import com.cout.shop.pool.ConnectionPool;
+import com.cout.shop.pool.ProxyConnection;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     private static final UserServiceImpl instance = new UserServiceImpl();
     private static final UserDao userDao = UserDaoImpl.getInstance();
+    Connection connection = ConnectionPool.INSTANCE.getConnection();
 
     private UserServiceImpl() {
     }
@@ -25,10 +30,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean createUser(String login, String password, String email, String role) throws ServiceException {
+    public boolean createUser(String login, String password, String email, String role) throws ServiceException, SQLException {
 
         boolean isCreated = false;
+
         try {
+            connection.commit();
             if (UserValidator.isLoginCorrect(login) && UserValidator.isPasswordCorrect(password) && UserValidator.isEmailCorrect(email)) {
                 if (userDao.getUserByLogin(login).isPresent()) {
                     System.out.println("Такой пользователь уже существует");
@@ -36,8 +43,11 @@ public class UserServiceImpl implements UserService {
                 }
                 isCreated = userDao.add(login, email, password, role);
             }
-        } catch (DaoException e) {
+        } catch (Exception e) {
+            connection.rollback();
             throw new ServiceException(e);
+        }finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
         }
         return isCreated;
     }

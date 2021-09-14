@@ -8,11 +8,14 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ReceiptDao {
-    int add(Optional<User> user) throws DaoException;
+    //int add(Optional<User> user) throws DaoException;
+
+    int add(int userId) throws DaoException;
+
     List<Receipt> getAllReceipts();
     Optional<Receipt> getReceipt(int id) throws DaoException;
 
-    List<Receipt> getReceiptByUser(Optional<User> user) throws DaoException;
+    List<Receipt> getReceiptByUser(int userId) throws DaoException;
 
     void deleteReceipt(Optional<Receipt> receipt) throws DaoException;
     void updateReceipt(Optional<Receipt> receipt) throws DaoException;

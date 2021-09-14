@@ -39,6 +39,7 @@ public class CommandBuilder {
                 case ADD_PRODUCT: currentCommand = new AddProductCommand(); break;
                 case TO_PRODUCTS: currentCommand = new ToProductsCommand(); break;
                 case TO_CONFIRM_SELECTION_PAGE: currentCommand = new ToConfirmSelectionPageCommand(); break;
+                case CONFIRM_AND_BACK: currentCommand = new ConfirmAndBackCommand(); break;
 
                 case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:

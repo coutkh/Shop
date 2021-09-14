@@ -37,7 +37,8 @@ public enum Access {
             ADD_AND_LOGIN_USER,
             TO_PRODUCTS_PAGE,
             CHOOSE_TEST,
-            TO_CONFIRM_SELECTION_PAGE
+            TO_CONFIRM_SELECTION_PAGE,
+            CONFIRM_AND_BACK
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
@@ -62,7 +63,8 @@ public enum Access {
             CHOOSE_TEST,
             ADD_PRODUCT,
             TO_PRODUCTS,
-            TO_CONFIRM_SELECTION_PAGE
+            TO_CONFIRM_SELECTION_PAGE,
+            CONFIRM_AND_BACK
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

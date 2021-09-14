@@ -62,6 +62,7 @@ CREATE TABLE IF NOT EXISTS `shop`.`receipt`(
 
 
 CREATE TABLE IF NOT EXISTS `shop`.`receipt_has_product`(
+    `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     `receipt_id` INT,
     `product_id` INT,
     `count` INT UNSIGNED NOT NULL DEFAULT 1,

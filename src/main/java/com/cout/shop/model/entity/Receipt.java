@@ -13,7 +13,7 @@ public class Receipt {
     private  int id;
     private double total;
     private ReceiptStatus status;
-    private int userId;
+    private User user;
     private Timestamp createDate;
     private Timestamp updateDate;
 }

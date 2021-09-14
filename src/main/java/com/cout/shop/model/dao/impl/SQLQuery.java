@@ -3,6 +3,7 @@ package com.cout.shop.model.dao.impl;
 public enum SQLQuery {
     GET_USER("SELECT * FROM users LEFT JOIN role ON role.id = role_id WHERE login = (?)"),
     GET_ALL_USER("SELECT * FROM users LEFT JOIN role ON role.id = role_id"),
+    GET_USER_BY_ID("SELECT * FROM users LEFT JOIN role ON role.id = role_id WHERE id = (?)"),
     INSERT_USER("INSERT INTO users (id, login, email, password, role_id) VALUES (DEFAULT, (?), (?), (?), (?))"),
     DELETE_USER("DELETE FROM users WHERE id = (?) AND login = (?) AND password = (?)"),
     UPDATE_USER("UPDATE users SET email = (?), password = (?), role_id = (?) WHERE login = (?)"),
@@ -20,9 +21,14 @@ public enum SQLQuery {
     DELETE_PRODUCT("DELETE FROM product WHERE id = (?)"),
     UPDATE_PRODUCT("UPDATE product SET name = (?), count = (?), price = (?), color = (?), category_id = (?) WHERE id = (?)"),
 
-    INSERT_RECEIPT("INSERT INTO receipt (id, total, status_id, user_id) VALUES (DEFAULT, 0, (?), (?)"),
+    INSERT_RECEIPT("INSERT INTO receipt (id, total, status_id, users_id) VALUES (DEFAULT, 0, (?), (?))"),
     GET_RECEIPT("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE id = (?)"),
-    GET_ALL_RECEIPTS("SELECT");
+    GET_ALL_RECEIPTS("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id "),
+    GET_RECEIPT_BY_USER("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE users_id = (?)"),
+
+    INSERT_PRODUCT_TO_RECEIPT("INSERT INTO receipt_has_product (id, receipt_id, product_id, count, price) VALUES (DEFAULT, (?), (?), (?), (?)");
+
+
     public String QUERY;
     SQLQuery(String QUERY){
         this.QUERY = QUERY;

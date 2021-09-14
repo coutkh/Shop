@@ -25,49 +25,54 @@
 <br/>
 <div class="container-fluid">
     <form action="controller" method="post">
-    <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-2">
-            <p>Наименование товара</p>
-            <p>Количество, доступно на складе:${product.getCount()}</p>
-            <p>Цена</p>
-            <p>Цвет</p>
+        <div class="row">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-2">
+                <p>Наименование товара</p>
+                <p>Количество, доступно на складе:${product.getCount()}</p>
+                <p>Цена</p>
+                <p>Цвет</p>
+            </div>
+            <div class="col-lg-6">
+
+                <input type="hidden" name="login" value="${userList.getLogin()}">
+
+                <p>${product.getName()}</p>
+                <p><button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
+                    <input type="number" name="count" min="0" max=${product.getCount()} value="1" readonly class="mnp">
+                    <button type="button" onclick="this.previousElementSibling.stepUp()">+</button></p>
+                <p>${product.getPrice()}</p>
+                <p>${product.getColor()}</p>
+                <input type="hidden" name="id" value="${product.getId()}">
+                <input type="hidden" name="price" value="${product.getPrice()}">
+            </div>
         </div>
-        <div class="col-lg-6">
-            <p>${product.getName()}</p>
-            <p><button type="button" onclick="this.nextElementSibling.stepDown()">-</button>
-                <input type="number" min="0" max=${product.getCount()} value="1" readonly class="mnp">
-                <button type="button" onclick="this.previousElementSibling.stepUp()">+</button></p>
-            <p>${product.getPrice()}</p>
-            <p>${product.getColor()}</p>
-        </div>
-    </div>
-        <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="edit_user">
-    <%--        <fmt:message key="adminEditUser.edit"/>--%>
-            Подтвердить и продолжить покупки
-        </button>
-        <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="to_admin_users">
-    <%--        <fmt:message key="adminEditUser.cancel"/>--%>
-            Подтвердить и перейти в корзину
-        </button>
+            <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="confirm_and_back">
+        <%--        <fmt:message key="adminEditUser.edit"/>--%>
+                Подтвердить и продолжить покупки
+            </button>
+            <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="to_admin_users">
+        <%--        <fmt:message key="adminEditUser.cancel"/>--%>
+                Подтвердить и перейти в корзину
+            </button>
     </form>
 </div>
 
-<form action="controller" method="post">
-    <input type="hidden" name="login" id="login" value="<c:out value="${user.login}"/>">
-    <input type="email" name="email" id="inputEmail" value="<c:out value="${user.email}"/>" required autofocus pattern="^[\w\.]{3,13}@\w{3,10}\.\w{2,5}$">
-    <input type="password" name="password" id="inputPassword" value="<c:out value="${user.password}"/>" required pattern="^[\w]{3,12}$">
-    <input type="text" name="role" id="inputRole" value="<c:out value="${user.role.role}"/>" required pattern="^[\w]{3,12}$">
+<%--<form action="controller" method="post">--%>
+<%--    <input type="hidden" name="login" id="login" value="<c:out value="${user.login}"/>">--%>
+<%--    <input type="email" name="email" id="inputEmail" value="<c:out value="${user.email}"/>" required autofocus pattern="^[\w\.]{3,13}@\w{3,10}\.\w{2,5}$">--%>
+<%--    <input type="password" name="password" id="inputPassword" value="<c:out value="${user.password}"/>" required pattern="^[\w]{3,12}$">--%>
+<%--    <input type="text" name="role" id="inputRole" value="<c:out value="${user.role.role}"/>" required pattern="^[\w]{3,12}$">--%>
 
-    <button class="btn btn-md btn-primary <%--btn-block--%>" type="submit" name="command" value="edit_user">
-        <fmt:message key="adminEditUser.edit"/>
-    </button>
-    <button class="btn btn-md btn-danger <%--btn-block--%>" type="submit" name="command" value="to_admin_users">
-        <fmt:message key="adminEditUser.cancel"/>
-    </button>
-    <c:if test="${errorSignInMessageKey != null}">
-        <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>
-    </c:if>
-</form>
+<%--    <button class="btn btn-md btn-primary &lt;%&ndash;btn-block&ndash;%&gt;" type="submit" name="command" value="edit_user">--%>
+<%--        <fmt:message key="adminEditUser.edit"/>--%>
+<%--    </button>--%>
+<%--    <button class="btn btn-md btn-danger &lt;%&ndash;btn-block&ndash;%&gt;" type="submit" name="command" value="to_admin_users">--%>
+<%--        <fmt:message key="adminEditUser.cancel"/>--%>
+<%--    </button>--%>
+<%--    <c:if test="${errorSignInMessageKey != null}">--%>
+<%--        <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>--%>
+<%--    </c:if>--%>
+<%--</form>--%>
 </body>
 </html>

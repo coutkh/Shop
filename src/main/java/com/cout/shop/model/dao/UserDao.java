@@ -11,4 +11,6 @@ public interface UserDao {
     Optional<User> getUserByLogin(String login) throws DaoException;
     void deleteUserByLogin(Optional<User> user) throws DaoException;
     void updateUser(Optional<User> user) throws DaoException;
+
+    User getUserById(int id) throws DaoException;
 }
