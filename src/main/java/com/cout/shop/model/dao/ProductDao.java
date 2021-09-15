@@ -12,9 +12,11 @@ public interface ProductDao {
 
     List<Product> getAllProducts() throws DaoException;
 
-    Optional<Product> getProductById(int id) throws DaoException;
+    Product getProductById(int id) throws DaoException;
 
-    void deleteProductById(Optional<Product> product) throws DaoException;
+    //void deleteProductById(Optional<Product> product) throws DaoException;
 
-    void updateProductById(Optional<Product> product) throws DaoException;
+    void deleteProductById(Product product) throws DaoException;
+
+    void updateProductById(Product product) throws DaoException;
 }

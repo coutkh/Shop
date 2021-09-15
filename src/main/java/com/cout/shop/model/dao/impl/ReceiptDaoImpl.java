@@ -62,13 +62,13 @@ public class ReceiptDaoImpl implements ReceiptDao {
     }
 
     @Override
-    public Optional<Receipt> getReceipt(int id) throws DaoException {
-        Optional<Receipt> receipt = Optional.empty();
+    public Receipt getReceipt(int id) throws DaoException {
+        Receipt receipt = null;
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_RECEIPT.QUERY)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                receipt = Optional.of(getReceiptFromRS(rs));
+                receipt = (getReceiptFromRS(rs));
             }
         } catch (SQLException e) {
             throw new DaoException("Error getting product from DB", e);
@@ -76,6 +76,26 @@ public class ReceiptDaoImpl implements ReceiptDao {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
         return receipt;
+    }
+    @Override
+    public int getIdOpenReceipt(int id) throws DaoException {
+        //Optional<Receipt> receipt = Optional.empty();
+        int receiptId=0;
+        try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_OPEN_RECEIPT.QUERY)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                //receipt = Optional.of(getReceiptFromRS(rs));
+                receiptId = rs.getInt("id");
+            } else {
+                receiptId = -1;
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error getting product from DB", e);
+        } finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
+        return receiptId;
     }
 
     @Override
@@ -110,13 +130,12 @@ public class ReceiptDaoImpl implements ReceiptDao {
         Receipt receipt = new Receipt();
         receipt.setId(rs.getInt("id"));
         receipt.setTotal(rs.getInt("total"));
-        //receipt.setStatus(ReceiptStatus.valueOf(String.valueOf(rs.getInt("id"))));
         String status_name = rs.getString("status.status_name");
         receipt.setStatus(ReceiptStatus.valueOf(status_name.toUpperCase()));
         int userId = rs.getInt("receipt.users_id");
-        receipt.setUser(userDao.getUserById(Integer.parseInt("receipt.users_id")));
+        receipt.setUser(userDao.getUserById(userId));
         receipt.setCreateDate(rs.getTimestamp("create_date"));
-        receipt.setUpdateDate(rs.getTimestamp("last_update"));
+        receipt.setUpdateDate(rs.getTimestamp("update_date"));
     return receipt;
     }
 }

@@ -38,7 +38,7 @@
                 </c:if>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="controller?command=to_main">[ ${currentUser.getLogin()} ]</a><li/>
+                <li class="active"><a href="controller?command=to_basket_page">[ ${currentUser.getLogin()} ]</a><li/>
                 <li class="active"><a href="controller?command=logout"><fmt:message key="header.log_out"/></a></li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><fmt:message key="header.language"/><b class="caret"></b></a>

@@ -8,7 +8,7 @@
 <head>
     <meta charset="utf-8">
     <title>ADD USER</title>
-    <link rel="stylesheet" href="my.css" type="text/css">
+    <link rel="stylesheet" href="css/my.css" type="text/css">
 <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
 <%--    <!-- Latest compiled and minified CSS -->--%>
 <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
@@ -51,7 +51,7 @@
         <%--        <fmt:message key="adminEditUser.edit"/>--%>
                 Подтвердить и продолжить покупки
             </button>
-            <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="to_admin_users">
+            <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="confirm_go_to_basket">
         <%--        <fmt:message key="adminEditUser.cancel"/>--%>
                 Подтвердить и перейти в корзину
             </button>

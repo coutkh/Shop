@@ -1,3 +1,4 @@
+com\cout\shop\controller\command\impl\ToBasketPageCommand.class
 com\cout\shop\HelloServlet.class
 com\cout\shop\model\entity\ReceiptStatus$1.class
 com\cout\shop\controller\command\Command.class
@@ -61,6 +62,7 @@ com\cout\shop\model\validator\UserValidator.class
 com\cout\shop\controller\command\CommandProvider.class
 com\cout\shop\controller\filters\Access.class
 com\cout\shop\model\entity\ReceiptHasProduct.class
+com\cout\shop\controller\command\impl\ConfirmGoToBasketCommand.class
 com\cout\shop\controller\RequestParameter.class
 com\cout\shop\model\dao\impl\ReceiptHasProductDaoImpl.class
 com\cout\shop\pool\ProxyConnection.class

@@ -13,6 +13,11 @@ package com.cout.shop.controller;
         public static final String CATEGORY_LIST = "categoryList";
         public static final String PRODUCT_LIST = "productList";
 
+        public static final String RECEIPT_LIST = "receiptList";
+        public static final String RECEIPT_HAS_PRODUCT_LIST = "receiptHasProductList";
+
+
+
 
         private SessionAttribute(){
         }

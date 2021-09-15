@@ -9,8 +9,8 @@ import lombok.*;
 @ToString
 public class ReceiptHasProduct {
     private int id;
-    private int receiptId;
-    private int productId;
+    private Receipt receipt;
+    private Product product;
     private int count;
     private int price;
 }

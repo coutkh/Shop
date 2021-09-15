@@ -68,13 +68,13 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public Optional<Product> getProductById(int id) throws DaoException {
-        Optional<Product> product = Optional.empty();
+    public Product getProductById(int id) throws DaoException {
+        Product product = null;
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_PRODUCTS.QUERY)) {
-            ps.setInt(1, Integer.parseInt("id"));
+            ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                product = Optional.of(getProductFromRS(rs));
+                product = getProductFromRS(rs);
             }
         } catch (SQLException e) {
             throw new DaoException("Error getting product from DB", e);
@@ -85,11 +85,11 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public void deleteProductById(Optional<Product> product) throws DaoException {
+    public void deleteProductById(Product product) throws DaoException {
 
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.DELETE_PRODUCT.QUERY)) {
-            if (product.isPresent()) {
-                ps.setInt(1, product.get().getId());
+            if (product != null) {
+                ps.setInt(1, product.getId());
                 ps.executeUpdate();
             } else {
                 logger.error("Method \"deleteProductById\" did not receive a parameter");
@@ -102,14 +102,16 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public void updateProductById(Optional<Product> product) throws DaoException {
+    public void updateProductById(Product product) throws DaoException {
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.UPDATE_PRODUCT.QUERY)) {
-            if (product.isPresent()){
-                ps.setString(1, product.get().getName());
-                ps.setInt(2, product.get().getCount());
-                ps.setInt(3, product.get().getPrice());
-                ps.setString(4, product.get().getColor());
-                ps.setInt(5, product.get().getCategory().getId());
+            if (product != null){
+                int k = 1;
+                ps.setString(k++, product.getName());
+                ps.setInt(k++, product.getCount());
+                ps.setInt(k++, product.getPrice());
+                ps.setString(k++, product.getColor());
+                ps.setInt(k++, product.getCategory().getId());
+                ps.setInt(k++, product.getId());
                 ps.executeUpdate();
             }
         } catch (SQLException e) {

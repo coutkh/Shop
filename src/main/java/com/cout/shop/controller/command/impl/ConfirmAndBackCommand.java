@@ -25,8 +25,6 @@ public class ConfirmAndBackCommand extends Command {
         int productCount = Integer.parseInt(request.getParameter(RequestParameter.COUNT));
         int productPrice = Integer.parseInt(request.getParameter(RequestParameter.PRICE));
         User user = (User) session.getAttribute(SessionAttribute.CURRENT_USER);
-        System.out.println(user);
-        System.out.println(productId + " " + productCount + " " + productPrice);
 
         try {
             boolean isAdd = basketService.addProductToBasket(productId, productCount, productPrice, user);

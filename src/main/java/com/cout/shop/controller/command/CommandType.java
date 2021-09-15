@@ -28,7 +28,9 @@ public enum CommandType {
     ADD_PRODUCT,
     TO_PRODUCTS,
     TO_CONFIRM_SELECTION_PAGE,
-    CONFIRM_AND_BACK;
+    CONFIRM_AND_BACK,
+    CONFIRM_GO_TO_BASKET,
+    TO_BASKET_PAGE;
 
     Command command;
     public Command getCommand(){

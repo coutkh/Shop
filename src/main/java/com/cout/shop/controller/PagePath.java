@@ -15,6 +15,8 @@ public class PagePath {
     public static final String PRODUCTS_PAGE = "/WEB-INF/jsp/productsPage.jsp";
     public static final String CONFIRM_SELECTION_PAGE = "/WEB-INF/jsp/confirmSelectionPage.jsp";
 
+    public static final String TO_BASKET_PAGE = "/WEB-INF/jsp/basketPage.jsp";
+
 
     public static final String ERROR404 = "/404.jsp";
 

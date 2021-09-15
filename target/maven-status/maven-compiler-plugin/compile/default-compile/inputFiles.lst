@@ -5,6 +5,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\CategoryDao.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToSignUpCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\UserRole.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToBasketPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\filters\AccessFilter.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\SessionAttribute.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToAddUserPageCommand.java
@@ -35,6 +36,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\Controlle
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\validator\UserValidator.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\AddUserCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\SignUpCommand.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ConfirmGoToBasketCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\EditUserCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\service\impl\UserServiceImpl.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\ReceiptDaoImpl.java

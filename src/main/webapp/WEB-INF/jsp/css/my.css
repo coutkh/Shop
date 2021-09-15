@@ -1,0 +1,69 @@
+
+.mnp {
+    all: unset;
+    -moz-appearance: textfield;
+    width: 10em;
+    text-align: center;
+}
+.mnp::-webkit-inner-spin-button {
+    display: none;
+}
+
+#hider {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+#hider:checked + .content {
+    display: block;
+}
+#clickme {
+    text-decoration: underline;
+    color: blue;
+    cursor: pointer;
+}
+
+.content {
+    margin-top: 10px;
+    display: none;
+}
+
+.spoiler >  input + .box {
+    display: none;
+}
+.spoiler >  input:checked + .box {
+    display: block;
+}
+
+/**/
+
+/*<style type="text/css">*/
+*{
+  margin: 0px;
+  padding: 0px;
+}
+input{
+    opacity: 0;
+    width: 336px;
+    height: 70px;
+    position: absolute;
+    left: 14px;
+}
+input + div {
+    padding: 5px;
+    color: rgba(255, 255, 255, 1);
+    background: rgba(216, 41, 0, 1);
+    width: 326px;
+    height: 0px;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 2s;
+    -moz-transition: all 2s;
+    -webkit-transition: all 2s;
+    -o-transition: all 2s;
+}
+input:checked ~ div{
+    opacity: 1;
+    height: 200px;
+}
+
