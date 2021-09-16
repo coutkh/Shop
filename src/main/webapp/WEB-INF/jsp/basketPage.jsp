@@ -44,43 +44,45 @@
                 <td><c:out value="Заказ от: ${receiptList.getCreateDate()}"/></td>
                 <td><c:out value="${receiptList.getTotal()}"/> </td>
                 <td><c:out value="${receiptList.getStatus().getStatus_name()}"/> </td>
+                <td>
+                    <form action="controller" method="post">
+                        <input type="hidden" name="login" value="${receiptList.getId()}">
+                        <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">
+                            <%--<fmt:message key="usersTable.edit"/>--%> Подтвердить заказ
+                        </button>
+                        <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
+                            <%--<fmt:message key="usersTable.delete"/>--%> Удалить заказ
+                        </button>
+
+                    </form>
+                </td>
+            <c:forEach items="${receiptHasProductList}" var="receiptHasProductList" varStatus="loop">
+<%--                <c:if test="${receiptList.getId() == receiptHasProductList.getReceipt().getId()}">--%>
+                <tr>
+                    <td><c:out value="${receiptHasProductList.getProduct().getName()}"/></td>
+                    <td><c:out value="${receiptHasProductList.getCount()}"/> </td>
+                    <td><c:out value="${receiptHasProductList.getPrice()}"/> </td>
+                    <td>
+                        <form action="controller" method="post">
+                            <input type="hidden" name="login" value="${receiptList.getId()}">
+<%--                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">--%>
+<%--                                    &lt;%&ndash;<fmt:message key="usersTable.edit"/>&ndash;%&gt; Подтвердить заказ--%>
+<%--                            </button>--%>
+                            <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
+                                    <%--<fmt:message key="usersTable.delete"/>--%> Удалить позицию
+                            </button>
+
+                        </form>
+                    </td>
+                </tr>
+<%--                </c:if>--%>
+            </c:forEach>
             </tr>
-            <label class="link" for="hider" id="clickme">Нажми на меня!</label>
-            <input type="checkbox" id="hider">
-            <div class="content">Привет! Здесь содержание.</div>
         </c:forEach>
         </tbody>
     </table>
-
-    <div class="spoiler">
-        <input type="checkbox" >
-        <div class="box">
-            Текст сообщения в спойлере.
-        </div>
-    </div>
-
-
-    <img src="http://javascript.ru/forum/images/ca_serenity/misc/logo.gif" alt="">
-    <input name="" type="checkbox">
-        <div>Есть картинка. Нужно чтобы при нажатии на нее внизу(или задаваемо) появлялся текст. Важно чтобы это было максимально коротко. Очень нужно именно в CSS. И нужно появление плавное. Бть может это можно задать transmision. Помогите)
-    </div>
-
 
 
 </div>
 </body>
 </html>
-<%--                <td>--%>
-<%--                    <form action="controller" method="post">--%>
-<%--                        <input type="hidden" name="login" value="${userList.getLogin()}">--%>
-<%--                        <input type="hidden" name="email" value="${userList.getEmail()}">--%>
-<%--                        <input type="hidden" name="password" value="${userList.getPassword()}">--%>
-<%--                        <input type="hidden" name="role" value="${userList.getRole().getRole()}">--%>
-<%--                        <button class="btn btn-default" type="submit" name="command" value="delete_user">--%>
-<%--                            <fmt:message key="usersTable.delete"/>--%>
-<%--                        </button>--%>
-<%--                        <button class="btn btn-default" type="submit" name="command" value="to_edit_user_page">--%>
-<%--                            <fmt:message key="usersTable.edit"/>--%>
-<%--                        </button>--%>
-<%--                    </form>--%>
-<%--                </td>--%>
