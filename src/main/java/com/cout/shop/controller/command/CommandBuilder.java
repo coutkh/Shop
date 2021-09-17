@@ -1,6 +1,8 @@
 package com.cout.shop.controller.command;
 
 import com.cout.shop.controller.command.impl.*;
+import com.cout.shop.controller.command.impl.admin.*;
+import com.cout.shop.controller.command.impl.users.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -42,6 +44,7 @@ public class CommandBuilder {
                 case CONFIRM_AND_BACK: currentCommand = new ConfirmAndBackCommand(); break;
                 case CONFIRM_GO_TO_BASKET: currentCommand = new ConfirmGoToBasketCommand(); break;
                 case TO_BASKET_PAGE: currentCommand = new ToBasketPageCommand(); break;
+                case DELETE_PRODUCT_FROM_RECEIPT: currentCommand = new DeleteProductFromReceiptCommand(); break;
 
                 case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:

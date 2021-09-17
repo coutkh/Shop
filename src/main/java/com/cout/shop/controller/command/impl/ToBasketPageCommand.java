@@ -30,7 +30,6 @@ public class ToBasketPageCommand extends Command {
     public String execute(HttpServletRequest request) {
         String page = null;
         HttpSession session = request.getSession();
-        User user = (User) session.getAttribute(SessionAttribute.CURRENT_USER);
 
         try {
                 List<Receipt> receiptList = receiptDao.getAllReceipts();

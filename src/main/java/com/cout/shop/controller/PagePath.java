@@ -24,6 +24,7 @@ public class PagePath {
     public static final String REDIRECT_ADMIN_USERS_PAGE = "/controller?command=to_admin_users";
     public static final String REDIRECT_ADMIN_CATEGORY_PAGE = "/controller?command=to_categories";
     public static final String REDIRECT_PRODUCT_PAGE = "/controller?command=to_products";
+    public static final String REDIRECT_TO_BASKET_PAGE = "/controller?command=to_basket_page";
 
 
     private PagePath(){}

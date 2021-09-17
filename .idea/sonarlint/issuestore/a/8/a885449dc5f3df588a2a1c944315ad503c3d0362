@@ -1,0 +1,9 @@
+
+S	java:S106"9Replace this use of System.out or System.err by a logger.(ĞĞ÷Ìüÿÿÿÿ
+~
+java:S1989"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(Æ‘ŞÕ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(©‹Ìÿÿÿÿÿ
+~
+java:S1989"hHandle the following exceptions that could be thrown by "processRequest": ServletException, IOException.(Æ‘ŞÕ
+U	java:S106,"9Replace this use of System.out or System.err by a logger.(‰ıêµ8µ´Âÿ»/
+Z	java:S106/"9Replace this use of System.out or System.err by a logger.(ÛÈï¸üÿÿÿÿ8Ÿ­Ãÿ»/

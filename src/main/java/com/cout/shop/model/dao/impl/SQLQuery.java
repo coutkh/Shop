@@ -28,7 +28,8 @@ public enum SQLQuery {
     GET_OPEN_RECEIPT("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE users_id = (?) and status_id = 1"),
 
     INSERT_PRODUCT_TO_RECEIPT("INSERT INTO receipt_has_product (id, receipt_id, product_id, count, price) VALUES (DEFAULT, (?), (?), (?), (?))"),
-    GET_ALL_PRODUCTS_IN_RECEIPTS("SELECT * FROM receipt_has_product JOIN receipt ON receipt.id = receipt_id JOIN product ON product.id = product_id");
+    GET_ALL_PRODUCTS_IN_RECEIPTS("SELECT * FROM receipt_has_product JOIN receipt ON receipt.id = receipt_id JOIN product ON product.id = product_id"),
+    DELETE_PRODUCT_FROM_RECEIPT("DELETE FROM receipt_has_product WHERE receipt_has_product.id = (?)");
 
 
     public String QUERY;

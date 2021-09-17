@@ -42,7 +42,8 @@ public enum Access {
             TO_CONFIRM_SELECTION_PAGE,
             CONFIRM_AND_BACK,
             CONFIRM_GO_TO_BASKET,
-            TO_BASKET_PAGE
+            TO_BASKET_PAGE,
+            DELETE_PRODUCT_FROM_RECEIPT
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
@@ -70,7 +71,8 @@ public enum Access {
             TO_CONFIRM_SELECTION_PAGE,
             CONFIRM_AND_BACK,
             CONFIRM_GO_TO_BASKET,
-            TO_BASKET_PAGE
+            TO_BASKET_PAGE,
+            DELETE_PRODUCT_FROM_RECEIPT
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet()));
 
     private final Set<Command> commands;

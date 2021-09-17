@@ -13,6 +13,7 @@ public class RequestParameter {
     public static final String COUNT = "count";
     public static final String PRICE = "price";
     public static final String COLOR = "color";
+    public static final String RECEIPT_HAS_PROD_ID = "receiptHasProdId";
 
 
     public static final String ID = "id";

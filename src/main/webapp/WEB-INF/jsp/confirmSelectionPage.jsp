@@ -58,21 +58,5 @@
     </form>
 </div>
 
-<%--<form action="controller" method="post">--%>
-<%--    <input type="hidden" name="login" id="login" value="<c:out value="${user.login}"/>">--%>
-<%--    <input type="email" name="email" id="inputEmail" value="<c:out value="${user.email}"/>" required autofocus pattern="^[\w\.]{3,13}@\w{3,10}\.\w{2,5}$">--%>
-<%--    <input type="password" name="password" id="inputPassword" value="<c:out value="${user.password}"/>" required pattern="^[\w]{3,12}$">--%>
-<%--    <input type="text" name="role" id="inputRole" value="<c:out value="${user.role.role}"/>" required pattern="^[\w]{3,12}$">--%>
-
-<%--    <button class="btn btn-md btn-primary &lt;%&ndash;btn-block&ndash;%&gt;" type="submit" name="command" value="edit_user">--%>
-<%--        <fmt:message key="adminEditUser.edit"/>--%>
-<%--    </button>--%>
-<%--    <button class="btn btn-md btn-danger &lt;%&ndash;btn-block&ndash;%&gt;" type="submit" name="command" value="to_admin_users">--%>
-<%--        <fmt:message key="adminEditUser.cancel"/>--%>
-<%--    </button>--%>
-<%--    <c:if test="${errorSignInMessageKey != null}">--%>
-<%--        <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>--%>
-<%--    </c:if>--%>
-<%--</form>--%>
 </body>
 </html>

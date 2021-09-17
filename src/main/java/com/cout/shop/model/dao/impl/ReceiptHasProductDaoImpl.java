@@ -4,9 +4,10 @@ import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.ProductDao;
 import com.cout.shop.model.dao.ReceiptDao;
 import com.cout.shop.model.dao.ReceiptHasProductDao;
-import com.cout.shop.model.entity.Receipt;
 import com.cout.shop.model.entity.ReceiptHasProduct;
 import com.cout.shop.pool.ConnectionPool;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -16,6 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReceiptHasProductDaoImpl implements ReceiptHasProductDao {
+    private static final Logger logger = LogManager.getLogger(ReceiptHasProductDaoImpl.class);
     private static final ReceiptHasProductDaoImpl instance = new ReceiptHasProductDaoImpl();
     private static final ReceiptDao receiptDao = ReceiptDaoImpl.getInstance();
     private static final ProductDao productDao = ProductDaoImpl.getInstance();
@@ -63,6 +65,23 @@ public class ReceiptHasProductDaoImpl implements ReceiptHasProductDao {
     }
         return list;
     }
+    @Override
+    public void deleteProductFromReceipt(int id){
+        try(PreparedStatement ps = connection.prepareStatement(SQLQuery.DELETE_PRODUCT_FROM_RECEIPT.QUERY)){
+            if(0 < id){
+                ps.setInt(1, id);
+                ps.executeUpdate();
+            } else {
+                logger.error("Method \"deleteProductById\" did not receive a parameter");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
+
+    }
+
 
     private ReceiptHasProduct getProductsReceiptFromRS(ResultSet rs) throws SQLException, DaoException {
         ReceiptHasProduct rp = new ReceiptHasProduct();

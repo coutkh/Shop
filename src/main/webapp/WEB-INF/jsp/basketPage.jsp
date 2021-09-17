@@ -40,44 +40,46 @@
         <tbody>
 
         <c:forEach items="${receiptList}" var="receiptList" varStatus="loop">
-            <tr>
-                <td><c:out value="Заказ от: ${receiptList.getCreateDate()}"/></td>
-                <td><c:out value="${receiptList.getTotal()}"/> </td>
-                <td><c:out value="${receiptList.getStatus().getStatus_name()}"/> </td>
-                <td>
-                    <form action="controller" method="post">
-                        <input type="hidden" name="login" value="${receiptList.getId()}">
-                        <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">
-                            <%--<fmt:message key="usersTable.edit"/>--%> Подтвердить заказ
-                        </button>
-                        <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
-                            <%--<fmt:message key="usersTable.delete"/>--%> Удалить заказ
-                        </button>
-
-                    </form>
-                </td>
-            <c:forEach items="${receiptHasProductList}" var="receiptHasProductList" varStatus="loop">
-<%--                <c:if test="${receiptList.getId() == receiptHasProductList.getReceipt().getId()}">--%>
+            <c:if test="${receiptList.getUser().getId() == currentUser.getId()}">
                 <tr>
-                    <td><c:out value="${receiptHasProductList.getProduct().getName()}"/></td>
-                    <td><c:out value="${receiptHasProductList.getCount()}"/> </td>
-                    <td><c:out value="${receiptHasProductList.getPrice()}"/> </td>
+                    <td><c:out value="Заказ от: ${receiptList.getCreateDate()}"/></td>
+                    <td><c:out value="${receiptList.getTotal()}"/> </td>
+                    <td><c:out value="${receiptList.getStatus().getStatus_name()}"/> </td>
                     <td>
                         <form action="controller" method="post">
                             <input type="hidden" name="login" value="${receiptList.getId()}">
-<%--                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">--%>
-<%--                                    &lt;%&ndash;<fmt:message key="usersTable.edit"/>&ndash;%&gt; Подтвердить заказ--%>
-<%--                            </button>--%>
+                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">
+                                <%--<fmt:message key="usersTable.edit"/>--%> Подтвердить заказ
+                            </button>
                             <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
-                                    <%--<fmt:message key="usersTable.delete"/>--%> Удалить позицию
+                                <%--<fmt:message key="usersTable.delete"/>--%> Удалить заказ
                             </button>
 
                         </form>
                     </td>
+                <c:forEach items="${receiptHasProductList}" var="receiptHasProductList" varStatus="loop">
+                    <c:if test="${receiptList.getId() == receiptHasProductList.getReceipt().getId()}">
+                    <tr>
+                        <td><c:out value="${receiptHasProductList.getProduct().getName()}"/></td>
+                        <td><c:out value="${receiptHasProductList.getCount()}"/> </td>
+                        <td><c:out value="${receiptHasProductList.getPrice()}"/> </td>
+                        <td>
+                            <form action="controller" method="post">
+                                <input type="hidden" name="receiptHasProdId" value="${receiptHasProductList.getId()}">
+    <%--                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">--%>
+    <%--                                    &lt;%&ndash;<fmt:message key="usersTable.edit"/>&ndash;%&gt; Подтвердить заказ--%>
+    <%--                            </button>--%>
+                                <button class="btn btn-default" type="submit" name="command" value="delete_product_from_receipt">
+                                        <fmt:message key="basketPage.deleteProd"/>
+                                </button>
+
+                            </form>
+                        </td>
+                    </tr>
+                    </c:if>
+                </c:forEach>
                 </tr>
-<%--                </c:if>--%>
-            </c:forEach>
-            </tr>
+            </c:if>
         </c:forEach>
         </tbody>
     </table>
