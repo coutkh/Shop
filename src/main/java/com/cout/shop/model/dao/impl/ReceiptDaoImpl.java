@@ -5,6 +5,8 @@ import com.cout.shop.model.dao.ReceiptDao;
 import com.cout.shop.model.dao.UserDao;
 import com.cout.shop.model.entity.*;
 import com.cout.shop.pool.ConnectionPool;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,11 +17,14 @@ import java.util.List;
 import java.util.Optional;
 
 public class ReceiptDaoImpl implements ReceiptDao {
+    private static final Logger logger = LogManager.getLogger(ReceiptHasProductDaoImpl.class);
     private static final ReceiptDaoImpl instance = new ReceiptDaoImpl();
     Connection connection = ConnectionPool.INSTANCE.getConnection();
     private static final UserDao userDao = UserDaoImpl.getInstance();
 
-    public static ReceiptDaoImpl getInstance(){return instance;}
+    public static ReceiptDaoImpl getInstance() {
+        return instance;
+    }
 
 
     @Override
@@ -54,7 +59,7 @@ public class ReceiptDaoImpl implements ReceiptDao {
             }
         } catch (SQLException | DaoException throwables) {
             throwables.printStackTrace();
-        }finally {
+        } finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
 
@@ -77,10 +82,11 @@ public class ReceiptDaoImpl implements ReceiptDao {
         }
         return receipt;
     }
+
     @Override
     public int getIdOpenReceipt(int id) throws DaoException {
         //Optional<Receipt> receipt = Optional.empty();
-        int receiptId=0;
+        int receiptId = 0;
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_OPEN_RECEIPT.QUERY)) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -102,7 +108,7 @@ public class ReceiptDaoImpl implements ReceiptDao {
     public List<Receipt> getReceiptByUser(int userId) throws DaoException {
         List<Receipt> allReceipts = new ArrayList<>();
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_RECEIPT_BY_USER.QUERY)) {
-                ps.setInt(1, userId);
+            ps.setInt(1, userId);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Receipt receipt = getReceiptFromRS(rs);
@@ -116,9 +122,20 @@ public class ReceiptDaoImpl implements ReceiptDao {
         return allReceipts;
     }
 
-        @Override
-    public void deleteReceipt(Optional<Receipt> receipt) throws DaoException {
-
+    @Override
+    public void deleteReceipt(Connection conn, int id) throws DaoException {
+        try (PreparedStatement ps = conn.prepareStatement(SQLQuery.DELETE_RECEIPT.QUERY)) {
+            if (0 < id) {
+                ps.setInt(1, id);
+                ps.executeUpdate();
+            } else {
+                logger.error("Method \"deleteReceipt\" did not receive a parameter");
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
     }
 
     @Override
@@ -136,6 +153,6 @@ public class ReceiptDaoImpl implements ReceiptDao {
         receipt.setUser(userDao.getUserById(userId));
         receipt.setCreateDate(rs.getTimestamp("create_date"));
         receipt.setUpdateDate(rs.getTimestamp("update_date"));
-    return receipt;
+        return receipt;
     }
 }

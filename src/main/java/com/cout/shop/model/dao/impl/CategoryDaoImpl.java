@@ -58,20 +58,20 @@ public class CategoryDaoImpl implements CategoryDao {
 
         return category;
     }
-    public Optional<Category> getCategoryByName(String nameCategory) throws DaoException {
-        Optional<Category> category = Optional.empty();
+    @Override
+    public Category getCategoryByName(String nameCategory) throws DaoException {
+        Category category = null;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_CATEGORY_BY_NAME.QUERY)) {
             statement.setString(1, nameCategory);
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
-                category = Optional.of(getCategoryFromRS(rs));
+                category = getCategoryFromRS(rs);
             }
         } catch (SQLException e) {
             throw new DaoException("Error getting category data", e);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
-
         return category;
     }
     @Override

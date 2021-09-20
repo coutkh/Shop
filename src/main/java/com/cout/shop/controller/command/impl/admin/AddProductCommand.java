@@ -32,7 +32,7 @@ public class AddProductCommand extends Command {
         int price = Integer.parseInt(request.getParameter(RequestParameter.PRICE));
         String color = request.getParameter(RequestParameter.COLOR);
         String nameCategory = request.getParameter(RequestParameter.CATEGORY_NAME);
-        Optional<Category> category = Optional.empty();
+        Category category = null;
         try {
             category = categoryDao.getCategoryByName(nameCategory);
         } catch (Exception e) {

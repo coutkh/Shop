@@ -9,6 +9,9 @@ public interface CategoryDao {
     boolean add( String name) throws DaoException;
     List<Category> getAllCategories() throws DaoException;
     Optional<Category> getCategoriesById(int id) throws DaoException;
+
+    Category getCategoryByName(String nameCategory) throws DaoException;
+
     void deleteCategoriesById(Optional<Category> category) throws DaoException;
     void updateCategories(Optional<Category> category) throws DaoException;
 }

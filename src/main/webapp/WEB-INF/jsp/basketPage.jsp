@@ -47,7 +47,7 @@
                     <td><c:out value="${receiptList.getStatus().getStatus_name()}"/> </td>
                     <td>
                         <form action="controller" method="post">
-                            <input type="hidden" name="login" value="${receiptList.getId()}">
+                            <input type="hidden" name="id" value="${receiptList.getId()}">
                             <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">
                                 <%--<fmt:message key="usersTable.edit"/>--%> Подтвердить заказ
                             </button>
@@ -66,6 +66,7 @@
                         <td>
                             <form action="controller" method="post">
                                 <input type="hidden" name="receiptHasProdId" value="${receiptHasProductList.getId()}">
+                                <input type="hidden" name="productId" value="${receiptHasProductList.getProduct().getId()}">
     <%--                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">--%>
     <%--                                    &lt;%&ndash;<fmt:message key="usersTable.edit"/>&ndash;%&gt; Подтвердить заказ--%>
     <%--                            </button>--%>

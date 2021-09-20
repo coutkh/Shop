@@ -29,16 +29,14 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public boolean addProduct(String name, int count, int price, String color, Optional<Category> category) throws DaoException {
+    public boolean addProduct(String name, int count, int price, String color, Category category) throws DaoException {
         boolean isSuccessful = false;
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.INSERT_PRODUCT.QUERY)) {
             ps.setString(1, name);
             ps.setInt(2, count);
             ps.setInt(3, price);
             ps.setString(4, color);
-            if (category.isPresent()) {
-                ps.setInt(5, category.get().getId());
-            }
+            ps.setInt(5, category.getId());
             ps.executeUpdate();
             isSuccessful = true;
         } catch (SQLException e) {
@@ -85,6 +83,23 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
+    public Product getProductById(Connection conn, int id) throws DaoException {
+        Product product = null;
+        try (PreparedStatement ps = conn.prepareStatement(SQLQuery.GET_PRODUCTS.QUERY)) {
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                product = getProductFromRS(rs);
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error getting product from DB", e);
+        } finally {
+            ConnectionPool.INSTANCE.releaseConnection(conn);
+        }
+        return product;
+    }
+
+    @Override
     public void deleteProductById(Product product) throws DaoException {
 
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.DELETE_PRODUCT.QUERY)) {
@@ -102,9 +117,29 @@ public class ProductDaoImpl implements ProductDao {
     }
 
     @Override
-    public void updateProductById(Product product) throws DaoException {
+    public void updateProductById(Connection conn, Product product) throws DaoException {
+        try (PreparedStatement ps = conn.prepareStatement(SQLQuery.UPDATE_PRODUCT.QUERY)) {
+            if (product != null) {
+                int k = 1;
+                ps.setString(k++, product.getName());
+                ps.setInt(k++, product.getCount());
+                ps.setInt(k++, product.getPrice());
+                ps.setString(k++, product.getColor());
+                ps.setInt(k++, product.getCategory().getId());
+                ps.setInt(k++, product.getId());
+                ps.executeUpdate();
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error updating product from DB", e);
+        } finally {
+            ConnectionPool.INSTANCE.releaseConnection(conn);
+        }
+    }
+
+    @Override
+    public void updateProduct(Product product) throws DaoException {
         try (PreparedStatement ps = connection.prepareStatement(SQLQuery.UPDATE_PRODUCT.QUERY)) {
-            if (product != null){
+            if (product != null) {
                 int k = 1;
                 ps.setString(k++, product.getName());
                 ps.setInt(k++, product.getCount());

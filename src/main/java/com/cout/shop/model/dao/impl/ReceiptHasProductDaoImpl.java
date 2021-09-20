@@ -4,6 +4,7 @@ import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.ProductDao;
 import com.cout.shop.model.dao.ReceiptDao;
 import com.cout.shop.model.dao.ReceiptHasProductDao;
+import com.cout.shop.model.entity.Receipt;
 import com.cout.shop.model.entity.ReceiptHasProduct;
 import com.cout.shop.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
@@ -30,10 +31,10 @@ public class ReceiptHasProductDaoImpl implements ReceiptHasProductDao {
     }
 
     @Override
-    public boolean addProductToReceipt(int productId, int receiptId, int count, int price) throws DaoException {
+    public boolean addProductToReceipt(Connection conn, int productId, int receiptId, int count, int price) throws DaoException {
         boolean isSuccessful = false;
 
-        try (PreparedStatement ps = connection.prepareStatement(SQLQuery.INSERT_PRODUCT_TO_RECEIPT.QUERY)) {
+        try (PreparedStatement ps = conn.prepareStatement(SQLQuery.INSERT_PRODUCT_TO_RECEIPT.QUERY)) {
             int k = 1;
             ps.setInt(k++, receiptId);
             ps.setInt(k++, productId);
@@ -44,9 +45,24 @@ public class ReceiptHasProductDaoImpl implements ReceiptHasProductDao {
         } catch (SQLException e) {
             throw new DaoException("Error inserting user ", e);
         } finally {
-            ConnectionPool.INSTANCE.releaseConnection(connection);
+            ConnectionPool.INSTANCE.releaseConnection(conn);
         }
         return isSuccessful;
+    }
+
+    @Override
+    public ReceiptHasProduct getProductFromReceipt(int id) {
+        ReceiptHasProduct rp = null;
+        try (PreparedStatement ps = connection.prepareStatement(SQLQuery.GET_PRODUCTS_FROM_RECEIPTS.QUERY)){
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                rp = getProductsReceiptFromRS(rs);
+            }
+        } catch (SQLException | DaoException throwables) {
+            throwables.printStackTrace();
+        }
+        return rp;
     }
 
     @Override
@@ -66,18 +82,18 @@ public class ReceiptHasProductDaoImpl implements ReceiptHasProductDao {
         return list;
     }
     @Override
-    public void deleteProductFromReceipt(int id){
-        try(PreparedStatement ps = connection.prepareStatement(SQLQuery.DELETE_PRODUCT_FROM_RECEIPT.QUERY)){
+    public void deleteProductFromReceipt(Connection conn, int id){
+        try(PreparedStatement ps = conn.prepareStatement(SQLQuery.DELETE_PRODUCT_FROM_RECEIPT.QUERY)){
             if(0 < id){
                 ps.setInt(1, id);
                 ps.executeUpdate();
             } else {
-                logger.error("Method \"deleteProductById\" did not receive a parameter");
+                logger.error("Method \"deleteProductFromReceipt\" did not receive a parameter");
             }
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } finally {
-            ConnectionPool.INSTANCE.releaseConnection(connection);
+            ConnectionPool.INSTANCE.releaseConnection(conn);
         }
 
     }

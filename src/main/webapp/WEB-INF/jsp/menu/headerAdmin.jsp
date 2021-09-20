@@ -26,7 +26,7 @@
         <div>
             <ul class = "nav navbar-nav">
                 <li class="active"><a href="controller?command=to_admin_users"><fmt:message key="headerAdmin.users"/></a></li>
-                <li class="active"><a href="controller?command=to_main"><fmt:message key="headerAdmin.products"/></a></li>
+                <li class="active"><a href="controller?command=to_products_page"><fmt:message key="headerAdmin.products"/></a></li>
                 <li class="active"><a href="controller?command=to_categories"><fmt:message key="headerAdmin.categories"/></a></li>
                 <li class="active"><a href="controller?command=to_sign_in"><fmt:message key="headerAdmin.orders"/></a></li>
             </ul>

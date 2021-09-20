@@ -8,6 +8,7 @@
 .mnp::-webkit-inner-spin-button {
     display: none;
 }
+/*
 
 #hider {
     position: absolute;
@@ -35,9 +36,9 @@
     display: block;
 }
 
-/**/
+!**!
 
-/*<style type="text/css">*/
+!*<style type="text/css">*!
 *{
   margin: 0px;
   padding: 0px;
@@ -66,4 +67,5 @@ input:checked ~ div{
     opacity: 1;
     height: 200px;
 }
+*/
 

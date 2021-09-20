@@ -31,7 +31,11 @@ public enum CommandType {
     CONFIRM_AND_BACK,
     CONFIRM_GO_TO_BASKET,
     TO_BASKET_PAGE,
-    DELETE_PRODUCT_FROM_RECEIPT;
+    DELETE_PRODUCT_FROM_RECEIPT,
+    DELETE_RECEIPT,
+    DELETE_PRODUCT,
+    TO_EDIT_PRODUCT_PAGE,
+    EDIT_PRODUCT;
 
     Command command;
     public Command getCommand(){

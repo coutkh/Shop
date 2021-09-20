@@ -13,6 +13,7 @@ public class PagePath {
     public static final String TO_EDIT_USER_PAGE = "/WEB-INF/jsp/adminEditUser.jsp";
 
     public static final String PRODUCTS_PAGE = "/WEB-INF/jsp/productsPage.jsp";
+    public static final String TO_EDIT_PRODUCT_PAGE = "/WEB-INF/jsp/productEditPage.jsp";
     public static final String CONFIRM_SELECTION_PAGE = "/WEB-INF/jsp/confirmSelectionPage.jsp";
 
     public static final String TO_BASKET_PAGE = "/WEB-INF/jsp/basketPage.jsp";

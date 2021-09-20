@@ -63,7 +63,9 @@
                             <p><select name="category">
                                 <option disabled>Выберите из списка</option>
                                 <c:forEach items="${categoryList}" var="categoryList" varStatus="loop">
-                                    <option value=${categoryList.getName()}>${categoryList.getName()}</option>
+                                    <option value=${categoryList.getName()}>
+                                            ${categoryList.getName()}
+                                    </option>
                                 </c:forEach>
                             </select></p>
 <%--                            <p>--%>
@@ -139,7 +141,7 @@
                                         <fmt:message key="usersTable.delete"/>
                                     </button>
                                     <button class="btn btn-default btn-xs" type="submit" name="command" value="to_edit_product_page">
-                                        <fmt:message key="usersTable.edit"/>
+                                        <fmt:message key="productsTable.edit"/>
                                     </button>
                                 </c:if>
                             </form>
