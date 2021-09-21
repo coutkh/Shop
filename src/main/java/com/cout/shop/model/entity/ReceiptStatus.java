@@ -5,7 +5,7 @@ public enum ReceiptStatus {
         this.id = 1;
         this.status_name = "open";
     }},
-    IN_THE_PROGRESS{{
+    IN_THE_PROCESS{{
         this.id = 2;
         this.status_name = "in_the_process";
     }},

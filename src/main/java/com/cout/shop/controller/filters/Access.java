@@ -45,7 +45,8 @@ public enum Access {
             TO_BASKET_PAGE,
             DELETE_PRODUCT_FROM_RECEIPT,
             DELETE_RECEIPT,
-            DELETE_PRODUCT
+            DELETE_PRODUCT,
+            CONFIRM_RECEIPT
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
@@ -78,7 +79,10 @@ public enum Access {
             DELETE_PRODUCT_FROM_RECEIPT,
             DELETE_RECEIPT,
             DELETE_PRODUCT,
-            EDIT_PRODUCT
+            EDIT_PRODUCT,
+            CONFIRM_RECEIPT,
+            TO_ORDERS,
+            CHANGE_STATUS
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet()));
 

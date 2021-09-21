@@ -2,6 +2,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\Receipt
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandType.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\ToProductsPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\impl\ProductDaoImpl.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\basket\ConfirmReceiptCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\CategoryDao.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\UserRole.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\DeleteProductCommand.java
@@ -55,6 +56,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToConfirmSelectionPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToMainPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandProvider.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ToOrdersCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\service\BasketService.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToCategoriesCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\ToEditProductPageCommand.java
@@ -74,3 +76,4 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\User.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\DeleteCategoryCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\util\PasswordEncryptor.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ChangeStatusCommand.java

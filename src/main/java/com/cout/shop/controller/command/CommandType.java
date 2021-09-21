@@ -35,7 +35,10 @@ public enum CommandType {
     DELETE_RECEIPT,
     DELETE_PRODUCT,
     TO_EDIT_PRODUCT_PAGE,
-    EDIT_PRODUCT;
+    EDIT_PRODUCT,
+    CONFIRM_RECEIPT,
+    TO_ORDERS,
+    CHANGE_STATUS;
 
     Command command;
     public Command getCommand(){

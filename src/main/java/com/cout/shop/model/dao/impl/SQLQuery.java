@@ -26,12 +26,13 @@ public enum SQLQuery {
     GET_ALL_RECEIPTS("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id "),
     GET_RECEIPT_BY_USER("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE receipt.users_id = (?)"),
     GET_OPEN_RECEIPT("SELECT * FROM receipt JOIN status ON status.id = status_id JOIN users ON users.id = users_id WHERE users_id = (?) and status_id = 1"),
+    UPDATE_RECEIPT("UPDATE receipt SET status_id = (?) WHERE receipt.id = (?)"),
     DELETE_RECEIPT("DELETE FROM receipt WHERE receipt.id = (?)"),
 
     INSERT_PRODUCT_TO_RECEIPT("INSERT INTO receipt_has_product (id, receipt_id, product_id, count, price) VALUES (DEFAULT, (?), (?), (?), (?))"),
     GET_ALL_PRODUCTS_IN_RECEIPTS("SELECT * FROM receipt_has_product JOIN receipt ON receipt.id = receipt_id JOIN product ON product.id = product_id"),
     GET_PRODUCTS_FROM_RECEIPTS("SELECT * FROM receipt_has_product JOIN receipt ON receipt.id = receipt_id JOIN product " +
-                                                                            "ON product.id = product_id WHERE receipt_has_product.id = (?)"),
+                                                                           "ON product.id = product_id WHERE receipt_has_product.id = (?)"),
     DELETE_PRODUCT_FROM_RECEIPT("DELETE FROM receipt_has_product WHERE receipt_has_product.id = (?)");
 
 

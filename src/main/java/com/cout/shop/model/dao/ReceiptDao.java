@@ -23,5 +23,5 @@ public interface ReceiptDao {
     List<Receipt> getReceiptByUser(int userId) throws DaoException;
 
     void deleteReceipt(Connection connection, int id) throws DaoException;
-    void updateReceipt(Optional<Receipt> receipt) throws DaoException;
+    void updateReceipt(Receipt receipt) throws DaoException;
 }

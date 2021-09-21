@@ -139,8 +139,21 @@ public class ReceiptDaoImpl implements ReceiptDao {
     }
 
     @Override
-    public void updateReceipt(Optional<Receipt> receipt) throws DaoException {
-
+    public void updateReceipt(Receipt receipt) throws DaoException {
+        try (PreparedStatement ps = connection.prepareStatement(SQLQuery.UPDATE_RECEIPT.QUERY)) {
+            if (receipt != null) {
+                int k = 1;
+                ps.setInt(k++, receipt.getStatus().getId());
+                ps.setInt(k++, receipt.getId());
+                ps.executeUpdate();
+            } else {
+                logger.error("Method \"updateReceipt\" did not receive a parameter");
+            }
+        } catch (SQLException e) {
+            throw new DaoException("Error updating receipt in DB", e);
+        } finally {
+            ConnectionPool.INSTANCE.releaseConnection(connection);
+        }
     }
 
     private Receipt getReceiptFromRS(ResultSet rs) throws SQLException, DaoException {

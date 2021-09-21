@@ -16,4 +16,7 @@ public class RequestParameter {
     public static final String RECEIPT_HAS_PROD_ID = "receiptHasProdId";
     public static final String ID = "id";
     public static final String PRODUCT_ID = "productId";
+    public static final String RECEIPT_ID = "receiptId";
+    public static final String STATUS_ID = "statusId";
+    public static final String PAGE = "page";
 }

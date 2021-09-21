@@ -51,6 +51,9 @@ public class CommandBuilder {
                 case DELETE_PRODUCT: currentCommand = new DeleteProductCommand(); break;
                 case TO_EDIT_PRODUCT_PAGE: currentCommand = new ToEditProductPageCommand(); break;
                 case EDIT_PRODUCT: currentCommand = new EditProductCommand(); break;
+                case CONFIRM_RECEIPT: currentCommand = new ConfirmReceiptCommand(); break;
+                case TO_ORDERS: currentCommand = new ToOrdersCommand(); break;
+                case CHANGE_STATUS: currentCommand = new ChangeStatusCommand(); break;
 
                 case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:

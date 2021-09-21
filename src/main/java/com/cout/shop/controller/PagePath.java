@@ -17,6 +17,7 @@ public class PagePath {
     public static final String CONFIRM_SELECTION_PAGE = "/WEB-INF/jsp/confirmSelectionPage.jsp";
 
     public static final String TO_BASKET_PAGE = "/WEB-INF/jsp/basketPage.jsp";
+    public static final String TO_ORDERS_PAGE = "/WEB-INF/jsp/ordersPage.jsp";
 
 
     public static final String ERROR404 = "/404.jsp";
@@ -26,6 +27,7 @@ public class PagePath {
     public static final String REDIRECT_ADMIN_CATEGORY_PAGE = "/controller?command=to_categories";
     public static final String REDIRECT_PRODUCT_PAGE = "/controller?command=to_products";
     public static final String REDIRECT_TO_BASKET_PAGE = "/controller?command=to_basket_page";
+    public static final String REDIRECT_TO_ORDERS_PAGE = "/controller?command=to_orders";
 
 
     private PagePath(){}

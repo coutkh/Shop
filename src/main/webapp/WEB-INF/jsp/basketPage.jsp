@@ -44,15 +44,31 @@
                 <tr>
                     <td><c:out value="Заказ от: ${receiptList.getCreateDate()}"/></td>
                     <td><c:out value="${receiptList.getTotal()}"/> </td>
-                    <td><c:out value="${receiptList.getStatus().getStatus_name()}"/> </td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${receiptList.getStatus().getId() == 1}">
+                                Открыт
+                            </c:when>
+                            <c:when test="${receiptList.getStatus().getId() == 2}">
+                                в процессе обработки
+                            </c:when>
+                            <c:when test="${receiptList.getStatus().getId() == 3}">
+                                Закрыт
+                            </c:when>
+                            <c:when test="${receiptList.getStatus().getId() == 4}">
+                                Оплачен
+                            </c:when>
+                        </c:choose>
+<%--                        <c:out value="${receiptList.getStatus().getStatus_name()}"/>--%>
+                    </td>
                     <td>
                         <form action="controller" method="post">
                             <input type="hidden" name="id" value="${receiptList.getId()}">
                             <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">
-                                <%--<fmt:message key="usersTable.edit"/>--%> Подтвердить заказ
+                                <%--<fmt:message key="usersTable.edit"/>--%> !!!Подтвердить заказ
                             </button>
                             <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
-                                <%--<fmt:message key="usersTable.delete"/>--%> Удалить заказ
+                                <%--<fmt:message key="usersTable.delete"/>--%> !!!Удалить заказ
                             </button>
 
                         </form>
@@ -67,6 +83,7 @@
                             <form action="controller" method="post">
                                 <input type="hidden" name="receiptHasProdId" value="${receiptHasProductList.getId()}">
                                 <input type="hidden" name="productId" value="${receiptHasProductList.getProduct().getId()}">
+                                <input type="hidden" name="page" value="basket">
     <%--                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">--%>
     <%--                                    &lt;%&ndash;<fmt:message key="usersTable.edit"/>&ndash;%&gt; Подтвердить заказ--%>
     <%--                            </button>--%>
