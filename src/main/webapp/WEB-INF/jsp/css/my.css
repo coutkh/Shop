@@ -5,9 +5,21 @@
     width: 10em;
     text-align: center;
 }
+
 .mnp::-webkit-inner-spin-button {
     display: none;
 }
+
+
+#select-modal {
+    width: 570px; /* Ширина списка в пикселах */
+}
+
+
+.select-cat {
+    width: 200px; /* Ширина списка в пикселах */
+}
+
 /*
 
 #hider {

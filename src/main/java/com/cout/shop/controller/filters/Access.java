@@ -23,7 +23,8 @@ public enum Access {
             TO_PRODUCTS_PAGE,
             CHOOSE_TEST,
             TO_PRODUCTS,
-            TO_CONFIRM_SELECTION_PAGE
+            TO_CONFIRM_SELECTION_PAGE,
+            FILTER_AND_SORT
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
@@ -46,7 +47,8 @@ public enum Access {
             DELETE_PRODUCT_FROM_RECEIPT,
             DELETE_RECEIPT,
             DELETE_PRODUCT,
-            CONFIRM_RECEIPT
+            CONFIRM_RECEIPT,
+            FILTER_AND_SORT
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet())),
 
@@ -82,7 +84,8 @@ public enum Access {
             EDIT_PRODUCT,
             CONFIRM_RECEIPT,
             TO_ORDERS,
-            CHANGE_STATUS
+            CHANGE_STATUS,
+            FILTER_AND_SORT
 
     ).map(CommandBuilder::getCommand).collect(Collectors.toSet()));
 

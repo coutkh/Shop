@@ -3,6 +3,7 @@ package com.cout.shop.model.entity;
 import lombok.*;
 
 import java.sql.Timestamp;
+import java.util.Objects;
 
 @Data
 @NoArgsConstructor
@@ -18,6 +19,7 @@ public class Product {
     private Category category;
     private Timestamp createDate;
     private Timestamp lastUpdate;
+
 
     public Product(int id, String name, int count, int price, String color) {
         this.id = id;

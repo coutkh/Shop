@@ -54,6 +54,7 @@ public class CommandBuilder {
                 case CONFIRM_RECEIPT: currentCommand = new ConfirmReceiptCommand(); break;
                 case TO_ORDERS: currentCommand = new ToOrdersCommand(); break;
                 case CHANGE_STATUS: currentCommand = new ChangeStatusCommand(); break;
+                case FILTER_AND_SORT: currentCommand = new FilterAndSortCommand(); break;
 
                 case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:

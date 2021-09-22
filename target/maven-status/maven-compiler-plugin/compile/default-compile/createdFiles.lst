@@ -69,6 +69,7 @@ com\cout\shop\model\validator\UserValidator.class
 com\cout\shop\controller\command\CommandProvider.class
 com\cout\shop\controller\filters\Access.class
 com\cout\shop\model\entity\ReceiptHasProduct.class
+com\cout\shop\controller\command\impl\products\FilterAndSortCommand.class
 com\cout\shop\controller\RequestParameter.class
 com\cout\shop\model\dao\impl\ReceiptHasProductDaoImpl.class
 com\cout\shop\pool\ProxyConnection.class

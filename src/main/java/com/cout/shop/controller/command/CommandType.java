@@ -38,7 +38,8 @@ public enum CommandType {
     EDIT_PRODUCT,
     CONFIRM_RECEIPT,
     TO_ORDERS,
-    CHANGE_STATUS;
+    CHANGE_STATUS,
+    FILTER_AND_SORT;
 
     Command command;
     public Command getCommand(){

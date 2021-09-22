@@ -10,15 +10,20 @@
 
     <title>Products</title>
     <meta charset="utf-8">
-
+    <link rel="stylesheet"  type="text/css" href="../css/my.css">
 <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
     <!-- Latest compiled and minified CSS -->
 <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--%>
     <!-- Optional theme -->
 <%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--%>
     <style>
-        select {
+        #select-modal {
             width: 570px; /* Ширина списка в пикселах */
+        }
+    </style>
+    <style>
+        #select-cat {
+            width: 200px; /* Ширина списка в пикселах */
         }
     </style>
 </head>
@@ -60,7 +65,7 @@
                             <input type="text" class="form-control" name="color" placeholder="цвет/color">
                         </div>
                         <div class="form-group">
-                            <p><select name="category">
+                            <p><select name="category" id="select-modal">
                                 <option disabled>Выберите из списка</option>
                                 <c:forEach items="${categoryList}" var="categoryList" varStatus="loop">
                                     <option value=${categoryList.getName()}>
@@ -85,15 +90,27 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-1">
-            <h2>Каталог</h2>
-            <c:forEach items="${categoryList}" var="categoryList" varStatus="loop">
-                <p><a href="controller?command=choose_test&id=${categoryList.getId()}">
-                    <c:out value="${categoryList.getName()}"/>
-                </a></p>
-            </c:forEach>
+        <div class="col-lg-2">
+
+            <form action="controller" method="POST">
+                <p>фильтр по категории</p>
+                <c:forEach items="${categoryList}" var="categoryList" varStatus="loop">
+                        <input type="checkbox" name="categoryName" value="${categoryList.getName()}" />${categoryList.getName()}<br/>
+                </c:forEach>
+                <br/>
+                <p>сортировать по цене</p>
+                <div class="form-group">
+                    <p><select name="sortPrice" id="select-cat">
+                        <option disabled>Выберите из списка</option>
+                        <option value="from_cheap_to_expensive">от дешевых к дорогим</option>
+                        <option value="from_expensive_to_cheap">от дорогих к дешевым</option>
+                    </select></p>
+                </div>
+
+                <input type="submit" name="command" value="filter_and_sort" />
+            </form>
         </div>
-        <div class="col-lg-11">
+        <div class="col-lg-10">
             <h2>Список товаров</h2>
 
 
