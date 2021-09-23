@@ -26,6 +26,7 @@ public class FilterAndSortCommand extends Command {
     @Override
     public String execute(HttpServletRequest request) {
         List<String> list = Arrays.asList(request.getParameterValues("categoryName"));
+        String sort = request.getParameter("sort");
         HttpSession session = request.getSession();
         List<Category> categoryList = null;
         try {
@@ -39,11 +40,26 @@ public class FilterAndSortCommand extends Command {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-
-        List<Product> resultProductList = productList.stream().filter(it -> list.contains(it.getCategory().getName())).collect(Collectors.toList());
-        List<Product> resultProductList1 = resultProductList.stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
-        List<Product> resultProductList2 = resultProductList.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).collect(Collectors.toList());
-        //testList.stream().sorted(Comparator.comparing(ClassName::getFieldName).reversed()).collect(Collectors.toList());
+        List<Product> filterProductList;
+        if(0< list.size()){
+             filterProductList = productList.stream().filter(it -> list.contains(it.getCategory().getName())).collect(Collectors.toList());
+        }else {
+            filterProductList = productList;
+        }
+        List<Product> resultProductList;
+        if("from_cheap".equals(sort)){
+            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
+        } else if ("from_expensive".equals(sort)){
+            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).collect(Collectors.toList());
+        } else if ("color".equals(sort)){
+        resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getColor)).collect(Collectors.toList());
+        } else if ("from_lot".equals(sort)){
+            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getCount)).collect(Collectors.toList());
+        } else if ("from_top".equals(sort)){
+            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getCount).reversed()).collect(Collectors.toList());
+        } else {
+            resultProductList = filterProductList;
+        }
         session.setAttribute(SessionAttribute.CATEGORY_LIST, categoryList);
         session.setAttribute(SessionAttribute.PRODUCT_LIST, resultProductList);
         return PagePath.PRODUCTS_PAGE;

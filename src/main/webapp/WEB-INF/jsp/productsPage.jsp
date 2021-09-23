@@ -95,15 +95,18 @@
             <form action="controller" method="POST">
                 <p>фильтр по категории</p>
                 <c:forEach items="${categoryList}" var="categoryList" varStatus="loop">
-                        <input type="checkbox" name="categoryName" value="${categoryList.getName()}" />${categoryList.getName()}<br/>
+                        <input type="checkbox" name="categoryName" value="${categoryList.getName()}" checked />${categoryList.getName()}<br/>
                 </c:forEach>
                 <br/>
                 <p>сортировать по цене</p>
                 <div class="form-group">
-                    <p><select name="sortPrice" id="select-cat">
-                        <option disabled>Выберите из списка</option>
-                        <option value="from_cheap_to_expensive">от дешевых к дорогим</option>
-                        <option value="from_expensive_to_cheap">от дорогих к дешевым</option>
+                    <p><select name="sort" id="select-cat">
+                        <option <%--disabled--%>>Выберите из списка</option>
+                        <option value="from_cheap">от дешевых к дорогим</option>
+                        <option value="from_expensive">от дорогих к дешевым</option>
+                        <option value="color">по цвету</option>
+                        <option value="from_lot">в наличии от меньшего</option>
+                        <option value="from_top">в наличии от большего</option>
                     </select></p>
                 </div>
 
@@ -111,7 +114,7 @@
             </form>
         </div>
         <div class="col-lg-10">
-            <h2>Список товаров</h2>
+<%--            <h2>Список товаров</h2>--%>
 
 
             <table class="table table-condensed table-hover ">
