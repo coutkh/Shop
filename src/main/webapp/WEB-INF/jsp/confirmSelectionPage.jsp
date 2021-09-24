@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ADD USER</title>
+    <title><fmt:message key="confirmPage.confirmProduct"/></title>
     <link rel="stylesheet" href="css/my.css" type="text/css">
 <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
 <%--    <!-- Latest compiled and minified CSS -->--%>
@@ -28,10 +28,10 @@
         <div class="row">
             <div class="col-lg-4"></div>
             <div class="col-lg-2">
-                <p>Наименование товара</p>
-                <p>Количество, доступно на складе:${product.getCount()}</p>
-                <p>Цена</p>
-                <p>Цвет</p>
+                <p><fmt:message key="confirmPage.NameProduct"/></p>
+                <p><fmt:message key="confirmPage.AmountInStore"/>${product.getCount()}</p>
+                <p><fmt:message key="confirmPage.Price"/>Цена</p>
+                <p><fmt:message key="confirmPage.Color"/>Цвет</p>
             </div>
             <div class="col-lg-6">
 
@@ -48,12 +48,10 @@
             </div>
         </div>
             <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="confirm_and_back">
-        <%--        <fmt:message key="adminEditUser.edit"/>--%>
-                Подтвердить и продолжить покупки
+                <fmt:message key="confirmPage.confirmAndGoProd"/>
             </button>
             <button class="btn btn-md btn-primary btn-block" type="submit" name="command" value="confirm_go_to_basket">
-        <%--        <fmt:message key="adminEditUser.cancel"/>--%>
-                Подтвердить и перейти в корзину
+                <fmt:message key="confirmPage.confirmAndGoBasket"/>
             </button>
     </form>
 </div>

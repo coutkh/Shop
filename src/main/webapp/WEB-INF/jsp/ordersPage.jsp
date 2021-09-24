@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ADMIN</title>
+    <title><fmt:message key="orderPage.orders"/></title>
     <link rel="stylesheet"  type="text/css" href="css/my.css">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Latest compiled and minified CSS -->
@@ -23,49 +23,30 @@
 
 <div class="container">
     <table class="table table-condensed table-hover ">
-        <%--        <thead>--%>
-        <%--        <tr>--%>
-        <%--            <th><fmt:message key="usersTable.login"/></th>--%>
-        <%--            <th><fmt:message key="usersTable.email"/></th>--%>
-        <%--            <th><fmt:message key="usersTable.password"/></th>--%>
-        <%--            <th><fmt:message key="usersTable.createTime"/></th>--%>
-        <%--            <th><fmt:message key="usersTable.role"/></th>--%>
-        <%--        </tr>--%>
-        <%--        </thead>--%>
-
         <tbody>
-
         <c:forEach items="${receiptList}" var="receiptList" varStatus="loop">
-<%--            <c:if test="${receiptList.getUser().getId() == currentUser.getId()}">--%>
-                <tr>
-                <td><c:out value="Заказ от: ${receiptList.getCreateDate()}"/></td>
+            <tr>
+                <td><fmt:message key="orderPage.orderFrom"/><c:out value="${receiptList.getCreateDate()}"/></td>
                 <td><c:out value="${receiptList.getUser().getLogin()}"/></td>
                 <td><c:out value="${receiptList.getTotal()}"/> </td>
                 <td>
                     <c:choose>
                         <c:when test="${receiptList.getStatus().getId() == 1}">
-                            Открыт
+                            <fmt:message key="orderPage.open"/>
                         </c:when>
                         <c:when test="${receiptList.getStatus().getId() == 2}">
-                            в процессе обработки
+                            <fmt:message key="orderPage.inProcessing"/>
                         </c:when>
                         <c:when test="${receiptList.getStatus().getId() == 3}">
-                            Закрыт
+                            <fmt:message key="orderPage.closed"/>
                         </c:when>
                         <c:when test="${receiptList.getStatus().getId() == 4}">
-                            Оплачен
+                            <fmt:message key="orderPage.paid"/>
                         </c:when>
                     </c:choose>
-                        <%--                        <c:out value="${receiptList.getStatus().getStatus_name()}"/>--%>
                 </td>
                 <td>
                     <div class="btn-group">
-<%--                        <button type="button" class="btn btn-default">change status</button>--%>
-<%--                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"--%>
-<%--                                aria-expanded="false">--%>
-<%--                            <span class="caret"></span>--%>
-<%--                            <span class="sr-only">Toggle Dropdown</span>--%>
-<%--                        </button>--%>
                         <button type="button" data-toggle="dropdown" class="btn btn-info dropdown-toggle">
                             change status
                             <span class="caret"></span>
@@ -83,13 +64,12 @@
                         <input type="hidden" name="id" value="${receiptList.getId()}">
                         <input type="hidden" name="page" value="orders">
                         <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
-                                <%--<fmt:message key="usersTable.delete"/>--%> !!!Удалить заказ
+                            <fmt:message key="orderPage.deleteOrder"/>
                         </button>
 
                     </form>
                 </td>
-                </tr>
-<%--            </c:if>--%>
+            </tr>
         </c:forEach>
         </tbody>
     </table>

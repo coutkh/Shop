@@ -9,7 +9,7 @@
 <head>
     <meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 <%--    <meta charset="utf-8">--%>
-    <title>ADMIN</title>
+    <title><fmt:message key="adminCategoryPage.AdministeringCategories"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -38,7 +38,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><fmt:message key="adminCategoryPage.addingCategory"/></h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>

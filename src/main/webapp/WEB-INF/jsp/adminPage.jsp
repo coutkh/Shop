@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>main</title>
+    <title><fmt:message key="main.administration"/></title>Administration
 </head>
 <body>
 <jsp:include page="menu/header.jsp"/>
@@ -15,7 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h1><%--<fmt:message key="main.greeting"/>--%>Реализация функционала в разработке</h1>
+            <img src="images/in_progress.jpg" class="img-fluid" alt="Responsive image" width="900" height="600">
         </div>
         <div class="col-6">
 

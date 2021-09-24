@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>main</title>
+    <title><fmt:message key="main.main"/></title>
     <style>
         body {
             padding: 20px;

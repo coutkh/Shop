@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ADMIN</title>
+    <title><fmt:message key="adminAddUser.users"/></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -30,7 +30,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+                    <h5 class="modal-title" id="exampleModalLabel"><fmt:message key="usersTable.insertingUser"/></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -38,17 +38,17 @@
                 <div class="modal-body">
                     <form>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="login" placeholder="введите логин/name">
+                            <input type="text" class="form-control" name="login" placeholder=<fmt:message key="usersTable.enterLogin"/>"введите логин/name">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" placeholder="введите email/amount">
+                            <input type="email" class="form-control" name="email" placeholder=<fmt:message key="usersTable.entertEmail"/>"введите email/amount">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" name="password" placeholder="введите пароль/price">
+                            <input type="password" class="form-control" name="password" placeholder=<fmt:message key="usersTable.enterPassword"/>"введите пароль/price">
                         </div>
                         <div class="form-group">
                             <p><select name="role">
-                                <option disabled>Выберите из списка/enter from list</option>
+                                <option disabled><fmt:message key="usersTable.SelectFromTheList"/></option>
                                 <option value="admin">admin</option>
                                 <option value="user">user</option>
                             </select></p>

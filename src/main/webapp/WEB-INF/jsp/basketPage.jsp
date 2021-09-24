@@ -7,7 +7,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>ADMIN</title>
+    <title><fmt:message key="basketPage.basket"/></title>
     <link rel="stylesheet"  type="text/css" href="css/my.css">
 <%--    <meta name="viewport" content="width=device-width, initial-scale=1">--%>
 <%--    <!-- Latest compiled and minified CSS -->--%>
@@ -66,10 +66,10 @@
                             <input type="hidden" name="id" value="${receiptList.getId()}">
                             <input type="hidden" name="page" value="basket">
                             <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">
-                                <%--<fmt:message key="usersTable.edit"/>--%> !!!Подтвердить заказ
+                                <fmt:message key="basketPage.confirmTheOrder"/>
                             </button>
                             <button class="btn btn-default" type="submit" name="command" value="delete_receipt">
-                                <%--<fmt:message key="usersTable.delete"/>--%> !!!Удалить заказ
+                                <fmt:message key="basketPage.deleteOrder"/>
                             </button>
 
                         </form>
