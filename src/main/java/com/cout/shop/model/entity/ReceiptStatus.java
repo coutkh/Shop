@@ -13,9 +13,9 @@ public enum ReceiptStatus {
         this.id = 3;
         this.status_name = "closed";
     }},
-    PAID{{
+    CANCELED{{
         this.id = 4;
-        this.status_name = "paid";
+        this.status_name = "canceled";
     }};
 
     int id;

@@ -41,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `shop`.`product`(
 
 CREATE TABLE IF NOT EXISTS `shop`.`status` (
     `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `status_name` ENUM('open', 'in_the_process','closed', 'paid') NOT NULL)
+    `status_name` ENUM('open', 'in_the_process','closed', 'canceled') NOT NULL)
     ENGINE = InnoDB;
 
 CREATE TABLE IF NOT EXISTS `shop`.`receipt`(
@@ -95,4 +95,4 @@ INSERT INTO product (id, name, count, price, color, category_id) VALUES (DEFAULT
 INSERT INTO status (id, status_name) VALUES (DEFAULT , 'open');
 INSERT INTO status (id, status_name) VALUES (DEFAULT , 'in_the_process');
 INSERT INTO status (id, status_name) VALUES (DEFAULT , 'closed');
-INSERT INTO status (id, status_name) VALUES (DEFAULT , 'paid');
+INSERT INTO status (id, status_name) VALUES (DEFAULT , 'canceled');

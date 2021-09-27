@@ -41,7 +41,7 @@
                             <fmt:message key="orderPage.closed"/>
                         </c:when>
                         <c:when test="${receiptList.getStatus().getId() == 4}">
-                            <fmt:message key="orderPage.paid"/>
+                            <fmt:message key="orderPage.canceled"/>
                         </c:when>
                     </c:choose>
                 </td>
@@ -52,10 +52,10 @@
                             <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=1">Открыт</a></li>
-                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=2">в процессе</a></li>
-                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=3">Закрыт</a></li>
-                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=4">Оплачен</a></li>
+                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=1"><fmt:message key="orderPage.open"/></a></li>
+                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=2"><fmt:message key="orderPage.inProcessing"/></a></li>
+                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=3"><fmt:message key="orderPage.closed"/></a></li>
+                            <li><a href="controller?command=change_status&receiptId=${receiptList.getId()}&statusId=4"><fmt:message key="orderPage.canceled"/></a></li>
                         </ul>
                     </div>
                 </td>

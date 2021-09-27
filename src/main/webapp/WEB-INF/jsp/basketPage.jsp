@@ -56,7 +56,7 @@
                                 Закрыт
                             </c:when>
                             <c:when test="${receiptList.getStatus().getId() == 4}">
-                                Оплачен
+                                Отменен
                             </c:when>
                         </c:choose>
 <%--                        <c:out value="${receiptList.getStatus().getStatus_name()}"/>--%>
@@ -84,9 +84,6 @@
                             <form action="controller" method="post">
                                 <input type="hidden" name="receiptHasProdId" value="${receiptHasProductList.getId()}">
                                 <input type="hidden" name="productId" value="${receiptHasProductList.getProduct().getId()}">
-    <%--                            <button class="btn btn-default" type="submit" name="command" value="confirm_receipt">--%>
-    <%--                                    &lt;%&ndash;<fmt:message key="usersTable.edit"/>&ndash;%&gt; Подтвердить заказ--%>
-    <%--                            </button>--%>
                                 <button class="btn btn-default" type="submit" name="command" value="delete_product_from_receipt">
                                         <fmt:message key="basketPage.deleteProd"/>
                                 </button>
