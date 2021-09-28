@@ -15,6 +15,7 @@ com\cout\shop\model\dao\ReceiptHasProductDao.class
 com\cout\shop\model\service\impl\UserServiceImpl.class
 com\cout\shop\controller\command\impl\users\EditUserCommand.class
 com\cout\shop\model\entity\Product.class
+com\cout\shop\controller\command\impl\admin\ToCategoriesCommand.class
 com\cout\shop\controller\filters\EncodingFilter.class
 com\cout\shop\model\dao\CategoryDao.class
 com\cout\shop\model\dao\impl\CategoryDaoImpl.class
@@ -31,6 +32,7 @@ com\cout\shop\controller\command\impl\admin\AddCategoryCommand.class
 com\cout\shop\model\dao\ProductDao.class
 com\cout\shop\controller\command\impl\basket\ConfirmGoToBasketCommand.class
 com\cout\shop\controller\command\impl\admin\AddUserCommand.class
+com\cout\shop\controller\command\impl\products\ToConfirmSelectionPageCommand.class
 com\cout\shop\controller\command\impl\basket\ConfirmReceiptCommand.class
 com\cout\shop\util\PasswordEncryptor.class
 com\cout\shop\model\entity\ReceiptStatus$4.class
@@ -53,7 +55,6 @@ com\cout\shop\controller\command\CommandBuilder$1.class
 com\cout\shop\controller\command\impl\admin\ToAdminPageCommand.class
 com\cout\shop\model\service\BasketService.class
 com\cout\shop\controller\command\impl\admin\ToOrdersCommand.class
-com\cout\shop\controller\command\impl\ToCategoriesCommand.class
 com\cout\shop\controller\command\impl\users\ToSignInCommand.class
 com\cout\shop\controller\command\impl\UnknownCommand.class
 com\cout\shop\model\entity\UserRole$1.class
@@ -76,7 +77,6 @@ com\cout\shop\pool\ProxyConnection.class
 com\cout\shop\pool\ConnectionPool.class
 com\cout\shop\model\dao\ReceiptDao.class
 com\cout\shop\controller\command\impl\admin\ChangeStatusCommand.class
-com\cout\shop\controller\command\impl\ToConfirmSelectionPageCommand.class
 com\cout\shop\controller\command\impl\users\SignUpCommand.class
 com\cout\shop\controller\command\impl\admin\ToAddUserPageCommand.class
 com\cout\shop\controller\Controller.class

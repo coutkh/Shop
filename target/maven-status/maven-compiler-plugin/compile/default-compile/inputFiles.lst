@@ -1,3 +1,4 @@
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\ToConfirmSelectionPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\Receipt.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandType.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\ToProductsPageCommand.java
@@ -53,17 +54,16 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\i
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\ToProductsCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\service\UserService.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\users\SignInCommand.java
-C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToConfirmSelectionPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToMainPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\CommandProvider.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ToOrdersCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\service\BasketService.java
-C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\ToCategoriesCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\ToEditProductPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\Category.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\users\EditUserCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\RequestAttribute.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\UserDao.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ToCategoriesCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ToAddUserPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\util\TypeRe.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\ReceiptStatus.java

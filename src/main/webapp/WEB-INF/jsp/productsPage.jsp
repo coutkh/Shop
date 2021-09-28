@@ -98,15 +98,25 @@
                         <input type="checkbox" name="categoryName" value="${categoryList.getName()}" checked />${categoryList.getName()}<br/>
                 </c:forEach>
                 <br/>
+
+                <p>фильтр по color</p>
+                <c:forEach items="${productList}" var="productList" varStatus="loop">
+                    <input type="checkbox" name="color" value="${productList.getColor()}" checked />${productList.getColor()}<br/>
+                </c:forEach>
+                <br/>
+
+                <p>range price</p>
+                from <input type="number" name="min" value="" /><br/>
+                to <input type="number" name="max" value="" /><br/>
+                <br/>
+
                 <p>сортировать по цене</p>
                 <div class="form-group">
                     <p><select name="sort" id="select-cat">
                         <option <%--disabled--%>>Выберите из списка</option>
                         <option value="from_cheap">от дешевых к дорогим</option>
                         <option value="from_expensive">от дорогих к дешевым</option>
-                        <option value="color">по цвету</option>
-                        <option value="from_lot">в наличии от меньшего</option>
-                        <option value="from_top">в наличии от большего</option>
+                        <option value="new">новинки</option>
                     </select></p>
                 </div>
 

@@ -1,4 +1,4 @@
-package com.cout.shop.controller.command.impl;
+package com.cout.shop.controller.command.impl.admin;
 
 import com.cout.shop.controller.PagePath;
 import com.cout.shop.controller.SessionAttribute;

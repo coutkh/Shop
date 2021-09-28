@@ -29,7 +29,7 @@ public class ChangeStatusCommand extends Command {
             }else if (close && 3 == statusId){
                 receipt.setStatus(ReceiptStatus.valueOf("closed".toUpperCase()));
             }else if (close && 4 == statusId){
-                receipt.setStatus(ReceiptStatus.valueOf("paid".toUpperCase()));
+                receipt.setStatus(ReceiptStatus.valueOf("canceled".toUpperCase()));
             }
             receiptDao.updateReceipt(receipt);
             page = TypeRe.redirect(PagePath.REDIRECT_TO_ORDERS_PAGE);

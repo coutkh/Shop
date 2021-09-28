@@ -11,11 +11,9 @@ import com.cout.shop.model.entity.Product;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class FilterAndSortCommand extends Command {
     private static final ProductDaoImpl productDaoImpl = ProductDaoImpl.getInstance();
@@ -25,8 +23,6 @@ public class FilterAndSortCommand extends Command {
     }
     @Override
     public String execute(HttpServletRequest request) {
-        List<String> list = Arrays.asList(request.getParameterValues("categoryName"));
-        String sort = request.getParameter("sort");
         HttpSession session = request.getSession();
         List<Category> categoryList = null;
         try {
@@ -40,23 +36,46 @@ public class FilterAndSortCommand extends Command {
         } catch (DaoException e) {
             e.printStackTrace();
         }
-        List<Product> filterProductList;
-        if(0< list.size()){
-             filterProductList = productList.stream().filter(it -> list.contains(it.getCategory().getName())).collect(Collectors.toList());
+
+        String sort = request.getParameter("sort");
+
+        List<Product> filterCategoryProductList;
+        if(null != request.getParameterValues("categoryName")){
+            List<String> finalCategoryList = Arrays.asList(request.getParameterValues("categoryName"));
+            filterCategoryProductList = productList.stream().filter(it -> finalCategoryList.contains(it.getCategory().getName())).collect(Collectors.toList());
         }else {
-            filterProductList = productList;
+            filterCategoryProductList = productList;
         }
+        List<Product> filterColorProductList;
+        if(null != request.getParameterValues("color")){
+            List<String> colorList = Arrays.asList(request.getParameterValues("color"));
+            filterColorProductList = filterCategoryProductList .stream().filter(it -> colorList.contains(it.getColor())).collect(Collectors.toList());
+        }else {
+            filterColorProductList = filterCategoryProductList ;
+        }
+        List<Product> filterRangeProductList;
+        if(null != request.getParameterValues("min") || null != request.getParameterValues("max")){
+            double min;
+            double max;
+            if(null != request.getParameterValues("min")){
+                 min = Double.parseDouble(request.getParameter("min"));
+            }else {min = 0;}
+            if(null != request.getParameterValues("max")){
+                max = Double.parseDouble(request.getParameter("max"));
+            }else {max = Double.MAX_VALUE;}
+            filterRangeProductList = filterColorProductList .stream().filter(it -> it.getPrice() >= min && it.getPrice() <= max).collect(Collectors.toList());
+        }else {
+            filterRangeProductList = filterColorProductList ;
+        }
+
+        List<Product> filterProductList = filterRangeProductList;
         List<Product> resultProductList;
         if("from_cheap".equals(sort)){
             resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getPrice)).collect(Collectors.toList());
         } else if ("from_expensive".equals(sort)){
             resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getPrice).reversed()).collect(Collectors.toList());
-        } else if ("color".equals(sort)){
-        resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getColor)).collect(Collectors.toList());
-        } else if ("from_lot".equals(sort)){
-            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getCount)).collect(Collectors.toList());
-        } else if ("from_top".equals(sort)){
-            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getCount).reversed()).collect(Collectors.toList());
+        } else if ("new".equals(sort)){
+            resultProductList = filterProductList.stream().sorted(Comparator.comparing(Product::getCreateDate).reversed()).collect(Collectors.toList());
         } else {
             resultProductList = filterProductList;
         }
