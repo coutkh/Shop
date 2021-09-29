@@ -5,6 +5,7 @@ import com.cout.shop.model.dao.UserDao;
 import com.cout.shop.model.dao.impl.UserDaoImpl;
 import com.cout.shop.model.entity.User;
 import com.cout.shop.model.entity.UserRole;
+import com.cout.shop.model.entity.UserStatus;
 import com.cout.shop.model.exception.ServiceException;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.validator.UserValidator;
@@ -35,7 +36,7 @@ public class UserServiceImpl implements UserService {
         boolean isCreated = false;
 
         try {
-            connection.commit();
+            connection.setAutoCommit(false);
             if (UserValidator.isLoginCorrect(login) && UserValidator.isPasswordCorrect(password) && UserValidator.isEmailCorrect(email)) {
                 if (userDao.getUserByLogin(login).isPresent()) {
                     System.out.println("Такой пользователь уже существует");
@@ -43,6 +44,7 @@ public class UserServiceImpl implements UserService {
                 }
                 isCreated = userDao.add(login, email, password, role);
             }
+            connection.commit();
         } catch (Exception e) {
             connection.rollback();
             throw new ServiceException(e);
@@ -80,10 +82,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateUser(String login, String email, String password, UserRole role) throws ServiceException {
+    public void updateUser(String login, String email, String password, UserRole role, UserStatus userStatus) throws ServiceException {
         if (UserValidator.isLoginCorrect(login) && UserValidator.isPasswordCorrect(password) && UserValidator.isEmailCorrect(email)) {
-            Optional<User> user = Optional.of(new User(login, email, password, role));
-            System.out.println("updateUserServ " + user);
+            Optional<User> user = Optional.of(new User(login, email, password, role, userStatus));
             try {
                 userDao.updateUser(user);
             } catch (DaoException e) {

@@ -54,6 +54,7 @@
                             </select></p>
                             <%--                            <p>--%>
                         </div>
+
                     </form>
                 </div>
                 <div class="modal-footer">
@@ -66,11 +67,6 @@
 </form>
 
 
-<%--<form action="controller" method="post">--%>
-<%--    <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="to_add_user_page">--%>
-<%--        <fmt:message key="usersTable.insertUser"/>--%>
-<%--    </button>--%>
-<%--</form>--%>
 <div class="container">
     <table class="table table-condensed table-hover ">
         <thead>
@@ -80,6 +76,7 @@
                 <th><fmt:message key="usersTable.password"/></th>
                 <th><fmt:message key="usersTable.createTime"/></th>
                 <th><fmt:message key="usersTable.role"/></th>
+                <th><fmt:message key="usersTable.userStatus"/></th>
             </tr>
         </thead>
 
@@ -92,12 +89,14 @@
                 <td><c:out value="${userList.getPassword()}"/> </td>
                 <td><c:out value="${userList.getCreateTime()}"/> </td>
                 <td><c:out value="${userList.getRole().getRole()}"/> </td>
+                <td><c:out value="${userList.getUserStatus().getUserStatus()}"/> </td>
                 <td>
                     <form action="controller" method="post">
                         <input type="hidden" name="login" value="${userList.getLogin()}">
                         <input type="hidden" name="email" value="${userList.getEmail()}">
                         <input type="hidden" name="password" value="${userList.getPassword()}">
                         <input type="hidden" name="role" value="${userList.getRole().getRole()}">
+                        <input type="hidden" name="userStatus" value="${userList.getUserStatus().getUserStatus()}">
                         <button class="btn btn-default" type="submit" name="command" value="delete_user">
                             <fmt:message key="usersTable.delete"/>
                         </button>

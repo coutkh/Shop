@@ -75,6 +75,7 @@ C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\dao\ReceiptDao
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ToEditUserPageCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\User.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\products\FilterAndSortCommand.java
+C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\model\entity\UserStatus.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\DeleteCategoryCommand.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\util\PasswordEncryptor.java
 C:\Users\cout\IdeaProjects\Shop\src\main\java\com\cout\shop\controller\command\impl\admin\ChangeStatusCommand.java

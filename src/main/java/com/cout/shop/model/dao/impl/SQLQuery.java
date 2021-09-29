@@ -1,12 +1,12 @@
 package com.cout.shop.model.dao.impl;
 
 public enum SQLQuery {
-    GET_USER("SELECT * FROM users JOIN role ON role.id = role_id WHERE users.login = (?)"),
-    GET_ALL_USER("SELECT * FROM users JOIN role ON role.id = role_id"),
-    GET_USER_BY_ID("SELECT * FROM users JOIN role ON role.id = role_id WHERE users.id = (?)"),
-    INSERT_USER("INSERT INTO users (id, login, email, password, role_id) VALUES (DEFAULT, (?), (?), (?), (?))"),
+    GET_USER("SELECT * FROM users JOIN role ON role.id = role_id JOIN user_status ON user_status.id = user_status_id WHERE users.login = (?)"),
+    GET_ALL_USER("SELECT * FROM users JOIN role ON role.id = role_id JOIN user_status ON user_status.id = user_status_id"),
+    GET_USER_BY_ID("SELECT * FROM users JOIN role ON role.id = role_id JOIN user_status ON user_status.id = user_status_id WHERE users.id = (?)"),
+    INSERT_USER("INSERT INTO users (id, login, email, password, role_id, user_status_id) VALUES (DEFAULT, (?), (?), (?), (?), (?))"),
     DELETE_USER("DELETE FROM users WHERE id = (?) AND login = (?) AND password = (?)"),
-    UPDATE_USER("UPDATE users SET email = (?), password = (?), role_id = (?) WHERE users.login = (?)"),
+    UPDATE_USER("UPDATE users SET email = (?), password = (?), role_id = (?), user_status_id = (?) WHERE users.login = (?)"),
 
     INSERT_CATEGORY("INSERT INTO category (id, category_name) VALUES (DEFAULT, (?))"),
     GET_CATEGORY("SELECT * FROM category WHERE category.id = (?)"),

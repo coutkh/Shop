@@ -17,7 +17,7 @@ public class User {
     private String password;
     private Timestamp createTime;
     private UserRole role;
-
+    private UserStatus userStatus;
 
     public User(String login, String email, String password, UserRole role) {
         this.login = login;
@@ -25,5 +25,11 @@ public class User {
         this.password = password;
         this.role = role;
     }
-
+    public User(String login, String email, String password, UserRole role, UserStatus userStatus) {
+        this.login = login;
+        this.email = email;
+        this.password = password;
+        this.role = role;
+        this.userStatus = userStatus;
+    }
 }

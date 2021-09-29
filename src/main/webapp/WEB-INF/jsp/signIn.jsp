@@ -22,6 +22,9 @@
   <c:if test="${errorSignInMessageKey != null}">
     <label style="color: red"><fmt:message key="${errorSignInMessageKey}"/></label>
   </c:if>
+  <c:if test="${errorLocked != null}">
+    <label style="color: red"><fmt:message key="${errorLocked}"/></label>
+  </c:if>
   <button class="btn btn-lg btn-primary btn-block" type="submit" name="command" value="sign_in">
     <fmt:message key="header.sign_in"/>
   </button>

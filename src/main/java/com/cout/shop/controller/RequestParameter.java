@@ -6,6 +6,7 @@ public class RequestParameter {
     public static final String PASSWORD = "password";
     public static final String RE_PASSWORD = "re_password";
     public static final String ROLE = "role";
+    public static final String USER_STATUS = "userStatus";
     public static final String EMAIL = "email";
     public static final String NEW_LOCALE = "newLocale";
     public static final String CATEGORY_NAME = "category";

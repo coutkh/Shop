@@ -5,6 +5,7 @@ import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.entity.UserRole;
+import com.cout.shop.model.entity.UserStatus;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.service.impl.UserServiceImpl;
 import com.cout.shop.util.TypeRe;
@@ -30,8 +31,9 @@ public class EditUserCommand extends Command {
         if(!"admin".equals(role)){
             role = "user";
         }
+        String userStatus = request.getParameter(RequestParameter.USER_STATUS);
         try {
-            userService.updateUser(login, email, password, UserRole.valueOf(role.toUpperCase()));
+            userService.updateUser(login, email, password, UserRole.valueOf(role.toUpperCase()), UserStatus.valueOf(userStatus.toUpperCase()));
             page = TypeRe.redirect(PagePath.REDIRECT_ADMIN_USERS_PAGE);
 
             } catch (Exception e) {

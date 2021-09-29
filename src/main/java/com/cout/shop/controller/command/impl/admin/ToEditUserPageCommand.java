@@ -5,6 +5,7 @@ import com.cout.shop.controller.RequestParameter;
 import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.entity.User;
 import com.cout.shop.model.entity.UserRole;
+import com.cout.shop.model.entity.UserStatus;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,10 +21,11 @@ public class ToEditUserPageCommand extends Command {
         String password = request.getParameter(RequestParameter.PASSWORD);
         String email = request.getParameter(RequestParameter.EMAIL);
         String role = request.getParameter(RequestParameter.ROLE);
+        String userStatus = request.getParameter(RequestParameter.USER_STATUS);
 
         HttpSession session = request.getSession();
 
-        User user = new User(login , email, password, UserRole.valueOf(role.toUpperCase()));
+        User user = new User(login , email, password, UserRole.valueOf(role.toUpperCase()), UserStatus.valueOf(userStatus.toUpperCase()));
         session.setAttribute("user", user);
 
         return PagePath.TO_EDIT_USER_PAGE;

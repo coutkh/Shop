@@ -4,6 +4,7 @@ import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.UserDao;
 import com.cout.shop.model.entity.User;
 import com.cout.shop.model.entity.UserRole;
+import com.cout.shop.model.entity.UserStatus;
 import com.cout.shop.pool.ConnectionPool;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -31,15 +32,17 @@ public class UserDaoImpl implements UserDao {
         int roleId;
         boolean isSuccessful = false;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.INSERT_USER.QUERY)) {
-            statement.setString(1, login);
-            statement.setString(2, email);
-            statement.setString(3, password);
+            int k = 1;
+            statement.setString(k++, login);
+            statement.setString(k++, email);
+            statement.setString(k++, password);
             if ("admin".equals(role)) {
                 roleId = 3;
             } else {
                 roleId = 2;
             }
-            statement.setInt(4, roleId);
+            statement.setInt(k++, roleId);
+            statement.setInt(k++, 1);
 
             statement.executeUpdate();
             isSuccessful = true;
@@ -106,9 +109,10 @@ public class UserDaoImpl implements UserDao {
     public void deleteUserByLogin(Optional<User> user) throws DaoException {
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.DELETE_USER.QUERY)) {
             if (user.isPresent()) {
-                statement.setInt(1, user.get().getId());
-                statement.setString(2, user.get().getLogin());
-                statement.setString(3, user.get().getPassword());
+                int k = 1;
+                statement.setInt(k++, user.get().getId());
+                statement.setString(k++, user.get().getLogin());
+                statement.setString(k++, user.get().getPassword());
                 statement.executeUpdate();
             } else {
                 logger.error("Method \"deleteUserByLogin\" did not receive a parameter");
@@ -124,10 +128,12 @@ public class UserDaoImpl implements UserDao {
     public void updateUser(Optional<User> user) throws DaoException {
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.UPDATE_USER.QUERY)){
             if (user.isPresent()){
-                statement.setString(1, user.get().getEmail());
-                statement.setString(2, user.get().getPassword());
-                statement.setInt(3, user.get().getRole().getId());
-                statement.setString(4, user.get().getLogin());
+                int k = 1;
+                statement.setString(k++, user.get().getEmail());
+                statement.setString(k++, user.get().getPassword());
+                statement.setInt(k++, user.get().getRole().getId());
+                statement.setInt(k++, user.get().getUserStatus().getId());
+                statement.setString(k++, user.get().getLogin());
                 statement.executeUpdate();
             }
         }catch (SQLException e){
@@ -152,6 +158,7 @@ public class UserDaoImpl implements UserDao {
         } else {
             role = "user";
         }
+        String userStatus = rs.getString("user_status.name");
 
         user.setId(id);
         user.setLogin(login);
@@ -159,6 +166,7 @@ public class UserDaoImpl implements UserDao {
         user.setPassword(password);
         user.setCreateTime(createTime);
         user.setRole(UserRole.valueOf(role.toUpperCase()));
+        user.setUserStatus(UserStatus.valueOf(userStatus.toUpperCase()));
         return user;
     }
 }

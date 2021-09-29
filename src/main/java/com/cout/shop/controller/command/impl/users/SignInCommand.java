@@ -31,10 +31,13 @@ public class SignInCommand extends Command {
         HttpSession session = request.getSession();
 
         Optional<User> user = userService.authorizeUser(login, password);
-        if (user.isPresent()) {
+        if (user.isPresent() && user.get().getUserStatus().getId() == 1) {
             session.setAttribute(SessionAttribute.CURRENT_USER, user.get());
             session.setAttribute(SessionAttribute.ROLE, user.get().getRole().getRole());
             page = PagePath.MAIN_PAGE;
+        } else if(user.isPresent() && user.get().getUserStatus().getId() == 2){
+            page = PagePath.SIGN_IN_PAGE;
+            request.setAttribute(RequestAttribute.USER_LOCKED, "signup.locked");
         } else {
             page = PagePath.SIGN_IN_PAGE;
             request.setAttribute(RequestAttribute.SIGN_IN_ERROR, "signup.incorrectSignin");

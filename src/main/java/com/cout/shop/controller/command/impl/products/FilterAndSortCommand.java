@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class FilterAndSortCommand extends Command {
     private static final ProductDaoImpl productDaoImpl = ProductDaoImpl.getInstance();
@@ -54,13 +53,13 @@ public class FilterAndSortCommand extends Command {
             filterColorProductList = filterCategoryProductList ;
         }
         List<Product> filterRangeProductList;
-        if(null != request.getParameterValues("min") || null != request.getParameterValues("max")){
+        if(null != request.getParameter("min") || null != request.getParameter("max")){
             double min;
             double max;
-            if(null != request.getParameterValues("min")){
+            if(!"".equals(request.getParameter("min"))){
                  min = Double.parseDouble(request.getParameter("min"));
             }else {min = 0;}
-            if(null != request.getParameterValues("max")){
+            if(!"".equals(request.getParameter("max"))){
                 max = Double.parseDouble(request.getParameter("max"));
             }else {max = Double.MAX_VALUE;}
             filterRangeProductList = filterColorProductList .stream().filter(it -> it.getPrice() >= min && it.getPrice() <= max).collect(Collectors.toList());
