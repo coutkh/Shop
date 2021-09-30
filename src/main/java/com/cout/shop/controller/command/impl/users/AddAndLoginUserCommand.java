@@ -8,12 +8,14 @@ import com.cout.shop.controller.command.Command;
 import com.cout.shop.model.service.UserService;
 import com.cout.shop.model.service.impl.UserServiceImpl;
 import com.cout.shop.util.TypeRe;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import javax.rmi.CORBA.Util;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 public class AddAndLoginUserCommand extends Command {
+    private static final Logger logger = LogManager.getLogger(AddAndLoginUserCommand.class.getName());
     private static final UserService userService = UserServiceImpl.getInstance();
     public AddAndLoginUserCommand() {
         super.commandName = "ADD_AND_LOGIN_USER";
@@ -39,13 +41,12 @@ public class AddAndLoginUserCommand extends Command {
                     request.setAttribute(RequestAttribute.SIGN_UP_ERROR, "signup.incorrectSignup");
                 }
             } catch (Exception e) {
-                e.printStackTrace();
+                logger.error("Error creating user", e);
                 page = (String)session.getAttribute(SessionAttribute.CURRENT_PAGE);
             }
         }else {
             page = PagePath.SIGN_UP_PAGE;
         }
-
         return page;
     }
 }

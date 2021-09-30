@@ -16,7 +16,6 @@ public class ChangeLocaleCommand extends Command {
     @Override
     public String execute(HttpServletRequest request) {
         String locale = request.getParameter(RequestParameter.NEW_LOCALE);
-        //String locale = "en_US";
         HttpSession session = request.getSession();
         session.setAttribute(SessionAttribute.LOCALE, locale);
         return session.getAttribute(SessionAttribute.CURRENT_PAGE).toString();

@@ -20,7 +20,6 @@ import java.util.List;
 import java.util.Optional;
 
 public class DeleteUserCommand extends Command {
-    private static final Logger logger = LogManager.getLogger();
     private static final UserDao userDao = UserDaoImpl.getInstance();
     private static final UserService userService = UserServiceImpl.getInstance();
     public DeleteUserCommand() {
@@ -31,18 +30,10 @@ public class DeleteUserCommand extends Command {
     public String execute(HttpServletRequest request) {
         String login = request.getParameter(RequestParameter.LOGIN);
         Optional<User> user = Optional.empty();
-        try {
-            user = userDao.getUserByLogin(login);
-        } catch (DaoException e) {
-            logger.error("An error occurred when trying to read a user from the database ",e);
-        }
+        user = userDao.getUserByLogin(login);
         HttpSession session = request.getSession();
 
-        try {
-            userDao.deleteUserByLogin(user);
-        } catch (DaoException e) {
-            logger.error("An error occurred when trying to delete a user from the database ",e);
-        }
+        userDao.deleteUserByLogin(user);
 
         List<User> userList = userService.getAllUsers();
         session.setAttribute(SessionAttribute.USER_LIST, userList);

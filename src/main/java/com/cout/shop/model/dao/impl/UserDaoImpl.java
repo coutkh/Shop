@@ -16,7 +16,7 @@ import java.util.Optional;
 
 public class UserDaoImpl implements UserDao {
 
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(UserDaoImpl.class.getName());
     private static final UserDaoImpl instance = new UserDaoImpl();
     Connection connection = ConnectionPool.INSTANCE.getConnection();
 
@@ -28,7 +28,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean add(String login, String email, String password, String role) throws DaoException {
+    public boolean add(String login, String email, String password, String role){
         int roleId;
         boolean isSuccessful = false;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.INSERT_USER.QUERY)) {
@@ -47,7 +47,7 @@ public class UserDaoImpl implements UserDao {
             statement.executeUpdate();
             isSuccessful = true;
         } catch (SQLException e) {
-            throw new DaoException("Error inserting user " + login, e);
+            logger.error("Error inserting user " + login, e);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -63,8 +63,8 @@ public class UserDaoImpl implements UserDao {
                 User user = (getUserFromRS(rs));
                 userList.add(user);
             }
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException se) {
+            logger.error("Error getting users data", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -72,7 +72,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public Optional<User> getUserByLogin(String login) throws DaoException {
+    public Optional<User> getUserByLogin(String login) {
         Optional<User> user = Optional.empty();
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_USER.QUERY)) {
             statement.setString(1, login);
@@ -80,8 +80,8 @@ public class UserDaoImpl implements UserDao {
             if (rs.next()) {
                 user = Optional.of(getUserFromRS(rs));
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error getting user data", e);
+        } catch (SQLException se) {
+            logger.error("Error getting user data by login", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -89,7 +89,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public User getUserById(int id) throws DaoException {
+    public User getUserById(int id){
         User user = null;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_USER_BY_ID.QUERY)) {
             statement.setInt(1, id);
@@ -97,8 +97,8 @@ public class UserDaoImpl implements UserDao {
             if (rs.next()) {
                 user = getUserFromRS(rs);
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error getting user data", e);
+        } catch (SQLException se) {
+            logger.error("Error getting user data by id", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -106,7 +106,7 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public void deleteUserByLogin(Optional<User> user) throws DaoException {
+    public void deleteUserByLogin(Optional<User> user){
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.DELETE_USER.QUERY)) {
             if (user.isPresent()) {
                 int k = 1;
@@ -117,15 +117,15 @@ public class UserDaoImpl implements UserDao {
             } else {
                 logger.error("Method \"deleteUserByLogin\" did not receive a parameter");
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error deletion user from DB", e);
+        } catch (SQLException se) {
+            logger.error("Error deletion user from DB", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
     }
 
     @Override
-    public void updateUser(Optional<User> user) throws DaoException {
+    public void updateUser(Optional<User> user){
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.UPDATE_USER.QUERY)){
             if (user.isPresent()){
                 int k = 1;
@@ -136,8 +136,8 @@ public class UserDaoImpl implements UserDao {
                 statement.setString(k++, user.get().getLogin());
                 statement.executeUpdate();
             }
-        }catch (SQLException e){
-            throw new DaoException("Error updating user from DB", e);
+        }catch (SQLException se){
+            logger.error("Error updating user from DB", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }

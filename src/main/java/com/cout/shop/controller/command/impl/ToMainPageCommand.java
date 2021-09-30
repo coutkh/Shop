@@ -15,7 +15,6 @@ public class ToMainPageCommand extends Command {
     public ToMainPageCommand() {
        super.commandName = "TO_MAIN";
     }
-    //private static final String LOCALE = "en_US";
 
     @Override
     public String execute(HttpServletRequest request) {

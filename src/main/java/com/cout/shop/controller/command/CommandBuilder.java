@@ -56,7 +56,6 @@ public class CommandBuilder {
                 case CHANGE_STATUS: currentCommand = new ChangeStatusCommand(); break;
                 case FILTER_AND_SORT: currentCommand = new FilterAndSortCommand(); break;
 
-                case CHOOSE_TEST: currentCommand = new ChooseTest(); break;
                 default:
                     break;
             }

@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 public class CategoryDaoImpl implements CategoryDao {
-    private static final Logger logger = LogManager.getLogger();
+    private static final Logger logger = LogManager.getLogger(CategoryDaoImpl.class.getName());
     private static final CategoryDaoImpl instance = new CategoryDaoImpl();
     Connection connection = ConnectionPool.INSTANCE.getConnection();
 
@@ -27,14 +27,14 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public boolean add(String name) throws DaoException {
+    public boolean add(String name){
         boolean isSuccessful = false;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.INSERT_CATEGORY.QUERY)) {
             statement.setString(1, name);
             statement.executeUpdate();
             isSuccessful = true;
-        } catch (SQLException e) {
-            throw new DaoException("Error inserting category " + name, e);
+        } catch (SQLException se) {
+            logger.error("Error inserting category " + name, se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -42,7 +42,7 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public Optional<Category> getCategoriesById(int id) throws DaoException {
+    public Optional<Category> getCategoriesById(int id){
         Optional<Category> category = Optional.empty();
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_CATEGORY.QUERY)) {
             statement.setInt(1, id);
@@ -50,8 +50,8 @@ public class CategoryDaoImpl implements CategoryDao {
             if (rs.next()) {
                 category = Optional.of(getCategoryFromRS(rs));
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error getting category data", e);
+        } catch (SQLException se) {
+            logger.error("Error getting category data", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -59,7 +59,7 @@ public class CategoryDaoImpl implements CategoryDao {
         return category;
     }
     @Override
-    public Category getCategoryByName(String nameCategory) throws DaoException {
+    public Category getCategoryByName(String nameCategory){
         Category category = null;
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_CATEGORY_BY_NAME.QUERY)) {
             statement.setString(1, nameCategory);
@@ -67,15 +67,15 @@ public class CategoryDaoImpl implements CategoryDao {
             if (rs.next()) {
                 category = getCategoryFromRS(rs);
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error getting category data", e);
+        } catch (SQLException se) {
+            logger.error("Error getting category data", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
         return category;
     }
     @Override
-    public void deleteCategoriesById(Optional<Category> category) throws DaoException {
+    public void deleteCategoriesById(Optional<Category> category){
         try (Connection connection = ConnectionPool.INSTANCE.getConnection();
              PreparedStatement statement = connection.prepareStatement(SQLQuery.DELETE_CATEGORY.QUERY)){
             if(category.isPresent()) {
@@ -85,15 +85,15 @@ public class CategoryDaoImpl implements CategoryDao {
                 logger.error("Method \"deleteUserByLogin\" did not receive a parameter");
             }
 
-        } catch (SQLException e) {
-            throw new DaoException("Error deletion category from DB");
+        } catch (SQLException se) {
+            logger.error("Error deletion category from DB", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
     }
 
     @Override
-    public List<Category> getAllCategories() throws DaoException {
+    public List<Category> getAllCategories(){
         List<Category> categories = new ArrayList<>();
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.GET_ALL_CATEGORY.QUERY)){
             ResultSet rs = statement.executeQuery();
@@ -101,8 +101,8 @@ public class CategoryDaoImpl implements CategoryDao {
                 Category category = (getCategoryFromRS(rs));
                 categories.add(category);
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error getting category data", e);
+        } catch (SQLException se) {
+            logger.error("Error getting category data", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }
@@ -110,7 +110,7 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    public void updateCategories(Optional<Category> category) throws DaoException {
+    public void updateCategories(Optional<Category> category){
         try (PreparedStatement statement = connection.prepareStatement(SQLQuery.UPDATE_CATEGORY.QUERY)){
             if(category.isPresent()) {
                 statement.setString(1, category.get().getName());
@@ -119,8 +119,8 @@ public class CategoryDaoImpl implements CategoryDao {
             }else {
                 logger.error("Method \"deleteUserByLogin\" did not receive a parameter");
             }
-        } catch (SQLException e) {
-            throw new DaoException("Error of updating a category in the DB");
+        } catch (SQLException se) {
+            logger.error("Error of updating a category in the DB", se);
         }finally {
             ConnectionPool.INSTANCE.releaseConnection(connection);
         }

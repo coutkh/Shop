@@ -3,7 +3,6 @@ package com.cout.shop.controller.command.impl.products;
 import com.cout.shop.controller.PagePath;
 import com.cout.shop.controller.SessionAttribute;
 import com.cout.shop.controller.command.Command;
-import com.cout.shop.model.dao.DaoException;
 import com.cout.shop.model.dao.impl.CategoryDaoImpl;
 import com.cout.shop.model.dao.impl.ProductDaoImpl;
 import com.cout.shop.model.entity.Category;
@@ -23,18 +22,8 @@ public class ToProductsPageCommand extends Command {
     @Override
     public String execute(HttpServletRequest request) {
         HttpSession session = request.getSession();
-        List<Category> categoryList = null;
-        try {
-            categoryList = categoryDaoImpl.getAllCategories();
-        } catch (DaoException e) {
-            e.printStackTrace();
-        }
-        List<Product> productList = null;
-        try {
-            productList = productDaoImpl.getAllProducts();
-        } catch (DaoException e) {
-            e.printStackTrace();
-        }
+        List<Category> categoryList = categoryDaoImpl.getAllCategories();
+        List<Product> productList = productDaoImpl.getAllProducts();
 
         session.setAttribute(SessionAttribute.CATEGORY_LIST, categoryList);
         session.setAttribute(SessionAttribute.PRODUCT_LIST, productList);

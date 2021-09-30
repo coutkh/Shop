@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Optional;
 
 public interface CategoryDao {
-    boolean add( String name) throws DaoException;
-    List<Category> getAllCategories() throws DaoException;
-    Optional<Category> getCategoriesById(int id) throws DaoException;
+    boolean add( String name) ;
+    List<Category> getAllCategories();
+    Optional<Category> getCategoriesById(int id);
 
-    Category getCategoryByName(String nameCategory) throws DaoException;
+    Category getCategoryByName(String nameCategory);
 
-    void deleteCategoriesById(Optional<Category> category) throws DaoException;
-    void updateCategories(Optional<Category> category) throws DaoException;
+    void deleteCategoriesById(Optional<Category> category);
+    void updateCategories(Optional<Category> category);
 }
